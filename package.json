@@ -1,0 +1,55 @@
+{
+  "name": "fun.js",
+  "description": "",
+  "license": "LGPL-2.1",
+  "version": "0.0.1",
+  "keywords": ["functional","abstract-machine"],
+  "homepage": "https://github.com/d-plaindoux/talks_n_blog/blob/master/talks/craft/fp%2Bzinc/fun.js",
+  "author": {
+    "name": "Didier Plaindoux",
+    "email": "d.plaindoux@free.fr",
+    "url": "d.plaindoux.free.fr"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/d-plaindoux/talks_n_blog/blob/master/talks/craft/fp%2Bzinc/fun.js"
+  },
+  "licenses": [
+    {
+      "type": "LGPL2"
+    }
+  ],
+  "main": "build/lib/index.js",
+  "engines": {
+    "node": ">= 5.7.0"
+  },
+  "scripts": {
+    "prepublish": "echo '--- Prepublishing ---\n' && npm run test && npm run compile",
+    "compile":    "rimraf build/ && mkdir build && babel src --out-dir build  --source-maps",
+    "dev":        "babel --watch src --out-dir dist",
+    "lint":       "eslint src/**",
+    "test":       "npm run compile && nodeunit build/test/index.js",
+    "cover":      "rimraf coverage && mkdir coverage && babel-node node_modules/.bin/babel-istanbul cover --dir coverage/istanbul node_modules/.bin/nodeunit src/test/index.js",
+    "coveralls":  "cat coverage/istanbul/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rimraf ./coverage",
+    "check":      "npm run lint && npm run test && npm run cover && npm run coveralls",
+    "concat":     "rimraf dist/ && mkdir dist && npm run compile && browserify build/lib/index.js -o index.js",
+    "dist":       "rimraf dist/ && mkdir dist && npm run compile && browserify -t uglifyify build/lib/index.js -o dist/promiseMe.min.js",
+    "clean":      "rimraf dist/ && rimraf coverage/ && rimraf build/"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.10.1",
+    "babel-core": "^6.10.4",
+    "babel-eslint": "^6.1.2",
+    "babel-istanbul": "^0.8.0",
+    "babel-preset-es2015": "^6.9.0",
+    "browserify": "~9.0.3",
+    "coveralls": "~2.11.2",
+    "eslint": "^3.3.0",
+    "nodeunit": "~0.9.1",
+    "uglifyify": "^3.0.4",
+    "rimraf": "^2.6.1"
+  },
+  "dependencies": {
+    "parser-combinator": "^0.4.1" 
+  }
+}
