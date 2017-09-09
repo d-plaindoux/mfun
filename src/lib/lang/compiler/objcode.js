@@ -24,29 +24,27 @@ class Generator {
     }
 
     ident(i) {
-        return [ astObjcode.ident(i.name) ];
+        return [ ];
     }
 
     variable(i) {
-        return [ astObjcode.access(i.index) ];
+        return [ ];
     }
 
     constant(c) {
-        return [ astObjcode.constant(c.value) ];
+        return [ ];
     }
 
     native(n) {
-        return [ astObjcode.native(n.name) ];
+        return [ ];
     }
 
     application(a) {
-        return a.abstraction.visit(this)
-            .concat(a.argument.visit(this))
-            .concat(astObjcode.apply);
+        return [ ];
     }
 
     abstraction(a) {
-        return [ astObjcode.closure(a.body.visit(this).concat(astObjcode.returns)) ];
+        return [ ];
     }
 }
 

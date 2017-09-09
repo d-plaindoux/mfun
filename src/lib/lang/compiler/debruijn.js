@@ -23,32 +23,23 @@ class Transformer {
     }
 
     ident(i) {
-        const index = this.variables.indexOf(i.name);
-
-        if (index == -1) {
-            return astDB.ident(i.name);
-        }
-
-        return astDB.variable(index + 1);
+        return null;
     }
 
     constant(c) {
-        return astDB.constant(c.value);
+        return null;
     }
 
     native(n) {
-        return astDB.native(n.name);
+        return null;
     }
 
     application(a) {
-        return astDB.application(a.abstraction.visit(this), a.argument.visit(this));
+        return null;
     }
 
     abstraction(a) {
-        const newVariables = [a.variable].concat(this.variables),
-              newTransformer = new Transformer(newVariables);
-
-        return astDB.abstraction(a.body.visit(newTransformer));
+        return null;
     }
 }
 
