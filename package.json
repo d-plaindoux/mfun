@@ -33,7 +33,7 @@
     "coveralls":  "cat coverage/istanbul/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rimraf ./coverage",
     "check":      "npm run lint && npm run test && npm run cover && npm run coveralls",
     "concat":     "rimraf dist/ && mkdir dist && npm run compile && browserify build/lib/index.js -o index.js",
-    "dist":       "rimraf dist/ && mkdir dist && npm run compile && browserify -t uglifyify build/lib/index.js -o dist/promiseMe.min.js",
+    "dist":       "rimraf dist/ && mkdir dist && npm run compile && browserify -t uglifyify build/lib/index.js -o dist/mFun.min.js",
     "clean":      "rimraf dist/ && rimraf coverage/ && rimraf build/"
   },
   "devDependencies": {
