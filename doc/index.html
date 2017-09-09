@@ -1,16 +1,16 @@
 <!doctype html>
 <html lang="en">
 
-  <head>
+<head>
     <meta charset="utf-8">
 
-    <title>Compiling &micro;Fun langage</title>
+    <title>Compiling &micro;Fun language</title>
 
-    <meta name="description" content="Functional langage compilation">
+    <meta name="description" content="Functional language compilation">
     <meta name="author" content="Didier Plaindoux">
 
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -21,100 +21,120 @@
     <link rel="stylesheet" href="lib/css/zenburn.css">
 
     <style>
-      .close {
-      background-color:#556677;
-      }
-      .alert {
-      font-size:55% !important;
-      color:white;
-      text-align:middle !important;
-      background-color:#994422;
-      padding: 1em 0em 1em 0em !important;
-      Box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.4);
-      }
-      .tk {
-      font-style:bold;
-      color:#AABBFF;
-      }
-      .remark {
-      font-size:55% !important;
-      color:white;
-      text-align:middle !important;
-      background-color:#445566;
-      padding: 1em 0em 1em 0em !important;
-      Box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.4);
-      }
-      .name {
-          text-transform: none !important;
-      }
-      .title {
-      color:black;
-      text-align:middle !important;
-      background-color:white;
-      padding: 1em 0em 1em 0em !important;
-      Box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.4);
-      }
-     .ribbon {
-      position:fixed;
-      right: 0px; top:0px;
-      z-index: 1;
-      overflow: hidden;
-      width: 120px; height: 120px;
-      text-align: right;
-      }
-      .ribbon span {
-      font-size: 10px;
-      font-weight: bold;
-      color: #FFF;
-      text-transform: uppercase;
-      text-align: center;
-      line-height: 20px;
-      transform: rotate(45deg);
-      -webkit-transform: rotate(45deg);
-      width: 120px;
-      display: block;
-      background: #79A70A;
-      background: linear-gradient(#F70505 0%, #8F0808 100%);
-      box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
-      position: absolute;
-      top: 24px; right: -26px;
-      }
+        .close {
+            background-color: #556677;
+        }
+
+        .alert {
+            font-size: 55% !important;
+            color: white;
+            text-align: middle !important;
+            background-color: #994422;
+            padding: 1em 0em 1em 0em !important;
+            Box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.4);
+        }
+
+        .tk {
+            font-style: bold;
+            color: #AABBFF;
+        }
+
+        .remark {
+            font-size: 55% !important;
+            color: white;
+            text-align: middle !important;
+            background-color: #445566;
+            padding: 1em 0em 1em 0em !important;
+            Box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.4);
+        }
+
+        .name {
+            text-transform: none !important;
+        }
+
+        .title {
+            color: black;
+            text-align: middle !important;
+            background-color: white;
+            padding: 1em 0em 1em 0em !important;
+            Box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.4);
+        }
+
+        .ribbon {
+            position: fixed;
+            right: 0px;
+            top: 0px;
+            z-index: 1;
+            overflow: hidden;
+            width: 120px;
+            height: 120px;
+            text-align: right;
+        }
+
+        .ribbon span {
+            font-size: 10px;
+            font-weight: bold;
+            color: #FFF;
+            text-transform: uppercase;
+            text-align: center;
+            line-height: 20px;
+            transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+            width: 120px;
+            display: block;
+            background: #79A70A;
+            background: linear-gradient(#F70505 0%, #8F0808 100%);
+            box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
+            position: absolute;
+            top: 24px;
+            right: -26px;
+        }
     </style>
 
     <!-- Printing and PDF exports -->
     <script>
-      var link = document.createElement( 'link' );
-      link.rel = 'stylesheet';
-      link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-      document.getElementsByTagName( 'head' )[0].appendChild( link );
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
     </script>
-  </head>
+</head>
 
-  <body>
-    <div class="reveal">
-      <div class="slides">
+<body>
+<div class="reveal">
+    <div class="slides">
 
-	<section>
-	  <h2><span class="name">&micro;Fun</span> Definition &amp; compilation</h2>
-	  <br/>
-	  <div class="p" style="text-align:middle">20 septembre 2017</div>
-	  <div class="p" style="text-align:middle">Software Craftsmanship Toulouse</div>
-	  <div class="p" style="text-align:middle">
+        <section>
+            <h2><span class="name">&micro;Fun</span></h2>
+            <h3> From Definition to Execution </h3>
+            <br/>
+            <div class="p" style="text-align:middle">20 septembre 2017</div>
+            <div class="p" style="text-align:middle">Software Craftsmanship Toulouse</div>
+            <div class="p" style="text-align:middle">
 	    <span>
 	      <a href="http://twitter.com/dplaindoux">@dplaindoux</a>
           &amp;
           <a href="http://twitter.com/fcabestre">@fcabestre</a>
 	    </span>
-	  </div>
-	</section>
+            </div>
+        </section>
 
-	<section>
-	  <h3> Langage Definition </h3>
-      <pre class="remark">
-          s0   ::= ent*
-          ent  ::= "def" IDENT sexp
-                 | exp
+        <section>
+            <h3> Language Definition </h3>
+
+            <ul>
+                <li> &lambda;-Calculus: variable, abstraction and application</li>
+                <li> Constants: number and string</li>
+                <li> Definitions: function and constant</li>
+                <li> Native: functions and constant</li>
+            </ul>
+
+        </section>
+
+        <section>
+            <h3> Language Grammar </h3>
+            <pre class="remark">
           exp  ::= sexp sexp*
           sexp ::= "{" (IDENT+ "->")? exp "}"
                  | "(" exp? ")"
@@ -122,30 +142,53 @@
                  | IDENT
                  | NUMBER
                  | STRING
-                 | "native" STRING      </pre>
-    </section>
+                 | "native" STRING
+          def  ::= "def" IDENT sexp
+                 | exp
+          s0   ::= def* </pre>
+        </section>
 
-    <section>
-      <h3> syntax highlights </h3>
+        <section>
+            <h3> syntax highlights </h3>
 
-      <div class="remark">
-          <table width="100%">
-              <tr> <td width="33%" align="right"> <tt> a (b c) (c d)</tt> </td><td width="2%">&equiv;</td><td width="33%" > <tt> a (b c) $ c d  </tt> </td><td> Trailing block </td></tr>
-              <tr> <td width="33%" align="right"> <tt> { a -> { b -> ... } } </tt> </td><td width="2%">&equiv;</td><td width="33%"> <tt> { a b -> ... } </tt> </td><td> Currified form </td></tr>
-              <tr> <td width="33%" align="right"> <tt> { a -> f a } </tt> </td><td width="2%">&equiv;</td><td width="33%"> <tt> { f _ } </tt> </td><td> Implicit argument </td></tr>
-          </table>
-      </div>
+            <div class="remark">
+                <table width="100%">
+                    <tr>
+                        <td width="33%" align="right"><tt> a (b c) (c d)</tt></td>
+                        <td width="2%">&equiv;</td>
+                        <td width="33%"><tt> a (b c) $ c d </tt></td>
+                        <td> Trailing block</td>
+                    </tr>
+                    <tr>
+                        <td width="33%" align="right"><tt> { a -> { b -> ... } } </tt></td>
+                        <td width="2%">&equiv;</td>
+                        <td width="33%"><tt> { a b -> ... } </tt></td>
+                        <td> Currified form</td>
+                    </tr>
+                    <tr>
+                        <td width="33%" align="right"><tt> { a -> f a } </tt></td>
+                        <td width="2%">&equiv;</td>
+                        <td width="33%"><tt> { f _ } </tt></td>
+                        <td> Implicit argument</td>
+                    </tr>
+                </table>
+            </div>
 
-      <div class="alert">
-          <table width="100%">
-              <tr> <td width="33%" align="right"> <tt> { f a } </tt> </td><td width="2%">&nequiv;</td><td width="33%"> <tt> ( f a ) </tt> </td><td> Abstraction vs. Application </td></tr>
-          </table>
-      </div>
-	</section>
+            <div class="alert">
+                <table width="100%">
+                    <tr>
+                        <td width="33%" align="right"><tt> { f a } </tt></td>
+                        <td width="2%">&nequiv;</td>
+                        <td width="33%"><tt> ( f a ) </tt></td>
+                        <td> Abstraction vs. Application</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
 
-    <section>
-	  <h3> Example :: Factorial </h3>
-      <pre><code>
+        <section>
+            <h3> Example :: Factorial </h3>
+            <pre><code>
           def leq   { l r t f -> native "leq"   } // l=&lt;r?t:f
           def mult  { l r     -> native "mult"  }
           def minus { l r     -> native "minus" }
@@ -160,11 +203,11 @@
 
           fact 12
       </code></pre>
-	</section>
+        </section>
 
-    <section>
-	  <h3> Example :: Factorial </h3>
-      <pre><code>
+        <section>
+            <h3> Example :: Factorial </h3>
+            <pre><code>
           def leq   { l r t f -> native "leq"   } // l=&lt;r?t:f
           def mult  { l r     -> native "mult"  }
           def minus { l r     -> native "minus" }
@@ -179,27 +222,30 @@
 
           fact 12
       </code></pre>
-	</section>
+        </section>
 
-    <section>
-	  <h3> Analyze </h3>
+        <section>
+            <h3> Analyze </h3>
 
-      Sequence char &rightarrow; Try Ast
-	</section>
+            Sequence char &rightarrow; Try Ast
+        </section>
 
-    <section>
-	  <h3> (parser char Token).chain(parser Token Ast) </h3>
+        <section>
+            <h3> (parser char Token).chain(parser Token Ast) </h3>
 
-      <ul>
-          <li> <a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/parsec-paper-letter.pdf"> Parser Combinateurs </a> </li>
-          <li> Generic lexer cf. <a href="https://caml.inria.fr/pub/docs/manual-ocaml/libref/Genlex.html"> OCaml Genlex </a> </li>
-      </ul>
-	</section>
+            <ul>
+                <li>
+                    <a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/parsec-paper-letter.pdf">
+                        Parser Combinators </a></li>
+                <li> Generic lexer cf. <a href="https://caml.inria.fr/pub/docs/manual-ocaml/libref/Genlex.html"> OCaml
+                    Genlex </a></li>
+            </ul>
+        </section>
 
-    <section>
-	  <h3> From concrete syntax to abstract syntax </h3>
+        <section>
+            <h3> From concrete syntax to abstract syntax </h3>
 
-      <pre>
+            <pre>
 
  [_] :: Sequence Token &rightarrow; Ast
 
@@ -212,32 +258,32 @@
  [<span class="tk">$</span> a]        = [a]
       </pre>
 
-      <div class="fragment ribbon"><span>Live Code</span></div>
-	</section>
+            <div class="fragment ribbon"><span>Live Code</span></div>
+        </section>
 
-    <section>
-	  <h3> Transform </h3>
-      Ast &rightarrow; AstDB
-	</section>
+        <section>
+            <h3> Transform </h3>
+            Ast &rightarrow; AstDB
+        </section>
 
-    <section>
-       <h3> De Bruijn index </h3>
+        <section>
+            <h3> De Bruijn index </h3>
 
-       <p>
-           <img class="plain" src="images/De_Bruijn_index.png">
-       </p>
+            <p>
+                <img class="plain" src="images/De_Bruijn_index.png">
+            </p>
 
-       <ul>
-           <li type="none"> Invariant with respect to &alpha;-conversion </li>
-           <li type="none"> Direct access in an environment </li>
-       </ul>
+            <ul>
+                <li type="none"> Invariant with respect to &alpha;-conversion</li>
+                <li type="none"> Direct access in an environment</li>
+            </ul>
 
-    </section>
+        </section>
 
-    <section>
-	  <h3> Determine De Bruijn indexes </h3>
+        <section>
+            <h3> Determine De Bruijn indexes </h3>
 
-      <pre>
+            <pre>
 
  [_] :: Ast &rightarrow; List String &rightarrow; AstDB
 
@@ -250,18 +296,60 @@
  [Ast.native(c)]<sub>e</sub>         = AstDB.native(c)
       </pre>
 
-      <div class="fragment ribbon"><span>Live Code</span></div>
-	</section>
+            <div class="fragment ribbon"><span>Live Code</span></div>
+        </section>
 
-    <section>
-	  <h3> Compile </h3>
-      AstDB &rightarrow; Objcode
-	</section>
+        <section>
+            <h3> Interpret </h3>
 
-    <section>
-	  <h3> Compilation process </h3>
+            AstDB &rightarrow; Result
+        </section>
 
-      <pre>
+        <section>
+            <h3> Advanced Interpreter </h3>
+
+            <pre>
+
+ type Result = NUMBER | STRING | (AstDB,Env)
+  and Env    = List Result
+ [_] :: AstDB &rightarrow; Env &rightarrow; Result
+
+ [AstDB.constant(c)]<sub>e</sub>       = c
+ [AstDB.variable(i)]<sub>e</sub>       = e[i]
+ [AstDB.abstraction(a,b)]<sub>e</sub>  = (b,e)
+ [AstDB.application(a,b)]<sub>e</sub>  = [c]<sub>d::e'</sub> when [a]<sub>e</sub> =<sub>*</sub> (c,e')
+                                        and [b]<sub>e</sub> =<sub>*</sub> d
+            </pre>
+
+            <div class="remark fragment">
+                No &beta;-reduction based on term subtitution <br>
+            </div>
+            <div class="alert fragment">
+                Application interpretation is not tail recursive
+            </div>
+
+        </section>
+
+        <section>
+            <h3> Compile </h3>
+
+            <p> AstDB &rightarrow; Objcode </p>
+
+        </section>
+
+        <section>
+            <h3> Abstract machine </h3>
+
+            <ul>
+                <li> Krivines' machine</li>
+                <li> Leroys' ZINC abstract machine</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3> Compilation process </h3>
+
+            <pre>
 
  [_] :: AstDB &rightarrow; Objcode
 
@@ -274,19 +362,19 @@
  [AstDB.native(c)]        = Objcode.native(c)
       </pre>
 
-      <div class="remark"> Standard call-by-value </div>
-      <div class="fragment ribbon"><span>Live Code</span></div>
-	</section>
+            <div class="remark"> Standard call-by-value</div>
+            <div class="fragment ribbon"><span>Live Code</span></div>
+        </section>
 
-    <section>
-	  <h3> Execute </h3>
-      Objcode &rightarrow; Try Result
-	</section>
+        <section>
+            <h3> Execute </h3>
+            Objcode &rightarrow; Try Result
+        </section>
 
-    <section>
-      <h3> Execution process :: Core </h3>
+        <section>
+            <h3> Execution process :: Core </h3>
 
-      <pre>
+            <pre>
 
  type Result = NUMBER | STRING | (Objcode,Env)
   and Env    = List Result
@@ -302,14 +390,14 @@
  ...
     </pre>
 
-    <div class="fragment ribbon"><span>Live Code</span></div>
+            <div class="fragment ribbon"><span>Live Code</span></div>
 
-    </section>
+        </section>
 
-    <section>
-      <h3> Execution process :: Extension </h3>
+        <section>
+            <h3> Execution process :: Extension </h3>
 
-      <pre>
+            <pre>
 
  ...
  definition :: String -> Result
@@ -319,49 +407,74 @@
  [Objcode.native(n);c]<sub>e s</sub>             = [c]<sub>e (native n e)::s</sub>
   </pre>
 
-    <div class="fragment ribbon"><span>Live Code</span></div>
+            <div class="fragment ribbon"><span>Live Code</span></div>
 
-    </section>
+        </section>
 
-    <section>
-	  <h4> Analyze(S).map(Transform).map.(Compile).flatmap(Execute) </h4>
+        <section>
 
-      Sequence char &rightarrow; Try Result
-	</section>
+            <h3> REPL </h3>
 
-    <section>
-	  <h3> What's Next? </h3>
+            <p> Sequence char &rightarrow; Try Result </p>
 
-      <ul>
-          <li> Call-by-Name   </li>
-          <li> Tail recursive </li>
-          <li> Type systems   </li>
-      </ul>
-	</section>
+        </section>
 
-	<script src="lib/js/head.min.js"></script>
-	<script src="js/reveal.js"></script>
+        <section>
 
-	<script>
-	  // More info https://github.com/hakimel/reveal.js#configuration
-	  Reveal.initialize({
-          controls: false,
-          progress: false,
-          history: true,
-          center: true,
-	  slideNumber: true,
-          transition: 'none', // none/fade/slide/convex/concave/zoom
+            <h4> Analyze(S).map(Transform).map.(Compile).flatmap(Execute) </h4>
 
-          // More info https://github.com/hakimel/reveal.js#dependencies
-          dependencies: [
-              { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-              { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-              { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-              { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-              { src: 'plugin/zoom-js/zoom.js', async: true },
-              { src: 'plugin/notes/notes.js', async: true }
-          ]
-	  });
-	</script>
+            <div class="fragment ribbon"><span>Live Code</span></div>
+
+        </section>
+        <section>
+            <h3> What's Next? </h3>
+
+            <ul>
+                <li> Call-by-Name</li>
+                <li> Tail recursive</li>
+                <li> Type systems</li>
+            </ul>
+        </section>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+
+        <script>
+            // More info https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: false,
+                progress: false,
+                history: true,
+                center: true,
+                slideNumber: true,
+                transition: 'none', // none/fade/slide/convex/concave/zoom
+
+                // More info https://github.com/hakimel/reveal.js#dependencies
+                dependencies: [
+                    {
+                        src: 'lib/js/classList.js', condition: function () {
+                        return !document.body.classList;
+                    }
+                    },
+                    {
+                        src: 'plugin/markdown/marked.js', condition: function () {
+                        return !!document.querySelector('[data-markdown]');
+                    }
+                    },
+                    {
+                        src: 'plugin/markdown/markdown.js', condition: function () {
+                        return !!document.querySelector('[data-markdown]');
+                    }
+                    },
+                    {
+                        src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+                        hljs.initHighlightingOnLoad();
+                    }
+                    },
+                    {src: 'plugin/zoom-js/zoom.js', async: true},
+                    {src: 'plugin/notes/notes.js', async: true}
+                ]
+            });
+        </script>
 </body>
 </html>

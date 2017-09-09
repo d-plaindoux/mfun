@@ -16,7 +16,6 @@ class Constant extends Result {
         this.value = value;
     }
 
-    // Visitor 'a -> 'a
     visit(visitor) {
         return visitor.constant(this);
     }

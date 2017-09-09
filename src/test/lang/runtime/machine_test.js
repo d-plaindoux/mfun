@@ -21,6 +21,15 @@ export default {
         test.done();
     },
 
+    'execute an abstraction returning a constant': function(test) {
+        test.expect(1);
+        const engine = engineFactory();
+        test.deepEqual(destruct(engine.apply('{ a -> 1 }')),
+            [ astResult.closure([astObjcode.constant(1), astObjcode.returns ], []) ],
+            'execute a constant.');
+        test.done();
+    },
+
     'execute an abstraction': function(test) {
         test.expect(1);
         const engine = engineFactory();

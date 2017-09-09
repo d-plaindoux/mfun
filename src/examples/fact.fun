@@ -8,6 +8,6 @@ def fact { a ->
     cond (leq a 1)
          { 1 }
          { mult a $ fact $ minus a 1 }
-}         
+}
 
 fact 12
