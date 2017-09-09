@@ -4,7 +4,7 @@
   "license": "LGPL-2.1",
   "version": "0.0.1",
   "keywords": ["functional","abstract-machine"],
-  "homepage": "https://github.com/d-plaindoux/talks_n_blog/blob/master/talks/craft/fp%2Bzinc/fun.js",
+  "homepage": "https://github.com/d-plaindoux/mFun",
   "author": {
     "name": "Didier Plaindoux",
     "email": "d.plaindoux@free.fr",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/d-plaindoux/talks_n_blog/blob/master/talks/craft/fp%2Bzinc/fun.js"
+    "url": "https://github.com/d-plaindoux/mFun"
   },
   "licenses": [
     {
@@ -33,7 +33,7 @@
     "coveralls":  "cat coverage/istanbul/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rimraf ./coverage",
     "check":      "npm run lint && npm run test && npm run cover && npm run coveralls",
     "concat":     "rimraf dist/ && mkdir dist && npm run compile && browserify build/lib/index.js -o index.js",
-    "dist":       "rimraf dist/ && mkdir dist && npm run compile && browserify -t uglifyify build/lib/index.js -o dist/promiseMe.min.js",
+    "dist":       "rimraf dist/ && mkdir dist && npm run compile && browserify -t uglifyify build/lib/index.js -o dist/mFun.min.js",
     "clean":      "rimraf dist/ && rimraf coverage/ && rimraf build/"
   },
   "devDependencies": {
