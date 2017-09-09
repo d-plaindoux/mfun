@@ -52,47 +52,24 @@ class Machine {
     }
 
     access(i) {
-        this.stack.unshift(this.env[i.index-1]);
     }
 
     closure(i) {
-        this.stack.unshift(astResult.closure(i.instructions, this.env.slice()));
     }
 
     apply() {
-        const v = this.stack.shift(),
-              c = this.stack.shift().visit(this.ensureClosure);
-
-        this.stack.unshift(this.env);
-        this.stack.unshift(this.code);
-
-        this.code = c.code.slice();
-        this.env = c.env.slice();
-
-        this.env.unshift(v);
     }
 
     returns() {
-        const v = this.stack.shift(),
-              c = this.stack.shift(),
-              e = this.stack.shift();
-
-        this.code = c.slice();
-        this.env = e.slice();
-
-        this.stack.unshift(v);
     }
 
     constant(m) {
-        this.stack.unshift(astResult.constant(m.value));
     }
 
     ident(i) {
-        this.stack.unshift(this.definitions[i.name]);
     }
 
     native(n) {
-        this.stack.unshift(native[n.name](this.env.slice()));
     }
 
     // -------------------------------------------------------------------------
