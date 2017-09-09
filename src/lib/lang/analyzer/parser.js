@@ -1,11 +1,10 @@
 /*
- * fun.js
- * https://github.com/d-plaindoux/talks_n_blog/blob/master/talks/craft/fp%2Bzinc/fun.js
+ * mFun
+ * https://github.com/d-plaindoux/mFun
  *
  * Copyright (c) 2017 Didier Plaindoux
  * Licensed under the LGPL2 license.
  */
-
 import { genlex as GLex, F as Flow, data } from 'parser-combinator';
 import ast from './ast';
 import '../../extensions/array'
