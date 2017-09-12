@@ -1,4 +1,4 @@
-def leq   { l r t f -> native "equal" }
+def leq   { l r t f -> native "leq"   }
 def mult  { l r     -> native "mult"  }
 def minus { l r     -> native "minus" }
 
