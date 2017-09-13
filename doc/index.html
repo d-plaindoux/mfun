@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Compiling &micro;Fun language</title>
+    <title>Compiling F&micro;N language</title>
 
     <meta name="description" content="Functional language compilation">
     <meta name="author" content="Didier Plaindoux">
@@ -21,22 +21,19 @@
     <link rel="stylesheet" href="lib/css/zenburn.css">
 
     <style>
-        .close {
-            background-color: #556677;
-        }
 
         .alert {
             font-size: 55% !important;
             color: white;
-            text-align: middle !important;
+            text-align: center !important;
             background-color: #994422;
             padding: 1em 0em 1em 0em !important;
             Box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.4);
         }
 
         .tk {
-            font-style: bold;
-            color: #AABBFF;
+            font-style: revert;
+            color: #00BBFF;
         }
 
         .remark {
@@ -52,21 +49,13 @@
             text-transform: none !important;
         }
 
-        .title {
-            color: black;
-            text-align: middle !important;
-            background-color: white;
-            padding: 1em 0em 1em 0em !important;
-            Box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.4);
-        }
-
         .ribbon {
             position: fixed;
             right: 0px;
             top: 0px;
             z-index: 1;
             overflow: hidden;
-            width: 120px;
+            width: 150px;
             height: 120px;
             text-align: right;
         }
@@ -106,7 +95,7 @@
     <div class="slides">
 
         <section>
-            <h2><span class="name">&micro;Fun</span></h2>
+            <h2><span class="name">F&micro;N</span></h2>
             <h3> From Definition to Execution </h3>
             <br/>
             <div class="p" style="text-align:middle">20 septembre 2017</div>
@@ -125,9 +114,9 @@
 
             <ul>
                 <li> &lambda;-Calculus: variable, abstraction and application</li>
-                <li> Constants: number and string</li>
-                <li> Definitions: function and constant</li>
-                <li> Native: functions and constant</li>
+                <li> Constant: number and string</li>
+                <li> Definition: function and constant</li>
+                <li> Native: function and constant</li>
             </ul>
 
         </section>
@@ -136,14 +125,14 @@
             <h3> Language Grammar </h3>
             <pre class="remark">
           exp  ::= sexp sexp*
-          sexp ::= "{" (IDENT+ "->")? exp "}"
-                 | "(" exp? ")"
-                 | "$" exp
+          sexp ::= <span class="tk">{</span> (IDENT+ <span class="tk">-></span>)? exp <span class="tk">}</span> -- à la Swift or Kotlin
+                 | <span class="tk">(</span> exp? <span class="tk">)</span>
+                 | <span class="tk">$</span> exp                -- Infix application
                  | IDENT
                  | NUMBER
                  | STRING
-                 | "native" STRING
-          def  ::= "def" IDENT sexp
+                 | <span class="tk">native</span> STRING
+          def  ::= <span class="tk">def</span> IDENT sexp
                  | exp
           s0   ::= def* </pre>
         </section>
@@ -154,32 +143,32 @@
             <div class="remark">
                 <table width="100%">
                     <tr>
-                        <td width="33%" align="right"><tt> a (b c) (c d)</tt></td>
+                        <td width="30%" align="right"><tt> a (b c) (c d)</tt></td>
                         <td width="2%">&equiv;</td>
-                        <td width="33%"><tt> a (b c) $ c d </tt></td>
-                        <td> Trailing block</td>
+                        <td width="20%"><tt> a (b c) $ c d </tt></td>
+                        <td> Infix Application</td>
                     </tr>
                     <tr>
-                        <td width="33%" align="right"><tt> { a -> { b -> ... } } </tt></td>
+                        <td width="30%" align="right"><tt> { a -> { b -> ... } } </tt></td>
                         <td width="2%">&equiv;</td>
-                        <td width="33%"><tt> { a b -> ... } </tt></td>
+                        <td width="20%"><tt> { a b -> ... } </tt></td>
                         <td> Currified form</td>
                     </tr>
                     <tr>
-                        <td width="33%" align="right"><tt> { a -> f a } </tt></td>
+                        <td width="30%" align="right"><tt> { a -> f a } </tt></td>
                         <td width="2%">&equiv;</td>
-                        <td width="33%"><tt> { f _ } </tt></td>
+                        <td width="20%"><tt> { f _ } </tt></td>
                         <td> Implicit argument</td>
                     </tr>
                 </table>
             </div>
 
-            <div class="alert">
+            <div class="alert fragment">
                 <table width="100%">
                     <tr>
-                        <td width="33%" align="right"><tt> { f a } </tt></td>
+                        <td width="30%" align="right"><tt> { f a } </tt></td>
                         <td width="2%">&nequiv;</td>
-                        <td width="33%"><tt> ( f a ) </tt></td>
+                        <td width="20%"><tt> ( f a ) </tt></td>
                         <td> Abstraction vs. Application</td>
                     </tr>
                 </table>
@@ -189,38 +178,38 @@
         <section>
             <h3> Example :: Factorial </h3>
             <pre><code>
-          def leq   { l r t f -> native "leq"   } // l=&lt;r?t:f
-          def mult  { l r     -> native "mult"  }
-          def minus { l r     -> native "minus" }
+    def leq   { l r t f -> native "leq"   } // l <= r ? t : f
+    def mult  { l r     -> native "mult"  }
+    def minus { l r     -> native "minus" }
 
-          def cond { c t f -> c t f () }
+    def cond { c t f -> c t f () }
 
-          def fact { a ->
-              cond (leq a 1)
-                   { 1 }
-                   { mult a (fact (minus a 1)) }
-          }
+    def fact { a ->
+       cond (leq a 1)
+            { 1 }
+            { mult a (fact (minus a 1)) }
+    }
 
-          fact 12
+    fact 12
       </code></pre>
         </section>
 
         <section>
-            <h3> Example :: Factorial </h3>
+            <h3> Example :: Factorial &amp; Infix Application</h3>
             <pre><code>
-          def leq   { l r t f -> native "leq"   } // l=&lt;r?t:f
-          def mult  { l r     -> native "mult"  }
-          def minus { l r     -> native "minus" }
+    def leq   { l r t f -> native "leq"   } // l <= r ? t : f
+    def mult  { l r     -> native "mult"  }
+    def minus { l r     -> native "minus" }
 
-          def cond { c t f -> c t f () }
+    def cond { c t f -> c t f () }
 
-          def fact { a ->
-              cond (leq a 1)
-                   { 1 }
-                   { mult a $ fact $ minus a 1 }
-          }
+    def fact { a ->
+       cond (leq a 1)
+            { 1 }
+            { mult a $ fact $ minus a 1 }
+    }
 
-          fact 12
+    fact 12
       </code></pre>
         </section>
 
@@ -253,7 +242,7 @@
  [a b]        = Ast.application([a],[b])
  [i]          = Ast.ident(i)             if i &in; IDENT
  [n]          = Ast.constant(n)          if n &in; NUMBER &cup; STRING
- [<span class="tk">native</span> s]   = Ast.native(n)
+ [<span class="tk">native</span> s]   = Ast.native(s)
  [<span class="tk">(</span> a <span class="tk">)</span>]      = [a]
  [<span class="tk">$</span> a]        = [a]
       </pre>
@@ -289,9 +278,9 @@
 
  [Ast.abstraction(a,b)]<sub>e</sub>  = AstDB.abstraction([b]<sub>(a::e)</sub>)
  [Ast.application(a,b)]<sub>e</sub>  = AstDB.application([a]<sub>e</sub>, [b]<sub>e</sub>)
- [Ast.ident(n)]<sub>e</sub>          = AstDB.variable(i)     if &exist; i / e[i]=n
+ [Ast.ident(n)]<sub>e</sub>          = AstDB.variable(i)   if &exist; i / e[i]=n
 
- [Ast.ident(n)]<sub>e</sub>          = AstDB.ident(n)        if &forall; i / e[i]&ne;n
+ [Ast.ident(n)]<sub>e</sub>          = AstDB.ident(n)      if &forall; i / e[i]&ne;n
  [Ast.constant(c)]<sub>e</sub>       = AstDB.constant(c)
  [Ast.native(c)]<sub>e</sub>         = AstDB.native(c)
       </pre>
@@ -341,8 +330,8 @@
             <h3> Abstract machine </h3>
 
             <ul>
-                <li> Krivines' machine</li>
-                <li> Leroys' ZINC abstract machine</li>
+                <li> J-L. Krivine's machine</li>
+                <li> X. Leroy's ZINC abstract machine</li>
             </ul>
         </section>
 
@@ -353,9 +342,9 @@
 
  [_] :: AstDB &rightarrow; Objcode
 
- [AstDB.abstraction(b)]   = Objcode.closure(b;Objcode.returns)
- [AstDB.application(a,b)] = [a];[b];Objcode.apply
  [AstDB.variable(i)]      = Objcode.access(i)
+ [AstDB.application(a,b)] = [a];[b];Objcode.apply
+ [AstDB.abstraction(b)]   = Objcode.closure([b];Objcode.returns)
 
  [AstDB.ident(n)]         = Objcode.ident(n)
  [AstDB.constant(c)]      = Objcode.constant(c)
@@ -431,8 +420,9 @@
 
             <ul>
                 <li> Call-by-Name</li>
-                <li> Tail recursive</li>
-                <li> Type systems</li>
+                <li> Tail recursive </li>
+                <li> Type systems </li>
+                <li> G-Machine, SECD-Machine etc.</li>
             </ul>
         </section>
 

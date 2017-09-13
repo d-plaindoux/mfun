@@ -5,40 +5,41 @@
  * Copyright (c) 2017 Didier Plaindoux
  * Licensed under the LGPL2 license.
  */
- // -----------------------------------------------------------------------------
- // Generic entity definition
- // -----------------------------------------------------------------------------
 
- class /*abstract*/ Entity /* 'a */ {}
+// -----------------------------------------------------------------------------
+// Generic entity definition
+// -----------------------------------------------------------------------------
 
- class Definition extends Entity /* 'a */ {
-     // String -> Expression
-     constructor(name, expression) {
-         super();
-         this.name = name;
-         this.expression = expression;
-     }
+class /*abstract*/ Entity /* 'a */ {}
 
-     // Visitor 'b -> 'b
-     visit(visitor) {
-         return visitor.definition(this);
-     }
- }
+class Definition extends Entity /* 'a */ {
+    // String -> Expression
+    constructor(name, expression) {
+        super();
+        this.name = name;
+        this.expression = expression;
+    }
 
- class Main extends Entity /* 'a */ {
-     // String -> Expression
-     constructor(expression) {
-         super();
-         this.expression = expression;
-     }
+    // Visitor 'b -> 'b
+    visit(visitor) {
+        return visitor.definition(this);
+    }
+}
 
-     // Visitor 'b -> 'b
-     visit(visitor) {
-         return visitor.main(this);
-     }
- }
+class Main extends Entity /* 'a */ {
+    // String -> Expression
+    constructor(expression) {
+        super();
+        this.expression = expression;
+    }
 
- // -----------------------------------------------------------------------------
+    // Visitor 'b -> 'b
+    visit(visitor) {
+        return visitor.main(this);
+    }
+}
+
+// -----------------------------------------------------------------------------
 
 class /*abstract*/ Expression {}
 
@@ -113,8 +114,8 @@ export default {
     ident: n => new Ident(n),
     constant: c => new Constant(c),
     native: (n) => new Native(n),
-    application: (f,a) => new Application(f,a),
-    abstraction: (v,b) => new Abstraction(v,b),
-    definition: (n,e) => new Definition(n,e),
+    application: (f, a) => new Application(f, a),
+    abstraction: (v, b) => new Abstraction(v, b),
+    definition: (n, e) => new Definition(n, e),
     main: e => new Main(e)
 }
