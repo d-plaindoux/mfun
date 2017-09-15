@@ -135,6 +135,8 @@
           def  ::= <span class="tk">def</span> IDENT sexp
                  | exp
           s0   ::= def* </pre>
+
+            <div class="remark fragment"> LL(1)</div>
         </section>
 
         <section>
@@ -143,9 +145,9 @@
             <div class="remark">
                 <table width="100%">
                     <tr>
-                        <td width="30%" align="right"><tt> a (b c) (c d)</tt></td>
+                        <td width="30%" align="right"><tt> a (b (c d))</tt></td>
                         <td width="2%">&equiv;</td>
-                        <td width="20%"><tt> a (b c) $ c d </tt></td>
+                        <td width="20%"><tt> a $ b $ c d </tt></td>
                         <td> Infix Application</td>
                     </tr>
                     <tr>
@@ -171,6 +173,12 @@
                         <td width="20%"><tt> ( f a ) </tt></td>
                         <td> Abstraction vs. Application</td>
                     </tr>
+                    <tr>
+                        <td width="30%" align="right"><tt> { a -> { b -> f a } } </tt></td>
+                        <td width="2%">&nequiv;</td>
+                        <td width="20%"><tt> { { f _ } } </tt></td>
+                        <td> Implicit variable scope </td>
+                    </tr>
                 </table>
             </div>
         </section>
@@ -186,8 +194,8 @@
 
     def fact { a ->
        cond (leq a 1)
-            { 1 }
-            { mult a (fact (minus a 1)) }
+            { _ -> 1 }
+            { _ -> mult a (fact (minus a 1)) }
     }
 
     fact 12
@@ -195,7 +203,7 @@
         </section>
 
         <section>
-            <h3> Example :: Factorial &amp; Infix Application</h3>
+            <h3> Example :: Factorial Cont'd </h3>
             <pre><code>
     def leq   { l r t f -> native "leq"   } // l <= r ? t : f
     def mult  { l r     -> native "mult"  }
@@ -222,13 +230,20 @@
         <section>
             <h3> (parser char Token).chain(parser Token Ast) </h3>
 
-            <ul>
-                <li>
-                    <a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/parsec-paper-letter.pdf">
-                        Parser Combinators </a></li>
-                <li> Generic lexer cf. <a href="https://caml.inria.fr/pub/docs/manual-ocaml/libref/Genlex.html"> OCaml
-                    Genlex </a></li>
-            </ul>
+            <div>
+                <ul>
+                    <li>
+                        <a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/parsec-paper-letter.pdf">
+                            Parser Combinators </a></li>
+                    <li> Generic lexer cf. <a href="https://caml.inria.fr/pub/docs/manual-ocaml/libref/Genlex.html">
+                        OCaml
+                        Genlex </a></li>
+                </ul>
+            </div>
+
+            <br>
+
+            <div class="remark fragment"> LL(1) or when k > 1 with try parser i.e. backtrack</div>
         </section>
 
         <section>
@@ -245,6 +260,7 @@
  [<span class="tk">native</span> s]   = Ast.native(s)
  [<span class="tk">(</span> a <span class="tk">)</span>]      = [a]
  [<span class="tk">$</span> a]        = [a]
+ [<span class="tk">()</span>]         = Ast.constant(unit)
       </pre>
 
             <div class="fragment ribbon"><span>Live Code</span></div>
@@ -276,13 +292,13 @@
 
  [_] :: Ast &rightarrow; List String &rightarrow; AstDB
 
- [Ast.abstraction(a,b)]<sub>e</sub>  = AstDB.abstraction([b]<sub>(a::e)</sub>)
- [Ast.application(a,b)]<sub>e</sub>  = AstDB.application([a]<sub>e</sub>, [b]<sub>e</sub>)
- [Ast.ident(n)]<sub>e</sub>          = AstDB.variable(i)   if &exist; i / e[i]=n
-
- [Ast.ident(n)]<sub>e</sub>          = AstDB.ident(n)      if &forall; i / e[i]&ne;n
  [Ast.constant(c)]<sub>e</sub>       = AstDB.constant(c)
  [Ast.native(c)]<sub>e</sub>         = AstDB.native(c)
+ [Ast.application(a,b)]<sub>e</sub>  = AstDB.application([a]<sub>e</sub>, [b]<sub>e</sub>)
+ [Ast.abstraction(a,b)]<sub>e</sub>  = AstDB.abstraction([b]<sub>(a::e)</sub>)
+ [Ast.ident(n)]<sub>e</sub>          = AstDB.ident(n)    if &forall; i   / e[i]&ne;n
+ [Ast.ident(n)]<sub>e</sub>          = AstDB.variable(i) if &exist; i   / e[i]=n
+                                                 &forall; j&lt;i / e[j]&ne;n
       </pre>
 
             <div class="fragment ribbon"><span>Live Code</span></div>
@@ -305,7 +321,7 @@
 
  [AstDB.constant(c)]<sub>e</sub>       = c
  [AstDB.variable(i)]<sub>e</sub>       = e[i]
- [AstDB.abstraction(a,b)]<sub>e</sub>  = (b,e)
+ [AstDB.abstraction(b)]<sub>e</sub>    = (b,e)
  [AstDB.application(a,b)]<sub>e</sub>  = [c]<sub>d::e'</sub> when [a]<sub>e</sub> =<sub>*</sub> (c,e')
                                         and [b]<sub>e</sub> =<sub>*</sub> d
             </pre>
@@ -371,11 +387,11 @@
 
  [_] :: Objcode &rightarrow; Env &rightarrow; Stack &rightarrow; Result
 
+ [Objcode.constant(n);c]<sub>e s</sub>           = [c]<sub>e n::s</sub>
  [Objcode.access(i);c]<sub>e s</sub>             = [c]<sub>e e[i]::s</sub>
  [Objcode.closure(c');c]<sub>e s</sub>           = [c]<sub>e (c',e)::s</sub>
- [Objcode.apply();c]<sub>e v::(c',e')::s</sub>   = [c']<sub>v::e' (c,e)::s</sub>
- [Objcode.returns();c]<sub>e v::(c',e')::s</sub> = [c']<sub>e' v::s d</sub>
- [Objcode.constant(n);c]<sub>e s</sub>           = [c]<sub>e n::s</sub>
+ [Objcode.apply;c]<sub>e v::(c',e')::s</sub>     = [c']<sub>v::e' (c,e)::s</sub>
+ [Objcode.returns;c]<sub>e v::(c',e')::s</sub>   = [c']<sub>e' v::s d</sub>
  ...
     </pre>
 
@@ -390,7 +406,7 @@
 
  ...
  definition :: String -> Result
- native     :: String -> List Result -> Result
+ native     :: String -> Env -> Result
 
  [Objcode.ident(n);c]<sub>e s</sub>              = [c]<sub>e (definition n)::s</sub>
  [Objcode.native(n);c]<sub>e s</sub>             = [c]<sub>e (native n e)::s</sub>
@@ -410,7 +426,7 @@
 
         <section>
 
-            <h4> Analyze(S).map(Transform).map.(Compile).flatmap(Execute) </h4>
+            <h4> S &rightarrow; Analyze(S).map(Transform).map.(Compile).flatmap(Execute) </h4>
 
             <div class="fragment ribbon"><span>Live Code</span></div>
 
@@ -420,8 +436,8 @@
 
             <ul>
                 <li> Call-by-Name</li>
-                <li> Tail recursive </li>
-                <li> Type systems </li>
+                <li> Tail recursive</li>
+                <li> Type systems</li>
                 <li> G-Machine, SECD-Machine etc.</li>
             </ul>
         </section>
