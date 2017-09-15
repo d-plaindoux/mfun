@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <script type="application/mfun">
+
+    def text  { n v     -> native "text"  }
+    def node  { n       -> native "node"  }
+
+    def leq   { l r t f -> native "leq"   }
+    def mult  { l r     -> native "mult"  }
+    def minus { l r     -> native "minus" }
+
+    def cond { c t f -> c t f () }
+
+    def fact { a ->
+        cond (leq a 1)
+             { 1 }
+             { mult a $ fact $ minus a 1 }
+    }
+
+    text (node "fact") (fact 9)
+
+    </script>
+    <script type="application/javascript" src="../dist/mFun.min.js"></script>
+    <script type="application/javascript">
+        function bootstrap() {
+            mFun.default.repl(mFun.default.reader.browser)
+        }
+    </script>
+</head>
+<body onload="bootstrap()">
+<div>
+    Factorial(9) = <span id='fact'>...</span>
+</div>
+</body>
+</html>

@@ -6,7 +6,9 @@
  * Licensed under the LGPL2 license.
  */
 
-class /*abstract*/ Result {}
+class /*abstract*/
+Result {
+}
 
 class Constant extends Result {
 
@@ -37,6 +39,6 @@ class Closure extends Result {
 }
 
 export default {
-    closure: (c,e) => new Closure(c,e),
+    closure: (c, e) => new Closure(c, e),
     constant: (v) => new Constant(v)
 }

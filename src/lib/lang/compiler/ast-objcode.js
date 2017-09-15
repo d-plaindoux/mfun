@@ -8,7 +8,9 @@
 
 import astDB from "./ast-debruijn"
 
-class /*abstract*/ Objcode {}
+class /*abstract*/
+Objcode {
+}
 
 class Access extends Objcode {
 

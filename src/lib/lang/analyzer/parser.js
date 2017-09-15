@@ -1,23 +1,25 @@
 /*
- * mFun
- * https://github.com/d-plaindoux/mFun
+ * fun.js
+ * https://github.com/d-plaindoux/talks_n_blog/blob/master/talks/craft/fp%2Bzinc/fun.js
  *
  * Copyright (c) 2017 Didier Plaindoux
  * Licensed under the LGPL2 license.
  */
-import { genlex as GLex, F as Flow, data } from 'parser-combinator';
+
+import {genlex as GLex, F as Flow, data} from 'parser-combinator';
 import ast from './ast';
 import '../../extensions/array'
 
 // Facilities provided by the generic lexer library
-const tkNumber  = GLex.token.parser.number,
-      tkString  = GLex.token.parser.string,
-      tkIdent   = GLex.token.parser.ident,
-      tkKeyword = s => GLex.token.parser.keyword.match(s).drop();
+const tkNumber = GLex.token.parser.number,
+    tkString = GLex.token.parser.string,
+    tkIdent = GLex.token.parser.ident,
+    tkKeyword = (s, d = true) => (p => d ? p.drop() : p)(GLex.token.parser.keyword.match(s));
 
 // unit -> Parser Expression Token
 function atom() {
     return (tkIdent.map(ast.ident))
+        .or(tkKeyword('_', false).map(ast.ident))
         .or(tkNumber.map(ast.constant))
         .or(tkString.map(ast.constant));
 }
@@ -25,10 +27,10 @@ function atom() {
 // unit -> Parser Expression Token
 function abstraction() {
     return tkKeyword('{')
-        .then(tkIdent.rep().then(tkKeyword('->')).opt().map(t => t.orElse(['_'])))
+        .then(Flow.try(tkIdent.rep().then(tkKeyword('->'))).opt())
         .then(Flow.lazy(expression))
         .then(tkKeyword('}'))
-        .map(t => t[0].array().foldRight(ast.abstraction, t[1]));
+        .map(t => t[0].map(t => t.array()).orElse(['_']).foldRight(ast.abstraction, t[1]));
 }
 
 // unit -> Parser Expression Token
@@ -78,10 +80,10 @@ function entities() {
 // Parser a' Token -> Parser a' char
 function analyzer(parser) {
     return GLex.genlex
-            .generator(['def', 'native', '{', '}' , '->', '(', ')', '$' ])
-            .tokenBetweenSpaces(GLex.token.builder)
-            .chain(parser.then(Flow.eos.drop()))
-            .parse;
+        .generator(['def', 'native', '{', '}', '->', '(', ')', '$', '_'])
+        .tokenBetweenSpaces(GLex.token.builder)
+        .chain(parser.then(Flow.eos.drop()))
+        .parse;
 }
 
 export default {

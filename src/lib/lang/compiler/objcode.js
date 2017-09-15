@@ -24,19 +24,19 @@ class Generator {
     }
 
     ident(i) {
-        return [ astObjcode.ident(i.name) ];
+        return [astObjcode.ident(i.name)];
     }
 
     variable(i) {
-        return [ astObjcode.access(i.index) ];
+        return [astObjcode.access(i.index)];
     }
 
     constant(c) {
-        return [ astObjcode.constant(c.value) ];
+        return [astObjcode.constant(c.value)];
     }
 
     native(n) {
-        return [ astObjcode.native(n.name) ];
+        return [astObjcode.native(n.name)];
     }
 
     application(a) {
@@ -46,10 +46,10 @@ class Generator {
     }
 
     abstraction(a) {
-        return [ astObjcode.closure(a.body.visit(this).concat(astObjcode.returns)) ];
+        return [astObjcode.closure(a.body.visit(this).concat(astObjcode.returns))];
     }
 }
 
-export default function(e) {
+export default function (e) {
     return e.visit(new Generator([]));
 }

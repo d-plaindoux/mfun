@@ -46,12 +46,12 @@ class Transformer {
 
     abstraction(a) {
         const newVariables = [a.variable].concat(this.variables),
-              newTransformer = new Transformer(newVariables);
+            newTransformer = new Transformer(newVariables);
 
         return astDB.abstraction(a.body.visit(newTransformer));
     }
 }
 
-export default function(e) {
+export default function (e) {
     return e.visit(new Transformer([]));
 }

@@ -6,7 +6,7 @@
  * Licensed under the LGPL2 license.
  */
 
-import { stream, data} from 'parser-combinator';
+import {stream, data} from 'parser-combinator';
 import parser from "../analyzer/parser";
 import toDeBruijn from "../compiler/debruijn";
 import toObjcode from "../compiler/objcode";
@@ -24,7 +24,7 @@ class Eval {
     evalAtMost(a) {
         return a.foldLeft(
             data.atry.success([]),
-            (l,c) => l.flatmap(l => this.machine.eval(c).map(c => l.concat([c])))   // List comprehension like
+            (l, c) => l.flatmap(l => this.machine.eval(c).map(c => l.concat([c])))   // List comprehension like
         );
     }
 

@@ -6,18 +6,18 @@
  * Licensed under the LGPL2 license.
  */
 
-Array.prototype.foldLeft = function(initial,funcall) {
+Array.prototype.foldLeft = function (initial, funcall) {
     var i, result = initial;
-    for(i = 0; i < this.length; i++) {
+    for (i = 0; i < this.length; i++) {
         result = funcall(result, this[i]);
     }
     return result;
 };
 
-Array.prototype.foldRight = function(funcall,initial) {
+Array.prototype.foldRight = function (funcall, initial) {
     var i, result = initial;
-    for(i = this.length; i > 0; i--) {
-        result = funcall(this[i-1], result);
+    for (i = this.length; i > 0; i--) {
+        result = funcall(this[i - 1], result);
     }
     return result;
 };

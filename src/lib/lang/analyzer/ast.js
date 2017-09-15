@@ -10,7 +10,9 @@
 // Generic entity definition
 // -----------------------------------------------------------------------------
 
-class /*abstract*/ Entity /* 'a */ {}
+class /*abstract*/
+Entity /* 'a */ {
+}
 
 class Definition extends Entity /* 'a */ {
     // String -> Expression
@@ -41,7 +43,9 @@ class Main extends Entity /* 'a */ {
 
 // -----------------------------------------------------------------------------
 
-class /*abstract*/ Expression {}
+class /*abstract*/
+Expression {
+}
 
 class Ident extends Expression {
     // String -> Expression

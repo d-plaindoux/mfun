@@ -1,5 +1,5 @@
 {
-  "name": "fun.js",
+  "name": "mfun",
   "description": "",
   "license": "LGPL-2.1",
   "version": "0.0.1",
@@ -25,15 +25,14 @@
   },
   "scripts": {
     "prepublish": "echo '--- Prepublishing ---\n' && npm run test && npm run compile",
-    "compile":    "rimraf build/ && mkdir build && babel src --out-dir build  --source-maps",
+    "compile":    "rimraf build/ && mkdir build && babel src --out-dir build --source-maps",
     "dev":        "babel --watch src --out-dir dist",
     "lint":       "eslint src/**",
     "test":       "npm run compile && nodeunit build/test/index.js",
     "cover":      "rimraf coverage && mkdir coverage && babel-node node_modules/.bin/babel-istanbul cover --dir coverage/istanbul node_modules/.bin/nodeunit src/test/index.js",
     "coveralls":  "cat coverage/istanbul/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rimraf ./coverage",
     "check":      "npm run lint && npm run test && npm run cover && npm run coveralls",
-    "concat":     "rimraf dist/ && mkdir dist && npm run compile && browserify build/lib/index.js -o index.js",
-    "dist":       "rimraf dist/ && mkdir dist && npm run compile && browserify -t uglifyify build/lib/index.js -o dist/mFun.min.js",
+    "dist":       "rimraf dist/ && mkdir dist && npm run compile && browserify --standalone mFun -t uglifyify build/lib/index.js -o dist/mFun.min.js",
     "clean":      "rimraf dist/ && rimraf coverage/ && rimraf build/"
   },
   "devDependencies": {

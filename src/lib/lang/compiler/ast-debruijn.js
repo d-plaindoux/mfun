@@ -8,7 +8,9 @@
 
 import ast from "../analyzer/ast"
 
-class /*abstract*/ DeBruijnExpression {}
+class /*abstract*/
+DeBruijnExpression {
+}
 
 class Ident extends DeBruijnExpression {
     // String -> DeBruijnExpression
@@ -93,7 +95,7 @@ export default {
     ident: n => new Ident(n),
     constant: c => new Constant(c),
     native: (n) => new Native(n),
-    application: (f,a) => new Application(f,a),
+    application: (f, a) => new Application(f, a),
     abstraction: (b) => new Abstraction(b),
     variable: n => new Variable(n),
     definition: ast.definition,

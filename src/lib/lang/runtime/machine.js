@@ -6,11 +6,11 @@
  * Licensed under the LGPL2 license.
  */
 
-import { data } from 'parser-combinator';
+import {data} from 'parser-combinator';
 import native from "./native";
 import astResult from "./ast-result";
 
-class EnsureClosure {
+class GetClosure {
 
     constant(c) {
         throw new EvalError("Waiting for a closure")
@@ -25,7 +25,7 @@ class EnsureClosure {
 class Machine {
 
     constructor() {
-        this.ensureClosure = new EnsureClosure();
+        this.getClosure = new GetClosure();
         this.definitions = {};
         this.init([]);
     }
@@ -52,7 +52,7 @@ class Machine {
     }
 
     access(i) {
-        this.stack.unshift(this.env[i.index-1]);
+        this.stack.unshift(this.env[i.index - 1]);
     }
 
     closure(i) {
@@ -61,7 +61,7 @@ class Machine {
 
     apply() {
         const v = this.stack.shift(),
-              c = this.stack.shift().visit(this.ensureClosure);
+            c = this.stack.shift().visit(this.getClosure);
 
         this.stack.unshift(this.env);
         this.stack.unshift(this.code);
@@ -74,8 +74,8 @@ class Machine {
 
     returns() {
         const v = this.stack.shift(),
-              c = this.stack.shift(),
-              e = this.stack.shift();
+            c = this.stack.shift(),
+            e = this.stack.shift();
 
         this.code = c.slice();
         this.env = e.slice();
@@ -88,11 +88,19 @@ class Machine {
     }
 
     ident(i) {
+        const definition = this.definitions[i.name];
+        if (definition === null) {
+            throw new EvalError("Undefined definition symbol " + i.name);
+        }
         this.stack.unshift(this.definitions[i.name]);
     }
 
     native(n) {
-        this.stack.unshift(native[n.name](this.env.slice()));
+        const funcall = native[n.name];
+        if (funcall === null) {
+            throw new EvalError("Undefined native symbol " + n.name);
+        }
+        this.stack.unshift(funcall(this.env.slice()));
     }
 
     // -------------------------------------------------------------------------
