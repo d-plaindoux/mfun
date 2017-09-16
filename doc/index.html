@@ -20,6 +20,53 @@
     <!-- Code syntax highlighting -->
     <link rel="stylesheet" href="lib/css/zenburn.css">
 
+    <script type="application/mfun">
+
+    def setDom { n v     -> native "set"   }
+    def getDom { n       -> native "get"   }
+
+    def leq    { l r t f -> native "leq"   }
+    def plus   { l r     -> native "plus" }
+    def mult   { l r     -> native "mult"  }
+    def minus  { l r     -> native "minus" }
+
+    </script>
+
+    <script type="application/mfun">
+
+    def change { n v -> do { setDom (getDom n) v } yield { v } }
+
+    def cond   { c t f -> c t f () }
+
+    def do    { f   -> then () f }
+    def then  { v f -> { v c -> c v } $ f v }
+    def yield { v f  -> f v }
+
+    </script>
+
+    <script type="application/mfun">
+
+    def fact { a ->
+        cond (leq a 1)
+             { 1 }
+             { mult a $ fact $ minus a 1 }
+    }
+
+    def compute_display { v ->
+        do    { change "val" v }
+        then  { change "fact" $ fact v }
+        yield { v }
+    }
+
+    </script>
+
+    <script type="application/javascript" src="../dist/mFun.min.js"></script>
+    <script type="application/javascript">
+        function bootstrap() {
+            mFun.default.repl(mFun.default.reader.browser)
+        }
+    </script>
+
     <style>
 
         .alert {
@@ -136,7 +183,7 @@
                  | <span class="tk">do</span> exp
           s0   ::= def* </pre>
 
-            <div class="remark fragment"> LL(1)</div>
+            <div class="remark fragment"> LL(1)? </div>
         </section>
 
         <section>
@@ -198,7 +245,7 @@
             { _ -> mult a (fact (minus a 1)) }
     }
 
-    do fact 12
+    fact 12
       </code></pre>
         </section>
 
@@ -217,8 +264,21 @@
             { mult a $ fact $ minus a 1 }
     }
 
-    do fact 12
+    fact 12
       </code></pre>
+        </section>
+
+        <section>
+            <h3> Example :: DSL </h3>
+            <pre><code>
+    def do    { f   -> then () f }
+    def then  { v f -> { v c -> c v } $ f v }
+    def yield { v f  -> f v }
+
+    do    { plus 40 3 }
+    then  { minus _ 1 }
+    yield { _ } // 42
+            </code></pre>
         </section>
 
         <section>
@@ -429,6 +489,32 @@
             <h4> S &rightarrow; Analyze(S).map(Transform).map.(Compile).flatmap(Execute) </h4>
 
             <div class="fragment ribbon"><span>Live Code</span></div>
+
+        </section>
+
+        <section>
+
+            <pre>
+    def fact { a ->
+        cond (leq a 1)
+             { 1 }
+             { mult a $ fact $ minus a 1 }
+    }
+
+    def compute_display { v ->
+        do    { change "val" v }
+        then  { change "fact" $ fact v }
+        yield { v }
+    }
+
+    compute_display 100
+            </pre>
+
+            <script type="application/mfun">
+    compute_display 100
+            </script>
+
+            <h4 onclick="bootstrap()">Factorial(<span id='val'>$val</span>) = <span id='fact'>$fact</span></h4>
 
         </section>
         <section>

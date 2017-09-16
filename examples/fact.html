@@ -3,14 +3,29 @@
 <head>
     <script type="application/mfun">
 
-    def text  { n v     -> native "text"  }
-    def node  { n       -> native "node"  }
+    def setDom { n v     -> native "set"   }
+    def getDom { n       -> native "get"   }
 
-    def leq   { l r t f -> native "leq"   }
-    def mult  { l r     -> native "mult"  }
-    def minus { l r     -> native "minus" }
+    def leq    { l r t f -> native "leq"   }
+    def plus   { l r     -> native "plus" }
+    def mult   { l r     -> native "mult"  }
+    def minus  { l r     -> native "minus" }
 
-    def cond { c t f -> c t f () }
+    </script>
+
+    <script type="application/mfun">
+
+    def change { n v -> do { setDom (getDom n) v } return { v } }
+
+    def cond   { c t f -> c t f () }
+
+    def do     { f   -> then () f }
+    def then   { v f -> { v c -> c v } $ f v }
+    def return { v f  -> f v }
+
+    </script>
+
+    <script type="application/mfun">
 
     def fact { a ->
         cond (leq a 1)
@@ -18,7 +33,17 @@
              { mult a $ fact $ minus a 1 }
     }
 
-    text (node "fact") (fact 9)
+    def compute_display { v ->
+        do   { change "val" v }
+        then { change "fact" $ fact v }
+        return { v }
+    }
+
+    do   { compute_display 1 }
+    then { compute_display $ plus _ 1 }
+    then { compute_display $ plus _ 1 }
+    then { compute_display $ plus _ 1 }
+    return { _ }
 
     </script>
     <script type="application/javascript" src="../dist/mFun.min.js"></script>
@@ -30,7 +55,7 @@
 </head>
 <body onload="bootstrap()">
 <div>
-    Factorial(9) = <span id='fact'>...</span>
+    <h1>Factorial(<span id='val'>...</span>) = <span id='fact'>...</span></h1>
 </div>
 </body>
 </html>

@@ -2,27 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7515c4cf-6f38-468b-954b-8e00087ca8ca" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/fact.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/lib/lang/toplevel/repl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/lib/reader/browser.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/lang/toplevel/repl_test.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/examples/fact.fun" afterPath="$PROJECT_DIR$/examples/fact.fun" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/index.html" afterPath="$PROJECT_DIR$/doc/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/lib/extensions/array.js" afterPath="$PROJECT_DIR$/src/lib/extensions/array.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/lib/index.js" afterPath="$PROJECT_DIR$/src/lib/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/lib/lang/analyzer/ast.js" afterPath="$PROJECT_DIR$/src/lib/lang/analyzer/ast.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/lib/lang/analyzer/parser.js" afterPath="$PROJECT_DIR$/src/lib/lang/analyzer/parser.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/lib/lang/compiler/ast-debruijn.js" afterPath="$PROJECT_DIR$/src/lib/lang/compiler/ast-debruijn.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/lib/lang/compiler/ast-objcode.js" afterPath="$PROJECT_DIR$/src/lib/lang/compiler/ast-objcode.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/lib/lang/compiler/debruijn.js" afterPath="$PROJECT_DIR$/src/lib/lang/compiler/debruijn.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/lib/lang/compiler/objcode.js" afterPath="$PROJECT_DIR$/src/lib/lang/compiler/objcode.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/lib/lang/runtime/ast-result.js" afterPath="$PROJECT_DIR$/src/lib/lang/runtime/ast-result.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/lib/lang/runtime/machine.js" afterPath="$PROJECT_DIR$/src/lib/lang/runtime/machine.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/fact.html" afterPath="$PROJECT_DIR$/examples/fact.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/lib/lang/runtime/native.js" afterPath="$PROJECT_DIR$/src/lib/lang/runtime/native.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/lib/lang/toplevel/evaluator.js" afterPath="$PROJECT_DIR$/src/lib/lang/toplevel/evaluator.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/lang/analyzer/parser_expressions_test.js" afterPath="$PROJECT_DIR$/src/test/lang/analyzer/parser_expressions_test.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -36,12 +19,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="fact.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/examples/fact.html">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/doc/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="20" column="31" lean-forward="true" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
-              <folding />
+            <state relative-caret-position="53">
+              <caret line="247" column="4" lean-forward="true" selection-start-line="247" selection-start-column="4" selection-end-line="247" selection-end-column="4" />
+              <folding>
+                <element signature="e#91#98#0" expanded="true" />
+                <element signature="n#script#0;n#head#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="e#3911#3918#0" expanded="true" />
+                <element signature="e#4531#4539#0" expanded="true" />
+                <element signature="e#5845#5852#1" expanded="true" />
+                <element signature="e#6160#6167#1" expanded="true" />
+                <element signature="e#6466#6473#1" expanded="true" />
+                <element signature="e#6886#6894#1" expanded="true" />
+                <element signature="e#7208#7216#1" expanded="true" />
+                <element signature="e#11167#11175#0" expanded="true" />
+                <element signature="e#11186#11190#0" expanded="true" />
+                <element signature="e#11332#11336#0" expanded="true" />
+                <element signature="e#11524#11536#0" expanded="true" />
+                <element signature="e#12166#12172#0" expanded="true" />
+                <element signature="e#14781#14793#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -69,6 +68,9 @@
       <find>require</find>
       <find>mFun</find>
       <find>bindCall</find>
+      <find>40</find>
+      <find>return</find>
+      <find>return</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -86,7 +88,6 @@
         <option value="$PROJECT_DIR$/build/test/lang/analyzer/parser_expressions_test.js" />
         <option value="$PROJECT_DIR$/src/test/index.js" />
         <option value="$PROJECT_DIR$/src/lib/lang/runtime/ast-result.js" />
-        <option value="$PROJECT_DIR$/src/lib/extensions/array.js" />
         <option value="$PROJECT_DIR$/src/lib/lang/compiler/ast-debruijn.js" />
         <option value="$PROJECT_DIR$/src/lib/lang/compiler/ast-objcode.js" />
         <option value="$PROJECT_DIR$/src/lib/lang/compiler/debruijn.js" />
@@ -101,17 +102,18 @@
         <option value="$PROJECT_DIR$/src/lib/index.js" />
         <option value="$PROJECT_DIR$/src/lib/reader/browser.js" />
         <option value="$PROJECT_DIR$/src/test/lang/analyzer/parser_expressions_test.js" />
-        <option value="$PROJECT_DIR$/doc/index.html" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/examples/fact.fun" />
         <option value="$PROJECT_DIR$/src/lib/lang/analyzer/parser.js" />
         <option value="$PROJECT_DIR$/src/test/lang/analyzer/parser_entities_test.js" />
         <option value="$PROJECT_DIR$/src/test/lang/runtime/machine_test.js" />
         <option value="$PROJECT_DIR$/src/lib/lang/runtime/machine.js" />
-        <option value="$PROJECT_DIR$/src/lib/lang/toplevel/repl.js" />
         <option value="$PROJECT_DIR$/src/lib/lang/toplevel/printer.js" />
+        <option value="$PROJECT_DIR$/src/lib/extensions/array.js" />
+        <option value="$PROJECT_DIR$/src/lib/lang/toplevel/repl.js" />
         <option value="$PROJECT_DIR$/src/lib/lang/runtime/native.js" />
         <option value="$PROJECT_DIR$/examples/fact.html" />
+        <option value="$PROJECT_DIR$/doc/index.html" />
       </list>
     </option>
   </component>
@@ -163,146 +165,12 @@
             <path>
               <item name="mFun" type="b2602c69:ProjectViewProjectNode" />
               <item name="mFun" type="462c0819:PsiDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mFun" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mFun" type="462c0819:PsiDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mFun" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mFun" type="462c0819:PsiDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="extensions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mFun" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mFun" type="462c0819:PsiDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="lang" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mFun" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mFun" type="462c0819:PsiDirectoryNode" />
               <item name="doc" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="mFun" type="b2602c69:ProjectViewProjectNode" />
               <item name="mFun" type="462c0819:PsiDirectoryNode" />
               <item name="examples" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mFun" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mFun" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mFun" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mFun" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mFun" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mFun" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="extensions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mFun" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mFun" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="lang" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mFun" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mFun" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="lang" type="462c0819:PsiDirectoryNode" />
-              <item name="analyzer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mFun" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mFun" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="lang" type="462c0819:PsiDirectoryNode" />
-              <item name="compiler" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mFun" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mFun" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="lang" type="462c0819:PsiDirectoryNode" />
-              <item name="runtime" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mFun" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mFun" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="lang" type="462c0819:PsiDirectoryNode" />
-              <item name="toplevel" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mFun" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mFun" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="reader" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mFun" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mFun" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mFun" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mFun" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="lang" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mFun" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mFun" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="lang" type="462c0819:PsiDirectoryNode" />
-              <item name="analyzer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mFun" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mFun" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="lang" type="462c0819:PsiDirectoryNode" />
-              <item name="compiler" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mFun" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mFun" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="lang" type="462c0819:PsiDirectoryNode" />
-              <item name="runtime" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mFun" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mFun" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="lang" type="462c0819:PsiDirectoryNode" />
-              <item name="toplevel" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -469,7 +337,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1504776330263</updated>
-      <workItem from="1504776332196" duration="56773000" />
+      <workItem from="1504776332196" duration="69899000" />
     </task>
     <servers />
   </component>
@@ -506,7 +374,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56773000" />
+    <option name="totallyTimeSpent" value="69899000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -664,14 +532,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/lang/toplevel/evaluator.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="538">
-          <caret line="43" column="14" lean-forward="false" selection-start-line="43" selection-start-column="14" selection-end-line="43" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -741,49 +601,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/extensions/array.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/lib/lang/analyzer/ast.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="24">
           <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/doc/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="135" column="38" lean-forward="false" selection-start-line="135" selection-start-column="38" selection-end-line="135" selection-end-column="38" />
-          <folding>
-            <element signature="e#91#98#0" expanded="true" />
-            <element signature="e#2785#2792#0" expanded="true" />
-            <element signature="e#3405#3413#0" expanded="true" />
-            <element signature="e#4717#4724#1" expanded="true" />
-            <element signature="e#5032#5039#1" expanded="true" />
-            <element signature="e#5338#5345#1" expanded="true" />
-            <element signature="e#5758#5766#1" expanded="true" />
-            <element signature="e#6080#6088#1" expanded="true" />
-            <element signature="e#9737#9745#0" expanded="true" />
-            <element signature="e#9756#9760#0" expanded="true" />
-            <element signature="e#9902#9906#0" expanded="true" />
-            <element signature="e#10094#10106#0" expanded="true" />
-            <element signature="e#10736#10742#0" expanded="true" />
-            <element signature="e#13351#13363#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="16" column="3" lean-forward="false" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
           <folding />
         </state>
       </provider>
@@ -849,22 +670,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/lang/toplevel/repl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="14" column="8" lean-forward="false" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/fact.fun">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/lib/lang/toplevel/printer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -881,19 +686,95 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/extensions/array.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/lang/toplevel/repl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="12" column="16" lean-forward="true" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/lang/toplevel/evaluator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="628">
+          <caret line="43" column="14" lean-forward="false" selection-start-line="43" selection-start-column="14" selection-end-line="43" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-540">
+          <caret line="16" column="3" lean-forward="false" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/lib/lang/runtime/native.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="19" column="28" lean-forward="false" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/lib/lang/runtime/native.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="14" column="4" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
+        <state relative-caret-position="562">
+          <caret line="73" column="0" lean-forward="true" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/fact.fun">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/examples/fact.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="20" column="31" lean-forward="true" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
-          <folding />
+        <state relative-caret-position="691">
+          <caret line="53" column="13" lean-forward="true" selection-start-line="53" selection-start-column="13" selection-end-line="53" selection-end-column="13" />
+          <folding>
+            <element signature="n#script#0;n#head#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#script#1;n#head#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#script#4;n#head#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/doc/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="53">
+          <caret line="247" column="4" lean-forward="true" selection-start-line="247" selection-start-column="4" selection-end-line="247" selection-end-column="4" />
+          <folding>
+            <element signature="e#91#98#0" expanded="true" />
+            <element signature="n#script#0;n#head#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="e#3911#3918#0" expanded="true" />
+            <element signature="e#4531#4539#0" expanded="true" />
+            <element signature="e#5845#5852#1" expanded="true" />
+            <element signature="e#6160#6167#1" expanded="true" />
+            <element signature="e#6466#6473#1" expanded="true" />
+            <element signature="e#6886#6894#1" expanded="true" />
+            <element signature="e#7208#7216#1" expanded="true" />
+            <element signature="e#11167#11175#0" expanded="true" />
+            <element signature="e#11186#11190#0" expanded="true" />
+            <element signature="e#11332#11336#0" expanded="true" />
+            <element signature="e#11524#11536#0" expanded="true" />
+            <element signature="e#12166#12172#0" expanded="true" />
+            <element signature="e#14781#14793#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

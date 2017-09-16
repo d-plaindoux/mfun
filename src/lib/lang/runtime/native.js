@@ -10,38 +10,46 @@
 
 import astResult from './ast-result';
 
+function mustBe(v, type) {
+    if (typeof v === type) {
+        return v;
+    } else {
+        throw new EvalError("Waiting for $(type");
+    }
+}
+
 // Remember De Bruijn indexes
 
 export default {
-    'text': env => {
+    'set': env => {
         const a = env[1],
-            b = env[0];
+            b = mustBe(env[0], "string");
 
         a.value.innerText = b.value;
 
         return a;
     },
-    'node': env => {
-        const a = env[0];
+    'get': env => {
+        const a = mustBe(env[0], "string");
 
         return astResult.constant(document.getElementById(a.value));
     },
     // Number operations
-    'add': env => {
+    'plus': env => {
         const a = env[1].value,
             b = env[0].value;
 
         return astResult.constant(a + b);
     },
     'minus': env => {
-        const a = env[1].value,
-            b = env[0].value;
+        const a = mustBe(env[1].value, "number"),
+            b = mustBe(env[0].value, "number");
 
         return astResult.constant(a - b);
     },
     'mult': env => {
-        const a = env[1].value,
-            b = env[0].value;
+        const a = mustBe(env[1].value, "number"),
+            b = mustBe(env[0].value, "number");
 
         return astResult.constant(a * b);
     },
