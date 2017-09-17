@@ -6,11 +6,11 @@
  * Licensed under the LGPL2 license.
  */
 
-import repl from './lang/toplevel/repl';
+import eval_print from './lang/toplevel/eval_print';
 import browserReader from './reader/browser';
 
 export default {
-    repl,
+    eval_print,
     reader: {
         browser: browserReader
     }

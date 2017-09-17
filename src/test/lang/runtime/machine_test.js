@@ -73,8 +73,8 @@ export default {
     'execute an applied native definition': function(test) {
         test.expect(1);
         const engine = engineFactory();
-        engine.apply('def add { a b -> native "add" }');
-        test.deepEqual(destruct(engine.apply('add 41 1')),
+        engine.apply('def plus { a b -> native "plus" }');
+        test.deepEqual(destruct(engine.apply('plus 41 1')),
                        [ astResult.constant(42) ],
                        'execute an applied definition.');
         test.done();

@@ -89,17 +89,21 @@ class Machine {
 
     ident(i) {
         const definition = this.definitions[i.name];
+
         if (definition === null) {
             throw new EvalError("Undefined definition symbol " + i.name);
         }
-        this.stack.unshift(this.definitions[i.name]);
+
+        this.stack.unshift(definition);
     }
 
     native(n) {
         const funcall = native[n.name];
+
         if (funcall === null) {
             throw new EvalError("Undefined native symbol " + n.name);
         }
+
         this.stack.unshift(funcall(this.env.slice()));
     }
 

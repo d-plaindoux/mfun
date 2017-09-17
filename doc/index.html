@@ -57,8 +57,12 @@
     </script>
 
     <script type="application/javascript">
+        function evalPrint(sourceCode) {
+            console.log("Executing [" + sourceCode + "]");
+            mFun.default.eval_print(sourceCode);
+        }
         function bootstrap() {
-            mFun.default.repl(mFun.default.reader.browser)
+            mFun.default.reader.browser(evalPrint);
         }
     </script>
 
@@ -270,9 +274,9 @@
     def then  { v f -> { v c -> c v } $ f v }
     def yield { v f -> f v }
 
-    do    { plus 40 3 }
+    do    { plus 20 2 }
     then  { minus _ 1 }
-    yield { _ } // 42
+    yield { mult _ 2 } // 42
             </code></pre>
         </section>
 
@@ -500,7 +504,9 @@
         then  { changeDom "res" $ fact v }
         yield { () }
     }
+            </script>
 
+            <script type="application/mfun">
     compute_then_display 100
             </script>
 
