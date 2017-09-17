@@ -14,7 +14,7 @@ function mustBe(v, type) {
     if (typeof v === type) {
         return v;
     } else {
-        throw new EvalError("Waiting for $(type");
+        throw new EvalError("Waiting for " + type + " and not a " + typeof v);
     }
 }
 
@@ -22,17 +22,17 @@ function mustBe(v, type) {
 
 export default {
     'set': env => {
-        const a = env[1],
-            b = mustBe(env[0], "string");
+        const node = env[1],
+            text = env[0];
 
-        a.value.innerText = b.value;
+        node.value.innerText = text.value;
 
-        return a;
+        return node;
     },
     'get': env => {
-        const a = mustBe(env[0], "string");
+        const identifier = mustBe(env[0].value, "string");
 
-        return astResult.constant(document.getElementById(a.value));
+        return astResult.constant(document.getElementById(identifier));
     },
     // Number operations
     'plus': env => {

@@ -20,6 +20,8 @@
     <!-- Code syntax highlighting -->
     <link rel="stylesheet" href="lib/css/zenburn.css">
 
+    <script type="application/javascript" src="../dist/mFun.min.js"></script>
+
     <script type="application/mfun">
 
     def setDom { n v     -> native "set"   }
@@ -34,7 +36,7 @@
 
     <script type="application/mfun">
 
-    def change { n v -> do { setDom (getDom n) v } yield { v } }
+    def changeDom { n v -> do { setDom (getDom n) v } yield { v } }
 
     def cond   { c t f -> c t f () }
 
@@ -52,15 +54,8 @@
              { mult a $ fact $ minus a 1 }
     }
 
-    def compute_display { v ->
-        do    { change "val" v }
-        then  { change "fact" $ fact v }
-        yield { v }
-    }
-
     </script>
 
-    <script type="application/javascript" src="../dist/mFun.min.js"></script>
     <script type="application/javascript">
         function bootstrap() {
             mFun.default.repl(mFun.default.reader.browser)
@@ -180,7 +175,7 @@
                  | STRING
                  | <span class="tk">native</span> STRING
           def  ::= <span class="tk">def</span> IDENT sexp
-                 | <span class="tk">do</span> exp
+                 | exp
           s0   ::= def* </pre>
 
             <div class="remark fragment"> LL(1)? </div>
@@ -232,8 +227,8 @@
 
         <section>
             <h3> Example :: Factorial </h3>
-            <pre><code>
-    def leq   { l r t f -> native "leq"   } // l <= r ? t : f
+            <pre><code class="mfun">
+    def leq   { l r t f in native "leq"   } // l <= r ? t : f
     def mult  { l r     -> native "mult"  }
     def minus { l r     -> native "minus" }
 
@@ -251,7 +246,7 @@
 
         <section>
             <h3> Example :: Factorial Cont'd </h3>
-            <pre><code>
+            <pre><code class="mfun">
     def leq   { l r t f -> native "leq"   } // l <= r ? t : f
     def mult  { l r     -> native "mult"  }
     def minus { l r     -> native "minus" }
@@ -270,10 +265,10 @@
 
         <section>
             <h3> Example :: DSL </h3>
-            <pre><code>
+            <pre><code class="mfun">
     def do    { f   -> then () f }
     def then  { v f -> { v c -> c v } $ f v }
-    def yield { v f  -> f v }
+    def yield { v f -> f v }
 
     do    { plus 40 3 }
     then  { minus _ 1 }
@@ -486,7 +481,10 @@
 
         <section>
 
-            <h4> S &rightarrow; Analyze(S).map(Transform).map.(Compile).flatmap(Execute) </h4>
+            <h4> Read() <br>
+                .map(Analyze).map(Transform).map.(Compile).flatmap(Execute) <br>
+                 .map(Print)
+            </h4>
 
             <div class="fragment ribbon"><span>Live Code</span></div>
 
@@ -494,37 +492,39 @@
 
         <section>
 
-            <pre>
-    def fact { a ->
-        cond (leq a 1)
-             { 1 }
-             { mult a $ fact $ minus a 1 }
-    }
-
-    def compute_display { v ->
-        do    { change "val" v }
-        then  { change "fact" $ fact v }
-        yield { v }
-    }
-
-    compute_display 100
-            </pre>
+            <h3> <span class="name">F&micro;N</span> in a browser  </h3>
 
             <script type="application/mfun">
-    compute_display 100
+    def compute_then_display { v ->
+        do    { changeDom "val" v }
+        then  { changeDom "res" $ fact v }
+        yield { () }
+    }
+
+    compute_then_display 100
             </script>
 
-            <h4 onclick="bootstrap()">Factorial(<span id='val'>$val</span>) = <span id='fact'>$fact</span></h4>
+            <pre><code class="fragment html">  &lt;script type="application/mfun"></code><code class="fragment mfun">
+    def compute_then_display { v ->
+        do    { changeDom "val" v }
+        then  { changeDom "res" $ fact v }
+        yield { () }
+    }
+
+    compute_then_display 100
+            </code><code class="fragment html">  &lt;/script></code></pre>
+
+            <p class="fragment" onclick="bootstrap()">fact <i class="tk" id='val'>val</i> = <i class="tk" id='res'>res</i></p>
 
         </section>
         <section>
             <h3> What's Next? </h3>
 
             <ul>
-                <li> Call-by-Name</li>
-                <li> Tail recursive</li>
-                <li> Type systems</li>
-                <li> G-Machine, SECD-Machine etc.</li>
+                <li> Call-by-Name </li>
+                <li> Tail recursive </li>
+                <li> Type checker </li>
+                <li> G-Machine, SECD-Machine etc. </li>
             </ul>
         </section>
 
@@ -561,6 +561,11 @@
                     {
                         src: 'plugin/highlight/highlight.js', async: true, callback: function () {
                         hljs.initHighlightingOnLoad();
+                        // And register my language
+
+                        // Disable all the auto detection
+                        hljs.configure({languages: []});
+
                     }
                     },
                     {src: 'plugin/zoom-js/zoom.js', async: true},
