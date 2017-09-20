@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7515c4cf-6f38-468b-954b-8e00087ca8ca" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/lib/reader/console.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/lib/lang/toplevel/repl.js" afterPath="$PROJECT_DIR$/src/lib/lang/toplevel/eval_print.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/index.html" afterPath="$PROJECT_DIR$/doc/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.js" afterPath="$PROJECT_DIR$/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/lib/index.js" afterPath="$PROJECT_DIR$/src/lib/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/lib/lang/runtime/machine.js" afterPath="$PROJECT_DIR$/src/lib/lang/runtime/machine.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/lib/reader/browser.js" afterPath="$PROJECT_DIR$/src/lib/reader/browser.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/lang/runtime/machine_test.js" afterPath="$PROJECT_DIR$/src/test/lang/runtime/machine_test.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,54 +16,59 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/doc/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="278" column="20" lean-forward="false" selection-start-line="278" selection-start-column="20" selection-end-line="278" selection-end-column="20" />
+            <state relative-caret-position="168">
+              <caret line="525" column="0" lean-forward="false" selection-start-line="525" selection-start-column="0" selection-end-line="525" selection-end-column="0" />
               <folding>
                 <element signature="e#91#98#0" expanded="true" />
-                <element signature="e#3935#3942#0" expanded="true" />
+                <element signature="e#3930#3937#0" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#section#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#section#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#2;n#section#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#4333#4338#0" expanded="true" />
-                <element signature="e#4555#4563#0" expanded="true" />
-                <element signature="e#5842#5849#1" expanded="true" />
-                <element signature="e#6157#6164#1" expanded="true" />
-                <element signature="e#6463#6470#1" expanded="true" />
-                <element signature="e#6883#6891#1" expanded="true" />
-                <element signature="e#7205#7213#1" expanded="true" />
-                <element signature="e#8750#8762#0" expanded="true" />
-                <element signature="e#9616#9628#0" expanded="true" />
-                <element signature="e#9834#9838#0" expanded="true" />
-                <element signature="e#9891#9895#0" expanded="true" />
-                <element signature="e#9903#9908#0" expanded="true" />
-                <element signature="e#10312#10324#0" expanded="true" />
-                <element signature="e#10588#10595#0" expanded="true" />
-                <element signature="e#10822#10834#0" expanded="true" />
-                <element signature="e#10847#10859#0" expanded="true" />
-                <element signature="e#11209#11217#0" expanded="true" />
-                <element signature="e#11228#11232#0" expanded="true" />
-                <element signature="e#11294#11301#0" expanded="true" />
-                <element signature="e#11364#11372#0" expanded="true" />
-                <element signature="e#11374#11378#0" expanded="true" />
-                <element signature="e#11386#11390#0" expanded="true" />
-                <element signature="e#11566#11578#0" expanded="true" />
-                <element signature="e#11774#11786#0" expanded="true" />
-                <element signature="e#11791#11803#0" expanded="true" />
-                <element signature="e#12208#12214#0" expanded="true" />
-                <element signature="e#12493#12505#0" expanded="true" />
-                <element signature="e#12857#12869#0" expanded="true" />
-                <element signature="e#13424#13436#0" expanded="true" />
-                <element signature="e#13673#13685#0" expanded="true" />
-                <element signature="e#13690#13702#0" expanded="true" />
-                <element signature="e#13709#13721#0" expanded="true" />
-                <element signature="e#14735#14747#0" expanded="true" />
-                <element signature="e#15109#15116#0" expanded="true" />
-                <element signature="e#15500#15504#0" expanded="true" />
-                <element signature="e#15792#15796#0" expanded="true" />
+                <element signature="e#4328#4333#0" expanded="true" />
+                <element signature="e#4550#4558#0" expanded="true" />
+                <element signature="e#5836#5843#1" expanded="true" />
+                <element signature="e#6151#6158#1" expanded="true" />
+                <element signature="e#6457#6464#1" expanded="true" />
+                <element signature="e#6877#6885#1" expanded="true" />
+                <element signature="e#7199#7207#1" expanded="true" />
+                <element signature="e#8743#8755#0" expanded="true" />
+                <element signature="e#9609#9621#0" expanded="true" />
+                <element signature="e#9827#9831#0" expanded="true" />
+                <element signature="e#9884#9888#0" expanded="true" />
+                <element signature="e#9896#9901#0" expanded="true" />
+                <element signature="e#10305#10317#0" expanded="true" />
+                <element signature="e#10581#10588#0" expanded="true" />
+                <element signature="e#10815#10827#0" expanded="true" />
+                <element signature="e#10840#10852#0" expanded="true" />
+                <element signature="e#11202#11210#0" expanded="true" />
+                <element signature="e#11221#11225#0" expanded="true" />
+                <element signature="e#11287#11294#0" expanded="true" />
+                <element signature="e#11357#11365#0" expanded="true" />
+                <element signature="e#11367#11371#0" expanded="true" />
+                <element signature="e#11379#11383#0" expanded="true" />
+                <element signature="e#11559#11571#0" expanded="true" />
+                <element signature="e#11767#11779#0" expanded="true" />
+                <element signature="e#11784#11796#0" expanded="true" />
+                <element signature="e#12201#12207#0" expanded="true" />
+                <element signature="e#12486#12498#0" expanded="true" />
+                <element signature="e#12850#12862#0" expanded="true" />
+                <element signature="e#13417#13429#0" expanded="true" />
+                <element signature="e#13684#13696#0" expanded="true" />
+                <element signature="e#13701#13713#0" expanded="true" />
+                <element signature="e#13720#13732#0" expanded="true" />
+                <element signature="e#14728#14740#0" expanded="true" />
+                <element signature="e#14994#15001#0" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#section#23;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#15120#15124#0" expanded="true" />
+                <element signature="e#15163#15167#0" expanded="true" />
+                <element signature="e#15173#15177#0" expanded="true" />
+                <element signature="e#15546#15550#0" expanded="true" />
+                <element signature="e#15806#15810#0" expanded="true" />
+                <element signature="e#15885#15892#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -80,11 +78,7 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>mibr</find>
-      <find>mi</find>
-      <find>micro;</find>
       <find>index&quot;</find>
-      <find>index</find>
       <find>repl</find>
       <find>.map</find>
       <find>stringstream</find>
@@ -94,7 +88,6 @@
       <find>mFun</find>
       <find>bindCall</find>
       <find>40</find>
-      <find>return</find>
       <find>return</find>
       <find>compute_then_display</find>
       <find>&lt;code&gt;</find>
@@ -110,12 +103,20 @@
       <find>sml&quot;</find>
       <find>-in</find>
       <find>mfun</find>
+      <find>&amp;lt;i</find>
+      <find>variable</find>
+      <find>variables</find>
+      <find>index</find>
+      <find>this.stack.unshift</find>
     </findStrings>
     <replaceStrings>
       <replace />
       <replace>23%</replace>
       <replace>&lt;span class=&quot;tk&quot;&gt;def&lt;/span&gt;</replace>
       <replace>--&gt;</replace>
+      <replace>&amp;lt;span</replace>
+      <replace>cons</replace>
+      <replace>this.stack = this.stack.cons</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -128,12 +129,8 @@
         <option value="$PROJECT_DIR$/build/test/index.js" />
         <option value="$PROJECT_DIR$/build/test/lang/analyzer/parser_expressions_test.js" />
         <option value="$PROJECT_DIR$/src/test/index.js" />
-        <option value="$PROJECT_DIR$/src/lib/lang/runtime/ast-result.js" />
         <option value="$PROJECT_DIR$/src/lib/lang/compiler/ast-debruijn.js" />
         <option value="$PROJECT_DIR$/src/lib/lang/compiler/ast-objcode.js" />
-        <option value="$PROJECT_DIR$/src/lib/lang/compiler/debruijn.js" />
-        <option value="$PROJECT_DIR$/src/lib/lang/compiler/objcode.js" />
-        <option value="$PROJECT_DIR$/src/lib/lang/analyzer/ast.js" />
         <option value="$PROJECT_DIR$/src/examples/fact.fun" />
         <option value="$PROJECT_DIR$/src/lib/lang/toplevel/index.js" />
         <option value="$PROJECT_DIR$/src/examples/fact.html" />
@@ -142,21 +139,27 @@
         <option value="$PROJECT_DIR$/src/test/lang/analyzer/parser_expressions_test.js" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/examples/fact.fun" />
-        <option value="$PROJECT_DIR$/src/lib/lang/analyzer/parser.js" />
         <option value="$PROJECT_DIR$/src/test/lang/analyzer/parser_entities_test.js" />
-        <option value="$PROJECT_DIR$/src/lib/extensions/array.js" />
         <option value="$PROJECT_DIR$/src/lib/lang/toplevel/repl.js" />
         <option value="$PROJECT_DIR$/examples/fact.html" />
         <option value="$PROJECT_DIR$/src/lib/lang/runtime/native.js" />
         <option value="$PROJECT_DIR$/doc/plugin/highlight/highlight.js" />
         <option value="$PROJECT_DIR$/src/lib/index.js" />
         <option value="$PROJECT_DIR$/src/lib/lang/toplevel/printer.js" />
-        <option value="$PROJECT_DIR$/src/test/lang/runtime/machine_test.js" />
-        <option value="$PROJECT_DIR$/src/lib/lang/runtime/machine.js" />
         <option value="$PROJECT_DIR$/src/lib/reader/console.js" />
         <option value="$PROJECT_DIR$/src/lib/reader/browser.js" />
-        <option value="$PROJECT_DIR$/src/lib/lang/toplevel/evaluator.js" />
         <option value="$PROJECT_DIR$/src/lib/lang/toplevel/eval_print.js" />
+        <option value="$PROJECT_DIR$/src/test/lang/runtime/machine_test.js" />
+        <option value="$PROJECT_DIR$/src/lib/lang/analyzer/ast.js" />
+        <option value="$PROJECT_DIR$/src/lib/lang/toplevel/evaluator.js" />
+        <option value="$PROJECT_DIR$/src/test/lang/compiler/debruijn_expression_test.js" />
+        <option value="$PROJECT_DIR$/build/test/lang/compiler/debruijn_expression_test.js" />
+        <option value="$PROJECT_DIR$/src/lib/lang/runtime/ast-result.js" />
+        <option value="$PROJECT_DIR$/src/lib/lang/compiler/debruijn.js" />
+        <option value="$PROJECT_DIR$/src/lib/lang/compiler/objcode.js" />
+        <option value="$PROJECT_DIR$/src/lib/extensions/array.js" />
+        <option value="$PROJECT_DIR$/src/lib/lang/analyzer/parser.js" />
+        <option value="$PROJECT_DIR$/src/lib/lang/runtime/machine.js" />
         <option value="$PROJECT_DIR$/doc/index.html" />
       </list>
     </option>
@@ -183,6 +186,7 @@
     <option name="width" value="1920" />
     <option name="height" value="1200" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -214,11 +218,6 @@
             <path>
               <item name="mFun" type="b2602c69:ProjectViewProjectNode" />
               <item name="mFun" type="462c0819:PsiDirectoryNode" />
-              <item name="examples" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mFun" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mFun" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -226,6 +225,13 @@
               <item name="mFun" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mFun" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mFun" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="extensions" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="mFun" type="b2602c69:ProjectViewProjectNode" />
@@ -233,6 +239,22 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
               <item name="lang" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mFun" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mFun" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="lang" type="462c0819:PsiDirectoryNode" />
+              <item name="analyzer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mFun" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mFun" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="lang" type="462c0819:PsiDirectoryNode" />
+              <item name="compiler" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="mFun" type="b2602c69:ProjectViewProjectNode" />
@@ -246,21 +268,6 @@
               <item name="mFun" type="b2602c69:ProjectViewProjectNode" />
               <item name="mFun" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="lang" type="462c0819:PsiDirectoryNode" />
-              <item name="toplevel" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mFun" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mFun" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="reader" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mFun" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mFun" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -269,6 +276,22 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="lang" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mFun" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mFun" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="lang" type="462c0819:PsiDirectoryNode" />
+              <item name="analyzer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mFun" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mFun" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="lang" type="462c0819:PsiDirectoryNode" />
+              <item name="compiler" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="mFun" type="b2602c69:ProjectViewProjectNode" />
@@ -277,14 +300,6 @@
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="lang" type="462c0819:PsiDirectoryNode" />
               <item name="runtime" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mFun" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mFun" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="lang" type="462c0819:PsiDirectoryNode" />
-              <item name="toplevel" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -298,7 +313,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="$PROJECT_DIR$/node_modules/eslint" />
@@ -328,7 +343,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Node.js.ast.js">
+  <component name="RunManager" selected="Nodeunit.Tests Runtime">
     <configuration name="Tests De Bruijn" type="NodeunitConfigurationType" factoryName="Nodeunit">
       <setting name="nodePath" value="project" />
       <envs />
@@ -426,13 +441,14 @@
     </configuration>
     <configuration name="ast.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="ast.js" working-dir="$PROJECT_DIR$/src/lib/lang/analyzer" />
     <configuration name="index.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="index.js" working-dir="$PROJECT_DIR$/src/test" />
-    <list size="6">
+    <list size="7">
       <item index="0" class="java.lang.String" itemvalue="Nodeunit.Tests Expressions" />
       <item index="1" class="java.lang.String" itemvalue="Nodeunit.Tests Entities" />
       <item index="2" class="java.lang.String" itemvalue="Nodeunit.Tests De Bruijn" />
       <item index="3" class="java.lang.String" itemvalue="Nodeunit.Tests Objcode" />
       <item index="4" class="java.lang.String" itemvalue="Nodeunit.Tests Runtime" />
-      <item index="5" class="java.lang.String" itemvalue="Node.js.ast.js" />
+      <item index="5" class="java.lang.String" itemvalue="Node.js.index.js" />
+      <item index="6" class="java.lang.String" itemvalue="Node.js.ast.js" />
     </list>
     <recent_temporary>
       <list size="2">
@@ -451,31 +467,29 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1504776330263</updated>
-      <workItem from="1504776332196" duration="84872000" />
+      <workItem from="1504776332196" duration="102226000" />
+      <workItem from="1505898576767" duration="6592000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Tests_De_Bruijn - 2017.09.09 at 09h 19m 49s.xml">
+    <history-entry file="Tests_De_Bruijn - 2017.09.19 at 05h 55m 17s.xml">
       <configuration name="Tests De Bruijn" configurationId="NodeunitConfigurationType" />
     </history-entry>
-    <history-entry file="Tests_De_Bruijn - 2017.09.09 at 09h 20m 21s.xml">
+    <history-entry file="Tests_De_Bruijn - 2017.09.19 at 05h 56m 15s.xml">
       <configuration name="Tests De Bruijn" configurationId="NodeunitConfigurationType" />
     </history-entry>
-    <history-entry file="Tests_Expressions - 2017.09.08 at 20h 21m 05s.xml">
+    <history-entry file="Tests_De_Bruijn - 2017.09.19 at 05h 56m 25s.xml">
+      <configuration name="Tests De Bruijn" configurationId="NodeunitConfigurationType" />
+    </history-entry>
+    <history-entry file="Tests_De_Bruijn - 2017.09.19 at 05h 57m 59s.xml">
+      <configuration name="Tests De Bruijn" configurationId="NodeunitConfigurationType" />
+    </history-entry>
+    <history-entry file="Tests_Expressions - 2017.09.18 at 11h 56m 59s.xml">
       <configuration name="Tests Expressions" configurationId="NodeunitConfigurationType" />
     </history-entry>
-    <history-entry file="Tests_Expressions - 2017.09.09 at 09h 13m 06s.xml">
+    <history-entry file="Tests_Expressions - 2017.09.18 at 11h 57m 15s.xml">
       <configuration name="Tests Expressions" configurationId="NodeunitConfigurationType" />
-    </history-entry>
-    <history-entry file="Tests_Objcode - 2017.09.09 at 09h 21m 28s.xml">
-      <configuration name="Tests Objcode" configurationId="NodeunitConfigurationType" />
-    </history-entry>
-    <history-entry file="Tests_Runtime - 2017.09.09 at 09h 38m 11s.xml">
-      <configuration name="Tests Runtime" configurationId="NodeunitConfigurationType" />
-    </history-entry>
-    <history-entry file="Tests_Runtime - 2017.09.09 at 09h 38m 36s.xml">
-      <configuration name="Tests Runtime" configurationId="NodeunitConfigurationType" />
     </history-entry>
     <history-entry file="Tests_Runtime - 2017.09.09 at 09h 40m 00s.xml">
       <configuration name="Tests Runtime" configurationId="NodeunitConfigurationType" />
@@ -486,9 +500,12 @@
     <history-entry file="Tests_Runtime - 2017.09.09 at 20h 56m 09s.xml">
       <configuration name="Tests Runtime" configurationId="NodeunitConfigurationType" />
     </history-entry>
+    <history-entry file="Tests_Runtime - 2017.09.20 at 11h 18m 20s.xml">
+      <configuration name="Tests Runtime" configurationId="NodeunitConfigurationType" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84872000" />
+    <option name="totallyTimeSpent" value="108818000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -503,22 +520,22 @@
     <frame x="0" y="0" width="1920" height="1200" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13586098" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19273302" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39926064" sideWeight="0.34520724" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3265306" sideWeight="0.48704663" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32919255" sideWeight="0.75712436" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19875777" sideWeight="0.75712436" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23602484" sideWeight="0.6547927" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -549,16 +566,26 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/lib/lang/runtime/machine.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="e#134#173#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/parser-combinator/src/lib/parsec/parser.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -566,7 +593,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
           <caret line="67" column="45" lean-forward="false" selection-start-line="67" selection-start-column="45" selection-end-line="67" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -582,7 +608,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -602,47 +627,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/lang/runtime/ast-result.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/lang/compiler/ast-objcode.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/lang/compiler/debruijn.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/lang/compiler/ast-debruijn.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="16" column="25" lean-forward="true" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -654,14 +642,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dist/parser-combinator.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/parser-combinator.min.js" />
     <entry file="file://$PROJECT_DIR$/dist/mFun.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -674,48 +655,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build/lib/lang/toplevel/repl.js.map">
-      <provider editor-type-id="sourcemapFileViewerProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/lib/lang/toplevel/repl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/lang/analyzer/ast.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/lang/analyzer/parser.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="82" column="27" lean-forward="false" selection-start-line="82" selection-start-column="27" selection-end-line="82" selection-end-column="27" />
-          <folding>
-            <marker date="1505492741000" expanded="true" signature="0:6" ph="/*...*/" />
-            <marker date="1505492741000" expanded="true" signature="2547:2624" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/build/lib/lang/toplevel/repl.js.map" />
+    <entry file="file://$PROJECT_DIR$/build/lib/lang/toplevel/repl.js" />
     <entry file="file://$PROJECT_DIR$/src/test/lang/analyzer/parser_expressions_test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="514">
@@ -732,27 +676,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/lang/compiler/objcode.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/extensions/array.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-540">
           <caret line="16" column="3" lean-forward="false" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -768,7 +695,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -784,7 +710,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="1140" column="16" lean-forward="false" selection-start-line="1140" selection-start-column="12" selection-end-line="1140" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -792,19 +717,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="394">
           <caret line="53" column="13" lean-forward="true" selection-start-line="53" selection-start-column="13" selection-end-line="53" selection-end-column="13" />
-          <folding>
-            <element signature="n#script#0;n#head#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#script#1;n#head#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#script#4;n#head#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/lang/runtime/native.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="562">
-          <caret line="73" column="0" lean-forward="true" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -820,9 +732,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="13" column="7" lean-forward="false" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
-          <folding>
-            <element signature="e#134#186#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -830,25 +739,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/lang/runtime/machine_test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="75" column="30" lean-forward="false" selection-start-line="75" selection-start-column="30" selection-end-line="75" selection-end-column="30" />
-          <folding>
-            <element signature="e#1#65#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/lang/runtime/machine.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="96" column="26" lean-forward="true" selection-start-line="96" selection-start-column="26" selection-end-line="96" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -856,7 +746,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -864,7 +753,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="13" column="20" lean-forward="false" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -872,15 +760,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="21" column="14" lean-forward="false" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/lang/toplevel/evaluator.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="592">
-          <caret line="37" column="22" lean-forward="true" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -888,58 +767,266 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="16" column="16" lean-forward="true" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JavaScript-modules-diagram//Users/didierplaindoux/PersonalWork/oss/mFun/src/test">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JavaScript-modules-diagram</ID>
+          <OriginalElement>$PROJECT_DIR$/src/test</OriginalElement>
+          <nodes>
+            <node x="" y="">$PROJECT_DIR$/src/lib/lang/compiler/ast-debruijn.js</node>
+            <node x="" y="">$PROJECT_DIR$/src/lib/lang/compiler/ast-objcode.js</node>
+            <node x="" y="">$PROJECT_DIR$/src/lib/lang/runtime/ast-result.js</node>
+            <node x="" y="">$PROJECT_DIR$/src/lib/lang/analyzer/ast.js</node>
+            <node x="" y="">$PROJECT_DIR$/src/lib/lang/compiler/debruijn.js</node>
+            <node x="" y="">$PROJECT_DIR$/src/test/lang/compiler/debruijn_expression_test.js#ast#7;/Users/didierplaindoux/PersonalWork/oss/mFun/src/test/lang/compiler/debruijn_expression_test.js#astDB#57;/Users/didierplaindoux/PersonalWork/oss/mFun/src/test/lang/compiler/debruijn_expression_test.js#toDeBruijn#118;</node>
+            <node x="" y="">$PROJECT_DIR$/src/lib/lang/toplevel/evaluator.js</node>
+            <node x="" y="">data;stream;</node>
+            <node x="" y="">$PROJECT_DIR$/src/test/index.js#deBruijnExpressionTest#255;/Users/didierplaindoux/PersonalWork/oss/mFun/src/test/index.js#machineTest#410;/Users/didierplaindoux/PersonalWork/oss/mFun/src/test/index.js#objcodeExpressionTest#333;/Users/didierplaindoux/PersonalWork/oss/mFun/src/test/index.js#parserEntitiesTest#181;/Users/didierplaindoux/PersonalWork/oss/mFun/src/test/index.js#parserExpressionsTest#104;</node>
+            <node x="" y="">$PROJECT_DIR$/src/test/lang/runtime/machine_test.js#astObjcode#8;/Users/didierplaindoux/PersonalWork/oss/mFun/src/test/lang/runtime/machine_test.js#astResult#73;/Users/didierplaindoux/PersonalWork/oss/mFun/src/test/lang/runtime/machine_test.js#engineFactory#135;</node>
+            <node x="" y="">$PROJECT_DIR$/src/lib/lang/compiler/objcode.js</node>
+            <node x="" y="">$PROJECT_DIR$/src/test/lang/compiler/objcode_expression_test.js#astDB#7;/Users/didierplaindoux/PersonalWork/oss/mFun/src/test/lang/compiler/objcode_expression_test.js#astObjcode#68;/Users/didierplaindoux/PersonalWork/oss/mFun/src/test/lang/compiler/objcode_expression_test.js#toObjcode#133;</node>
+            <node x="" y="">$PROJECT_DIR$/src/lib/lang/analyzer/parser.js</node>
+            <node x="" y="">$PROJECT_DIR$/src/test/lang/analyzer/parser_entities_test.js#ast#107;/Users/didierplaindoux/PersonalWork/oss/mFun/src/test/lang/analyzer/parser_entities_test.js#parser#51;/Users/didierplaindoux/PersonalWork/oss/mFun/src/test/lang/analyzer/parser_entities_test.js#stream#9;</node>
+            <node x="" y="">$PROJECT_DIR$/src/test/lang/analyzer/parser_expressions_test.js#ast#111;/Users/didierplaindoux/PersonalWork/oss/mFun/src/test/lang/analyzer/parser_expressions_test.js#data#16;/Users/didierplaindoux/PersonalWork/oss/mFun/src/test/lang/analyzer/parser_expressions_test.js#parser#55;/Users/didierplaindoux/PersonalWork/oss/mFun/src/test/lang/analyzer/parser_expressions_test.js#stream#8;</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.9640610961365679" x="496.0" y="627.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>All</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>Details</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JavaScript-modules-diagram//Users/didierplaindoux/PersonalWork/oss/mFun/src/lib">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JavaScript-modules-diagram</ID>
+          <OriginalElement>$PROJECT_DIR$/src/lib</OriginalElement>
+          <nodes>
+            <node x="" y="">$PROJECT_DIR$/src/lib/extensions/array.js</node>
+            <node x="" y="">$PROJECT_DIR$/src/lib/lang/compiler/ast-debruijn.js#ast#141;</node>
+            <node x="" y="">$PROJECT_DIR$/src/lib/lang/compiler/ast-objcode.js#astDB#141;</node>
+            <node x="" y="">$PROJECT_DIR$/src/lib/lang/runtime/ast-result.js</node>
+            <node x="" y="">$PROJECT_DIR$/src/lib/lang/analyzer/ast.js</node>
+            <node x="" y="">$PROJECT_DIR$/src/lib/reader/browser.js</node>
+            <node x="" y="">$PROJECT_DIR$/src/lib/lang/compiler/debruijn.js#astDB#141;</node>
+            <node x="" y="">$PROJECT_DIR$/src/lib/lang/toplevel/eval_print.js#evaluatorFactory#141;/Users/didierplaindoux/PersonalWork/oss/mFun/src/lib/lang/toplevel/eval_print.js#printerFactory#184;</node>
+            <node x="" y="">$PROJECT_DIR$/src/lib/lang/toplevel/evaluator.js#array.js#365;/Users/didierplaindoux/PersonalWork/oss/mFun/src/lib/lang/toplevel/evaluator.js#data#150;/Users/didierplaindoux/PersonalWork/oss/mFun/src/lib/lang/toplevel/evaluator.js#machineFactory#322;/Users/didierplaindoux/PersonalWork/oss/mFun/src/lib/lang/toplevel/evaluator.js#parser#189;/Users/didierplaindoux/PersonalWork/oss/mFun/src/lib/lang/toplevel/evaluator.js#stream#142;/Users/didierplaindoux/PersonalWork/oss/mFun/src/lib/lang/toplevel/evaluator.js#toDeBruijn#230;/Users/didierplaindoux/PersonalWork/oss/mFun/src/lib/lang/toplevel/evaluator.js#toObjcode#277;</node>
+            <node x="" y="">F;data;genlex;stream;</node>
+            <node x="" y="">$PROJECT_DIR$/src/lib/index.js#browserReader#194;/Users/didierplaindoux/PersonalWork/oss/mFun/src/lib/index.js#eval_print#141;</node>
+            <node x="" y="">$PROJECT_DIR$/src/lib/lang/runtime/machine.js#astResult#212;/Users/didierplaindoux/PersonalWork/oss/mFun/src/lib/lang/runtime/machine.js#data#142;/Users/didierplaindoux/PersonalWork/oss/mFun/src/lib/lang/runtime/machine.js#native#181;</node>
+            <node x="" y="">$PROJECT_DIR$/src/lib/lang/runtime/native.js#astResult#162;</node>
+            <node x="" y="">$PROJECT_DIR$/src/lib/lang/compiler/objcode.js#array.js#174;/Users/didierplaindoux/PersonalWork/oss/mFun/src/lib/lang/compiler/objcode.js#astObjcode#141;</node>
+            <node x="" y="">$PROJECT_DIR$/src/lib/lang/analyzer/parser.js#Flow#209;/Users/didierplaindoux/PersonalWork/oss/mFun/src/lib/lang/analyzer/parser.js#GLex#193;/Users/didierplaindoux/PersonalWork/oss/mFun/src/lib/lang/analyzer/parser.js#array.js#277;/Users/didierplaindoux/PersonalWork/oss/mFun/src/lib/lang/analyzer/parser.js#ast#259;/Users/didierplaindoux/PersonalWork/oss/mFun/src/lib/lang/analyzer/parser.js#data#220;</node>
+            <node x="" y="">$PROJECT_DIR$/src/lib/lang/toplevel/printer.js</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="539.0" y="344.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>All</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>Details</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/lang/runtime/machine_test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="8" column="29" lean-forward="false" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/lang/analyzer/ast.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="29">
+          <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/lang/compiler/ast-debruijn.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="29">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/lang/compiler/ast-objcode.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1033">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/lang/toplevel/evaluator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="38" lean-forward="false" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/nodeunit/lib/types.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="82" column="38" lean-forward="false" selection-start-line="82" selection-start-column="38" selection-end-line="82" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/lang/compiler/debruijn_expression_test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="11" column="50" lean-forward="true" selection-start-line="11" selection-start-column="50" selection-end-line="11" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/test/lang/compiler/debruijn_expression_test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="27" column="8" lean-forward="false" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/lang/runtime/ast-result.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="445">
+          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/extensions/array.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/parser-combinator/src/lib/data/list.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-92">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#134#176#0" expanded="false" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/lang/compiler/debruijn.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/lang/compiler/objcode.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="985">
+          <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/lang/analyzer/parser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="454">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <marker date="1505900199000" expanded="true" signature="0:6" ph="/*...*/" />
+            <marker date="1505900199000" expanded="true" signature="2492:2569" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/lang/runtime/native.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1941">
+          <caret line="73" column="0" lean-forward="false" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/lang/runtime/machine.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="79" column="7" lean-forward="true" selection-start-line="79" selection-start-column="7" selection-end-line="79" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/doc/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="278" column="20" lean-forward="false" selection-start-line="278" selection-start-column="20" selection-end-line="278" selection-end-column="20" />
+        <state relative-caret-position="168">
+          <caret line="525" column="0" lean-forward="false" selection-start-line="525" selection-start-column="0" selection-end-line="525" selection-end-column="0" />
           <folding>
             <element signature="e#91#98#0" expanded="true" />
-            <element signature="e#3935#3942#0" expanded="true" />
+            <element signature="e#3930#3937#0" expanded="true" />
             <element signature="n#style#0;n#div#0;n#section#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#section#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#section#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#4333#4338#0" expanded="true" />
-            <element signature="e#4555#4563#0" expanded="true" />
-            <element signature="e#5842#5849#1" expanded="true" />
-            <element signature="e#6157#6164#1" expanded="true" />
-            <element signature="e#6463#6470#1" expanded="true" />
-            <element signature="e#6883#6891#1" expanded="true" />
-            <element signature="e#7205#7213#1" expanded="true" />
-            <element signature="e#8750#8762#0" expanded="true" />
-            <element signature="e#9616#9628#0" expanded="true" />
-            <element signature="e#9834#9838#0" expanded="true" />
-            <element signature="e#9891#9895#0" expanded="true" />
-            <element signature="e#9903#9908#0" expanded="true" />
-            <element signature="e#10312#10324#0" expanded="true" />
-            <element signature="e#10588#10595#0" expanded="true" />
-            <element signature="e#10822#10834#0" expanded="true" />
-            <element signature="e#10847#10859#0" expanded="true" />
-            <element signature="e#11209#11217#0" expanded="true" />
-            <element signature="e#11228#11232#0" expanded="true" />
-            <element signature="e#11294#11301#0" expanded="true" />
-            <element signature="e#11364#11372#0" expanded="true" />
-            <element signature="e#11374#11378#0" expanded="true" />
-            <element signature="e#11386#11390#0" expanded="true" />
-            <element signature="e#11566#11578#0" expanded="true" />
-            <element signature="e#11774#11786#0" expanded="true" />
-            <element signature="e#11791#11803#0" expanded="true" />
-            <element signature="e#12208#12214#0" expanded="true" />
-            <element signature="e#12493#12505#0" expanded="true" />
-            <element signature="e#12857#12869#0" expanded="true" />
-            <element signature="e#13424#13436#0" expanded="true" />
-            <element signature="e#13673#13685#0" expanded="true" />
-            <element signature="e#13690#13702#0" expanded="true" />
-            <element signature="e#13709#13721#0" expanded="true" />
-            <element signature="e#14735#14747#0" expanded="true" />
-            <element signature="e#15109#15116#0" expanded="true" />
-            <element signature="e#15500#15504#0" expanded="true" />
-            <element signature="e#15792#15796#0" expanded="true" />
+            <element signature="e#4328#4333#0" expanded="true" />
+            <element signature="e#4550#4558#0" expanded="true" />
+            <element signature="e#5836#5843#1" expanded="true" />
+            <element signature="e#6151#6158#1" expanded="true" />
+            <element signature="e#6457#6464#1" expanded="true" />
+            <element signature="e#6877#6885#1" expanded="true" />
+            <element signature="e#7199#7207#1" expanded="true" />
+            <element signature="e#8743#8755#0" expanded="true" />
+            <element signature="e#9609#9621#0" expanded="true" />
+            <element signature="e#9827#9831#0" expanded="true" />
+            <element signature="e#9884#9888#0" expanded="true" />
+            <element signature="e#9896#9901#0" expanded="true" />
+            <element signature="e#10305#10317#0" expanded="true" />
+            <element signature="e#10581#10588#0" expanded="true" />
+            <element signature="e#10815#10827#0" expanded="true" />
+            <element signature="e#10840#10852#0" expanded="true" />
+            <element signature="e#11202#11210#0" expanded="true" />
+            <element signature="e#11221#11225#0" expanded="true" />
+            <element signature="e#11287#11294#0" expanded="true" />
+            <element signature="e#11357#11365#0" expanded="true" />
+            <element signature="e#11367#11371#0" expanded="true" />
+            <element signature="e#11379#11383#0" expanded="true" />
+            <element signature="e#11559#11571#0" expanded="true" />
+            <element signature="e#11767#11779#0" expanded="true" />
+            <element signature="e#11784#11796#0" expanded="true" />
+            <element signature="e#12201#12207#0" expanded="true" />
+            <element signature="e#12486#12498#0" expanded="true" />
+            <element signature="e#12850#12862#0" expanded="true" />
+            <element signature="e#13417#13429#0" expanded="true" />
+            <element signature="e#13684#13696#0" expanded="true" />
+            <element signature="e#13701#13713#0" expanded="true" />
+            <element signature="e#13720#13732#0" expanded="true" />
+            <element signature="e#14728#14740#0" expanded="true" />
+            <element signature="e#14994#15001#0" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#section#23;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#15120#15124#0" expanded="true" />
+            <element signature="e#15163#15167#0" expanded="true" />
+            <element signature="e#15173#15177#0" expanded="true" />
+            <element signature="e#15546#15550#0" expanded="true" />
+            <element signature="e#15806#15810#0" expanded="true" />
+            <element signature="e#15885#15892#0" expanded="true" />
           </folding>
         </state>
       </provider>
