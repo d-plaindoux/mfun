@@ -25,7 +25,7 @@ class Transformer {
     ident(i) {
         const index = this.variables.indexOf(i.name);
 
-        if (index == -1) {
+        if (index === -1) {
             return astDB.ident(i.name);
         }
 
@@ -52,6 +52,4 @@ class Transformer {
     }
 }
 
-export default function (e) {
-    return e.visit(new Transformer([]));
-}
+export default (e) => e.visit(new Transformer([]));

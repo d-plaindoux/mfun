@@ -50,6 +50,4 @@ class Generator {
     }
 }
 
-export default function (e) {
-    return e.visit(new Generator([]));
-}
+export default (e) => e.visit(new Generator([]));

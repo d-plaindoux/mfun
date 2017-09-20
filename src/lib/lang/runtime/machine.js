@@ -90,7 +90,7 @@ class Machine {
     ident(i) {
         const definition = this.definitions[i.name];
 
-        if (definition === null) {
+        if (definition === undefined) {
             throw new EvalError("Undefined definition symbol " + i.name);
         }
 
@@ -100,7 +100,7 @@ class Machine {
     native(n) {
         const funcall = native[n.name];
 
-        if (funcall === null) {
+        if (funcall === undefined) {
             throw new EvalError("Undefined native symbol " + n.name);
         }
 

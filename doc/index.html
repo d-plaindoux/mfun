@@ -23,7 +23,6 @@
     <script type="application/javascript" src="../dist/mFun.min.js"></script>
 
     <script type="application/mfun">
-
     def setDom { n v     -> native "set"   }
     def getDom { n       -> native "get"   }
 
@@ -31,11 +30,9 @@
     def plus   { l r     -> native "plus" }
     def mult   { l r     -> native "mult"  }
     def minus  { l r     -> native "minus" }
-
     </script>
 
     <script type="application/mfun">
-
     def changeDom { n v -> do { setDom (getDom n) v } yield { v } }
 
     def cond   { c t f -> c t f () }
@@ -43,17 +40,14 @@
     def do    { f   -> then () f }
     def then  { v f -> { v c -> c v } $ f v }
     def yield { v f  -> f v }
-
     </script>
 
     <script type="application/mfun">
-
     def fact { a ->
         cond (leq a 1)
              { 1 }
              { mult a $ fact $ minus a 1 }
     }
-
     </script>
 
     <script type="application/javascript">
@@ -61,6 +55,7 @@
             console.log("Executing [" + sourceCode + "]");
             mFun.default.eval_print(sourceCode);
         }
+
         function bootstrap() {
             mFun.default.reader.browser(evalPrint);
         }
@@ -182,7 +177,7 @@
                  | exp
           s0   ::= def* </pre>
 
-            <div class="remark fragment"> LL(1)? </div>
+            <div class="remark fragment"> LL(1)?</div>
         </section>
 
         <section>
@@ -223,7 +218,7 @@
                         <td width="30%" align="right"><tt> { a -> { b -> f a } } </tt></td>
                         <td width="2%">&nequiv;</td>
                         <td width="20%"><tt> { { f _ } } </tt></td>
-                        <td> Implicit variable scope </td>
+                        <td> Implicit variable scope</td>
                     </tr>
                 </table>
             </div>
@@ -442,15 +437,15 @@
 
  type Result = NUMBER | STRING | (Objcode,Env)
   and Env    = List Result
-  and Stack  = List Result
+  and Stack  = List (Result | Env | Objcode)
 
  [_] :: Objcode &rightarrow; Env &rightarrow; Stack &rightarrow; Result
 
- [Objcode.constant(n);c]<sub>e s</sub>           = [c]<sub>e n::s</sub>
- [Objcode.access(i);c]<sub>e s</sub>             = [c]<sub>e e[i]::s</sub>
- [Objcode.closure(c');c]<sub>e s</sub>           = [c]<sub>e (c',e)::s</sub>
- [Objcode.apply;c]<sub>e v::(c',e')::s</sub>     = [c']<sub>v::e' (c,e)::s</sub>
- [Objcode.returns;c]<sub>e v::(c',e')::s</sub>   = [c']<sub>e' v::s d</sub>
+ [Objcode.constant(n);c]<sub>e s</sub>        = [c]<sub>e n::s</sub>
+ [Objcode.access(i);c]<sub>e s</sub>          = [c]<sub>e e[i]::s</sub>
+ [Objcode.closure(c');c]<sub>e s</sub>        = [c]<sub>e (c',e)::s</sub>
+ [Objcode.apply;c]<sub>e v::(c',e')::s</sub>  = [c']<sub>v::e' c::e::s</sub>
+ [Objcode.returns;c]<sub>e v::c'::e'::s</sub> = [c']<sub>e' v::s</sub>
  ...
     </pre>
 
@@ -487,16 +482,18 @@
 
             <h4> Read() <br>
                 .map(Analyze).map(Transform).map.(Compile).flatmap(Execute) <br>
-                 .map(Print)
+                .map(Print)
             </h4>
-
-            <div class="fragment ribbon"><span>Live Code</span></div>
 
         </section>
 
         <section>
 
-            <h3> <span class="name">F&micro;N</span> in a browser  </h3>
+            <h3><span class="name">F&micro;N</span> in a browser </h3>
+
+            <div style="font-size: 50%" onclick="bootstrap()">
+                <code>fact &lt;i id='val'><i class="tk" id='val'>?</i>&lt;/i> = &lt;i id='res'><i class="tk" id='res'>?</i>&lt/i></code>
+            </div>
 
             <script type="application/mfun">
     def compute_then_display { v ->
@@ -504,33 +501,30 @@
         then  { changeDom "res" $ fact v }
         yield { () }
     }
-            </script>
 
-            <script type="application/mfun">
     compute_then_display 100
+
             </script>
 
-            <pre><code class="fragment html">  &lt;script type="application/mfun"></code><code class="fragment mfun">
-    def compute_then_display { v ->
+            <pre class="fragment"><code class="html">  &lt;script type="application/mfun"></code><code class="mfun">    def compute_then_display { v ->
         do    { changeDom "val" v }
         then  { changeDom "res" $ fact v }
         yield { () }
     }
 
-    compute_then_display 100
-            </code><code class="fragment html">  &lt;/script></code></pre>
+    compute_then_display 100</code><code class="html">  &lt;/script></code></pre>
 
-            <p class="fragment" onclick="bootstrap()">fact <i class="tk" id='val'>val</i> = <i class="tk" id='res'>res</i></p>
+            <div class="ribbon"><span class="name">F&micro;N inside</span></div>
 
         </section>
         <section>
             <h3> What's Next? </h3>
 
             <ul>
-                <li> Call-by-Name </li>
-                <li> Tail recursive </li>
-                <li> Type checker </li>
-                <li> G-Machine, SECD-Machine etc. </li>
+                <li> Call-by-Name</li>
+                <li> Tail recursive</li>
+                <li> Type checker</li>
+                <li> G-Machine, SECD-Machine etc.</li>
             </ul>
         </section>
 

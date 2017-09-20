@@ -1,6 +1,6 @@
 /*
- * fun.js
- * https://github.com/d-plaindoux/talks_n_blog/blob/master/talks/craft/fp%2Bzinc/fun.js
+ * mfun
+ * https://github.com/d-plaindoux/mFun
  *
  * Copyright (c) 2017 Didier Plaindoux
  * Licensed under the LGPL2 license.
@@ -14,12 +14,12 @@ import '../../extensions/array'
 const tkNumber = GLex.token.parser.number,
     tkString = GLex.token.parser.string,
     tkIdent = GLex.token.parser.ident,
-    tkKeyword = (s, d = true) => (p => d ? p.drop() : p)(GLex.token.parser.keyword.match(s));
+    tkUnderscore = GLex.token.parser.keyword.match('_'),
+    tkKeyword = (s) => GLex.token.parser.keyword.match(s).drop();
 
 // unit -> Parser Expression Token
 function atom() {
-    return (tkIdent.map(ast.ident))
-        .or(tkKeyword('_', false).map(ast.ident))
+    return (tkIdent.or(tkUnderscore).map(ast.ident))
         .or(tkNumber.map(ast.constant))
         .or(tkString.map(ast.constant));
 }
@@ -30,7 +30,7 @@ function abstraction() {
         .then(Flow.try(tkIdent.rep().then(tkKeyword('->'))).opt())
         .then(Flow.lazy(expression))
         .then(tkKeyword('}'))
-        .map(t => t[0].map(t => t.array()).orElse(['_']).foldRight(ast.abstraction, t[1]));
+        .map(t => t[0].map(p => p.array()).orElse(['_']).foldRight(ast.abstraction, t[1]));
 }
 
 // unit -> Parser Expression Token
