@@ -480,9 +480,8 @@
 
         <section>
 
-            <h4> Read() <br>
-                .map(Analyze).map(Transform).map.(Compile).flatmap(Execute) <br>
-                .map(Print)
+            <h4>
+                 s => Print(Analyze(s).map(Transform).map.(Compile).flatmap(Execute))
             </h4>
 
         </section>
