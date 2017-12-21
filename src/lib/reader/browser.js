@@ -10,6 +10,7 @@
 
 export default (evalPrint) => {
     Array.prototype.slice.call(document.getElementsByTagName("script"))
-        .filter(script => script.getAttribute("type") === "application/mfun")
-        .map(script => evalPrint(script.innerHTML));
+        .filter(s => s.getAttribute("type") === "application/mfun")
+        .map(s => s.innerHTML)
+        .map(evalPrint);
 }

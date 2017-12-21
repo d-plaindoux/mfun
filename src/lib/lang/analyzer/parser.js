@@ -20,8 +20,7 @@ const tkNumber = GLex.token.parser.number,
 // unit -> Parser Expression Token
 function atom() {
     return (tkIdent.or(tkUnderscore).map(ast.ident))
-        .or(tkNumber.map(ast.constant))
-        .or(tkString.map(ast.constant));
+        .or(tkNumber.or(tkString).map(ast.constant));
 }
 
 // unit -> Parser Expression Token
