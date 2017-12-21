@@ -1,5 +1,7 @@
 # F&micro;N
 
+[![Build Status](https://travis-ci.org/d-plaindoux/mfun.svg)](https://travis-ci.org/d-plaindoux/mfun)
+[![Coverage Status](https://coveralls.io/repos/d-plaindoux/mfun/badge.png?branch=master)](https://coveralls.io/r/d-plaindoux/mfun?branch=master)
 [![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)](http://github.com/badges/stability-badges)
 
 ## Introduction
