@@ -4,6 +4,8 @@ def minus { l r     -> native "minus" }
 
 def cond { c t f -> c t f () }
 
+dec fact : number -> number
+
 def fact { a ->
     cond (leq a 1)
          { 1 }
