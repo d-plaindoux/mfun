@@ -70,6 +70,26 @@ export default {
         test.done();
     },
 
+    'execute an applied true definition': function(test) {
+        test.expect(1);
+        const engine = engineFactory();
+        engine.apply('def true { t f -> t }');
+        test.deepEqual(destruct(engine.apply('true 42 43')),
+                       [ astResult.constant(42) ],
+                       'execute an applied definition.');
+        test.done();
+    },
+
+    'execute an applied false definition with implicit parameters': function(test) {
+        test.expect(1);
+        const engine = engineFactory();
+        engine.apply('def false { { _ } }');
+        test.deepEqual(destruct(engine.apply('false 42 43')),
+                       [ astResult.constant(43) ],
+                       'execute an applied definition.');
+        test.done();
+    },
+
     'execute an applied native definition': function(test) {
         test.expect(1);
         const engine = engineFactory();
