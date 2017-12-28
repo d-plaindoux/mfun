@@ -8,7 +8,7 @@
 
 F&micro;N is a micro functional language designed for compilation explaination purpose. 
 
-[Slides in french are available](https://www.slideshare.net/dplaindoux/compiling-fn-language).
+[Slides are available](https://www.slideshare.net/dplaindoux/compiling-fn-language).
 
 ## Grammar
 
