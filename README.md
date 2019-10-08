@@ -27,7 +27,7 @@ SExp ::=
    { ((DENT+ "->")? SExp } 	         
    "(" Exp ")"
    "(" ")"
-   "$ Exp
+   "$" Exp
    NUMBER
    STRING
    "native" STRING
