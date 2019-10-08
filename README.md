@@ -24,7 +24,7 @@ Exp ::=
    SExp+    	       	   
 
 SExp ::=
-   { ((DENT+ "->")? SExp } 	         
+   { (IDENT+ "->")? SExp } 	         
    "(" Exp? ")"
    "$" Exp
    NUMBER
