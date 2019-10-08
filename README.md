@@ -25,8 +25,7 @@ Exp ::=
 
 SExp ::=
    { ((DENT+ "->")? SExp } 	         
-   "(" Exp ")"
-   "(" ")"
+   "(" Exp? ")"
    "$" Exp
    NUMBER
    STRING
