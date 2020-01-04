@@ -2,12 +2,12 @@
  * mFun
  * https://github.com/d-plaindoux/mFun
  *
- * Copyright (c) 2017 Didier Plaindoux
+ * Copyright (c) 2019 Didier Plaindoux
  * Licensed under the LGPL2 license.
  */
 
 Array.prototype.foldLeft = function (initial, funcall) {
-    var i, result = initial;
+    let i, result = initial;
     for (i = 0; i < this.length; i++) {
         result = funcall(result, this[i]);
     }
@@ -15,7 +15,7 @@ Array.prototype.foldLeft = function (initial, funcall) {
 };
 
 Array.prototype.foldRight = function (funcall, initial) {
-    var i, result = initial;
+    let i, result = initial;
     for (i = this.length; i > 0; i--) {
         result = funcall(this[i - 1], result);
     }

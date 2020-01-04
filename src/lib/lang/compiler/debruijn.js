@@ -2,7 +2,7 @@
  * mFun
  * https://github.com/d-plaindoux/mFun
  *
- * Copyright (c) 2017 Didier Plaindoux
+ * Copyright (c) 2019 Didier Plaindoux
  * Licensed under the LGPL2 license.
  */
 
@@ -29,7 +29,7 @@ class Transformer {
             return astDB.ident(i.name);
         }
 
-        return astDB.variable(index + 1);
+        return astDB.variable(index);
     }
 
     constant(c) {

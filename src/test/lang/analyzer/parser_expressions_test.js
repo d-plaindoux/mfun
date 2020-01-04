@@ -1,3 +1,11 @@
+/*
+ * mFun
+ * https://github.com/d-plaindoux/mFun
+ *
+ * Copyright (c) 2019 Didier Plaindoux
+ * Licensed under the LGPL2 license.
+ */
+
 import {stream, data} from 'parser-combinator';
 import parser from '../../../lib/lang/analyzer/parser';
 import ast from '../../../lib/lang/analyzer/ast';

@@ -57,7 +57,7 @@
         }
 
         function bootstrap() {
-            mFun.default.reader.browser(evalPrint);
+            mFun.default.reader.browser(document).execute(evalPrint);
         }
     </script>
 
@@ -136,28 +136,30 @@
     <div class="slides">
 
         <section>
-            <h2><span class="name">F&micro;N</span></h2>
-            <h3> From Definition to Execution </h3>
+            <h2>The <span class="name">F&micro;N</span> programming language</h2>
+            <h3 class="fragment"> From Definition to Execution </h3>
             <br/>
-            <div class="p" style="text-align:middle">20 septembre 2017</div>
-            <div class="p" style="text-align:middle">Software Craftsmanship Toulouse</div>
+            <div class="p" style="text-align:middle">16 Janvier 2019</div>
+            <div class="p" style="text-align:middle">LilleFP</div>
             <div class="p" style="text-align:middle">
 	    <span>
 	      <a href="http://twitter.com/dplaindoux">@dplaindoux</a>
-          &amp;
-          <a href="http://twitter.com/fcabestre">@fcabestre</a>
 	    </span>
             </div>
+        </section>
+
+        <section>
+            About me ...
         </section>
 
         <section>
             <h3> Language Definition </h3>
 
             <ul>
-                <li> &lambda;-Calculus: variable, abstraction and application</li>
-                <li> Constant: number and string</li>
-                <li> Definition: function and constant</li>
-                <li> Native: function and constant</li>
+                <li class="fragment"> &lambda;-Calculus: variable, abstraction and application</li>
+                <li class="fragment"> Constant: number and string</li>
+                <li class="fragment"> Definition: function and constant</li>
+                <li class="fragment"> Native: function and constant</li>
             </ul>
 
         </section>
@@ -165,19 +167,68 @@
         <section>
             <h3> Language Grammar </h3>
             <pre class="remark">
-          exp  ::= sexp sexp*
+          exp  ::= sexp+
           sexp ::= <span class="tk">{</span> (IDENT+ <span class="tk">-></span>)? exp <span class="tk">}</span> -- à la Swift or Kotlin
                  | <span class="tk">(</span> exp? <span class="tk">)</span>
                  | <span class="tk">$</span> exp                -- Infix application
                  | IDENT
-                 | NUMBER
-                 | STRING
+                 | NUMBER | STRING
                  | <span class="tk">native</span> STRING
           def  ::= <span class="tk">def</span> IDENT sexp
                  | exp
           s0   ::= def* </pre>
+        </section>
 
-            <div class="remark fragment"> LL(1)?</div>
+
+        <section>
+            <h3> Example </h3>
+            <pre><code class="mfun">
+    def leq   { l r t f -> native "leq"   } // l <= r ? t : f
+    def mult  { l r     -> native "mult"  }
+    def minus { l r     -> native "minus" }
+
+    def cond { c t f -> c t f () }
+
+    def fact { a ->
+       cond (leq a 1)
+            { _ -> 1 }
+            { _ -> mult a (fact (minus a 1)) }
+    }
+
+    fact 12
+      </code></pre>
+        </section>
+
+        <section>
+            <h3> Example Cont'd </h3>
+            <pre><code class="mfun">
+    def leq   { l r t f -> native "leq"   } // l <= r ? t : f
+    def mult  { l r     -> native "mult"  }
+    def minus { l r     -> native "minus" }
+
+    def cond { c t f -> c t f () }
+
+    def fact { a ->
+       cond (leq a 1)
+            { 1 }
+            { mult a $ fact $ minus a 1 }
+    }
+
+    fact 12
+      </code></pre>
+        </section>
+
+        <section>
+            <h3> Example :: DSL </h3>
+            <pre><code class="mfun">
+    def do    { f   -> then () f }
+    def then  { v f -> { v c -> c v } $ f v }
+    def yield { v f -> f v }
+
+    do    { plus 20 2 }
+    then  { minus _ 1 }
+    yield { mult _ 2 } // 42
+            </code></pre>
         </section>
 
         <section>
@@ -222,57 +273,6 @@
                     </tr>
                 </table>
             </div>
-        </section>
-
-        <section>
-            <h3> Example :: Factorial </h3>
-            <pre><code class="mfun">
-    def leq   { l r t f in native "leq"   } // l <= r ? t : f
-    def mult  { l r     -> native "mult"  }
-    def minus { l r     -> native "minus" }
-
-    def cond { c t f -> c t f () }
-
-    def fact { a ->
-       cond (leq a 1)
-            { _ -> 1 }
-            { _ -> mult a (fact (minus a 1)) }
-    }
-
-    fact 12
-      </code></pre>
-        </section>
-
-        <section>
-            <h3> Example :: Factorial Cont'd </h3>
-            <pre><code class="mfun">
-    def leq   { l r t f -> native "leq"   } // l <= r ? t : f
-    def mult  { l r     -> native "mult"  }
-    def minus { l r     -> native "minus" }
-
-    def cond { c t f -> c t f () }
-
-    def fact { a ->
-       cond (leq a 1)
-            { 1 }
-            { mult a $ fact $ minus a 1 }
-    }
-
-    fact 12
-      </code></pre>
-        </section>
-
-        <section>
-            <h3> Example :: DSL </h3>
-            <pre><code class="mfun">
-    def do    { f   -> then () f }
-    def then  { v f -> { v c -> c v } $ f v }
-    def yield { v f -> f v }
-
-    do    { plus 20 2 }
-    then  { minus _ 1 }
-    yield { mult _ 2 } // 42
-            </code></pre>
         </section>
 
         <section>
@@ -365,7 +365,7 @@
         </section>
 
         <section>
-            <h3> Advanced Interpreter </h3>
+            <h3> Operational semantic </h3>
 
             <pre>
 
@@ -381,10 +381,7 @@
             </pre>
 
             <div class="remark fragment">
-                No &beta;-reduction based on term subtitution <br>
-            </div>
-            <div class="alert fragment">
-                Application interpretation is not tail recursive
+                No &beta;-reduction based on term substitution <br>
             </div>
 
         </section>

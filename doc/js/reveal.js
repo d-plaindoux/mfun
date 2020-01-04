@@ -3,7 +3,7 @@
  * http://lab.hakim.se/reveal-js
  * MIT licensed
  *
- * Copyright (C) 2017 Hakim El Hattab, http://hakim.se
+ * Copyright (c) 2019 Hakim El Hattab, http://hakim.se
  */
 (function( root, factory ) {
 	if( typeof define === 'function' && define.amd ) {
@@ -1303,7 +1303,7 @@
 
 	/**
 	 * Applies CSS transforms to the slides container. The container
-	 * is transformed from two separate sources: layout and the overview
+	 * is transformed from two separate funSources: layout and the overview
 	 * mode.
 	 *
 	 * @param {object} transforms
@@ -3089,7 +3089,7 @@
 				sources += 1;
 			} );
 
-			// If we rewrote sources for this video/audio element, we need
+			// If we rewrote funSources for this video/audio element, we need
 			// to manually tell it to load from its new origin
 			if( sources > 0 ) {
 				media.load();
@@ -3138,7 +3138,7 @@
 						video.setAttribute( 'playsinline', '' );
 					}
 
-					// Support comma separated lists of video sources
+					// Support comma separated lists of video funSources
 					backgroundVideo.split( ',' ).forEach( function( source ) {
 						video.innerHTML += '<source src="'+ source +'">';
 					} );

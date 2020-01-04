@@ -2,15 +2,28 @@
  * mfun
  * https://github.com/d-plaindoux/mfun
  *
- * Copyright (c) 2017 Didier Plaindoux
+ * Copyright (c) 2019 Didier Plaindoux
  * Licensed under the LGPL2 license.
  */
 
-/*global document*/
+class Fun {
 
-export default (evalPrint) => {
-    Array.prototype.slice.call(document.getElementsByTagName("script"))
-        .filter(s => s.getAttribute("type") === "application/mfun")
-        .map(s => s.innerHTML)
-        .map(evalPrint);
+    constructor(document) {
+        this.document = document
+        this.applicationMfun = "application/mfun";
+    }
+
+    execute(evaluation) {
+        this.sources().map(evaluation);
+    }
+
+    sources() {
+        return Array.prototype.slice.call(this.document.getElementsByTagName("script"))
+            .filter(s => s.getAttribute("type") === this.applicationMfun)
+            .map(s => s.innerHTML);
+    }
 }
+
+export default (document) => new Fun(document)
+
+

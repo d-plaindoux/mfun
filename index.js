@@ -5,7 +5,7 @@
  * mFun
  * https://github.com/d-plaindoux/mFun
  *
- * Copyright (c) 2017 Didier Plaindoux
+ * Copyright (c) 2019 Didier Plaindoux
  * Licensed under the LGPL2 license.
  */
 
@@ -48,7 +48,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * mfun
  * https://github.com/d-plaindoux/mfun
  *
- * Copyright (c) 2017 Didier Plaindoux
+ * Copyright (c) 2019 Didier Plaindoux
  * Licensed under the LGPL2 license.
  */
 
@@ -78,7 +78,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
  * mFun
  * https://github.com/d-plaindoux/mFun
  *
- * Copyright (c) 2017 Didier Plaindoux
+ * Copyright (c) 2019 Didier Plaindoux
  * Licensed under the LGPL2 license.
  */
 
@@ -335,7 +335,7 @@ var tkNumber = _parserCombinator.genlex.token.parser.number,
  * mFun
  * https://github.com/d-plaindoux/mFun
  *
- * Copyright (c) 2017 Didier Plaindoux
+ * Copyright (c) 2019 Didier Plaindoux
  * Licensed under the LGPL2 license.
  */
 function atom() {
@@ -430,7 +430,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                                                                                                                                                            * mFun
                                                                                                                                                            * https://github.com/d-plaindoux/mFun
                                                                                                                                                            *
-                                                                                                                                                           * Copyright (c) 2017 Didier Plaindoux
+                                                                                                                                                           * Copyright (c) 2019 Didier Plaindoux
                                                                                                                                                            * Licensed under the LGPL2 license.
                                                                                                                                                            */
 
@@ -641,7 +641,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                                                                                                                                                            * mFun
                                                                                                                                                            * https://github.com/d-plaindoux/mFun
                                                                                                                                                            *
-                                                                                                                                                           * Copyright (c) 2017 Didier Plaindoux
+                                                                                                                                                           * Copyright (c) 2019 Didier Plaindoux
                                                                                                                                                            * Licensed under the LGPL2 license.
                                                                                                                                                            */
 
@@ -844,7 +844,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * mFun
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * https://github.com/d-plaindoux/mFun
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       *
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * Copyright (c) 2017 Didier Plaindoux
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * Copyright (c) 2019 Didier Plaindoux
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * Licensed under the LGPL2 license.
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       */
 
@@ -927,7 +927,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * mFun
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * https://github.com/d-plaindoux/mFun
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       *
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * Copyright (c) 2017 Didier Plaindoux
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * Copyright (c) 2019 Didier Plaindoux
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * Licensed under the LGPL2 license.
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       */
 
@@ -1016,7 +1016,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
  * mFun
  * https://github.com/d-plaindoux/mFun
  *
- * Copyright (c) 2017 Didier Plaindoux
+ * Copyright (c) 2019 Didier Plaindoux
  * Licensed under the LGPL2 license.
  */
 
@@ -1090,7 +1090,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * mFun
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * https://github.com/d-plaindoux/mFun
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       *
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * Copyright (c) 2017 Didier Plaindoux
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * Copyright (c) 2019 Didier Plaindoux
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * Licensed under the LGPL2 license.
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       */
 
@@ -1306,7 +1306,7 @@ exports.default = {
     * mFun
     * https://github.com/d-plaindoux/mFun
     *
-    * Copyright (c) 2017 Didier Plaindoux
+    * Copyright (c) 2019 Didier Plaindoux
     * Licensed under the LGPL2 license.
     */
 //# sourceMappingURL=native.js.map
@@ -1321,7 +1321,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * mFun
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * https://github.com/d-plaindoux/mFun
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       *
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * Copyright (c) 2017 Didier Plaindoux
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * Copyright (c) 2019 Didier Plaindoux
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * Licensed under the LGPL2 license.
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       */
 
@@ -1419,7 +1419,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
  * mFun
  * https://github.com/d-plaindoux/mFun
  *
- * Copyright (c) 2017 Didier Plaindoux
+ * Copyright (c) 2019 Didier Plaindoux
  * Licensed under the LGPL2 license.
  */
 
@@ -1476,7 +1476,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * mfun
  * https://github.com/d-plaindoux/mfun
  *
- * Copyright (c) 2017 Didier Plaindoux
+ * Copyright (c) 2019 Didier Plaindoux
  * Licensed under the LGPL2 license.
  */
 
@@ -1495,7 +1495,7 @@ Object.defineProperty(exports, "__esModule", {
  * mfun
  * https://github.com/d-plaindoux/mfun
  *
- * Copyright (c) 2017 Didier Plaindoux
+ * Copyright (c) 2019 Didier Plaindoux
  * Licensed under the LGPL2 license.
  */
 

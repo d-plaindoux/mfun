@@ -2,7 +2,7 @@
  * mFun
  * https://github.com/d-plaindoux/mFun
  *
- * Copyright (c) 2017 Didier Plaindoux
+ * Copyright (c) 2019 Didier Plaindoux
  * Licensed under the LGPL2 license.
  */
 
@@ -24,7 +24,8 @@ class Eval {
     evalAtMost(a) {
         return a.foldLeft(
             data.atry.success([]),
-            (l, c) => l.flatmap(l => this.machine.eval(c).map(c => l.concat([c])))   // List comprehension like
+            (l, c) => l.flatmap(l => this.machine.evaluate(c).map(c => l.concat([c])))   // List comprehension like
+            // TODO - check this code
         );
     }
 

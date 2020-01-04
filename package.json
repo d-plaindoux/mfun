@@ -3,7 +3,10 @@
   "description": "",
   "license": "LGPL-2.1",
   "version": "0.0.1",
-  "keywords": ["functional","abstract-machine"],
+  "keywords": [
+    "functional",
+    "abstract-machine"
+  ],
   "homepage": "https://github.com/d-plaindoux/mFun",
   "author": {
     "name": "Didier Plaindoux",
@@ -25,15 +28,15 @@
   },
   "scripts": {
     "prepublish": "echo '--- Prepublishing ---\n' && npm run test && npm run compile",
-    "compile":    "rimraf build/ && mkdirp build && babel src --out-dir build --source-maps",
-    "dev":        "babel --watch src --out-dir dist",
-    "lint":       "eslint src/**",
-    "test":       "npm run compile && nodeunit build/test/index.js",
-    "cover":      "rimraf coverage && mkdirp coverage && babel-node node_modules/.bin/babel-istanbul cover --dir coverage/istanbul node_modules/.bin/nodeunit src/test/index.js",
-    "coveralls":  "cat coverage/istanbul/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rimraf ./coverage",
-    "check":      "npm run lint && npm run test && npm run cover && npm run coveralls",
-    "dist":       "rimraf dist/ && mkdirp dist && npm run compile && browserify --standalone mFun -t uglifyify build/lib/index.js -o dist/mFun.min.js",
-    "clean":      "rimraf dist/ && rimraf coverage/ && rimraf build/"
+    "compile": "rimraf build/ && mkdirp build && babel src --out-dir build --source-maps",
+    "dev": "babel --watch src --out-dir dist",
+    "lint": "eslint src/**",
+    "test": "npm run compile && nodeunit build/test/index.js",
+    "cover": "rimraf coverage && mkdirp coverage && babel-node node_modules/.bin/babel-istanbul cover --dir coverage/istanbul node_modules/.bin/nodeunit src/test/index.js",
+    "coveralls": "cat coverage/istanbul/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rimraf ./coverage",
+    "check": "npm run lint && npm run test && npm run cover && npm run coveralls",
+    "dist": "rimraf dist/ && mkdirp dist && npm run compile && browserify --standalone mFun -t uglifyify build/lib/index.js -o dist/mFun.min.js",
+    "clean": "rimraf dist/ && rimraf coverage/ && rimraf build/"
   },
   "devDependencies": {
     "babel-cli": "^6.10.1",
@@ -46,10 +49,10 @@
     "eslint": "^3.3.0",
     "nodeunit": "~0.9.1",
     "uglifyify": "^3.0.4",
-    "mkdirp": "^0.5.1",      
+    "mkdirp": "^0.5.1",
     "rimraf": "^2.6.1"
   },
   "dependencies": {
-    "parser-combinator": "^0.4.1" 
+    "parser-combinator": "^0.4.1"
   }
 }

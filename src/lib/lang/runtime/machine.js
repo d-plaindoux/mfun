@@ -2,7 +2,7 @@
  * mFun
  * https://github.com/d-plaindoux/mFun
  *
- * Copyright (c) 2017 Didier Plaindoux
+ * Copyright (c) 2019 Didier Plaindoux
  * Licensed under the LGPL2 license.
  */
 
@@ -12,7 +12,7 @@ import astResult from "./ast-result";
 
 class GetClosure {
 
-    constant(c) {
+    constant() {
         throw new EvalError("Waiting for a closure")
     }
 
@@ -52,7 +52,7 @@ class Machine {
     }
 
     access(i) {
-        this.stack.unshift(this.env[i.index - 1]);
+        this.stack.unshift(this.env[i.index]);
     }
 
     closure(i) {
@@ -118,7 +118,7 @@ class Machine {
     }
 
     // :: Entity Objcode -> Try EvaluatedCode
-    eval(e) {
+    evaluate(e) {
         return e.visit(this);
     }
 }

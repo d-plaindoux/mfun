@@ -1,3 +1,11 @@
+/*
+ * mFun
+ * https://github.com/d-plaindoux/mFun
+ *
+ * Copyright (c) 2019 Didier Plaindoux
+ * Licensed under the LGPL2 license.
+ */
+
 import ast from '../../../lib/lang/analyzer/ast';
 import astDB from '../../../lib/lang/compiler/ast-debruijn';
 import toDeBruijn from '../../../lib/lang/compiler/debruijn.js'
@@ -34,7 +42,7 @@ export default {
     'transform the identity': function(test) {
         test.expect(1);
         test.deepEqual(toDeBruijn(ast.abstraction('x',ast.ident('x'))),
-                       astDB.abstraction(astDB.variable(1)),
+                       astDB.abstraction(astDB.variable(0)),
                        'Transform the identity.');
         test.done();
     },
@@ -42,7 +50,7 @@ export default {
     'transform true function (Also Called K)': function(test) {
         test.expect(1);
         test.deepEqual(toDeBruijn(ast.abstraction('x',ast.abstraction('y', ast.ident('x')))),
-                       astDB.abstraction(astDB.abstraction(astDB.variable(2))),
+                       astDB.abstraction(astDB.abstraction(astDB.variable(1))),
                        'Transform true function (Also Called K).');
         test.done();
     },
@@ -50,7 +58,7 @@ export default {
     'transform false function': function(test) {
         test.expect(1);
         test.deepEqual(toDeBruijn(ast.abstraction('x',ast.abstraction('y', ast.ident('y')))),
-                       astDB.abstraction(astDB.abstraction(astDB.variable(1))),
+                       astDB.abstraction(astDB.abstraction(astDB.variable(0))),
                        'Transform false function.');
         test.done();
     },
@@ -58,7 +66,7 @@ export default {
     'transform function with hidden variable': function(test) {
         test.expect(1);
         test.deepEqual(toDeBruijn(ast.abstraction('x',ast.abstraction('x', ast.ident('x')))),
-                       astDB.abstraction(astDB.abstraction(astDB.variable(1))),
+                       astDB.abstraction(astDB.abstraction(astDB.variable(0))),
                        'Transform function with hidden variable.');
         test.done();
     },

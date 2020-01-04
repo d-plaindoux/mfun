@@ -1,3 +1,10 @@
+/*
+ * mFun
+ * https://github.com/d-plaindoux/mFun
+ *
+ * Copyright (c) 2019 Didier Plaindoux
+ * Licensed under the LGPL2 license.
+ */
 
 import astObjcode from '../../../lib/lang/compiler/ast-objcode';
 import astResult from '../../../lib/lang/runtime/ast-result';
@@ -34,7 +41,7 @@ export default {
         test.expect(1);
         const engine = engineFactory();
         test.deepEqual(destruct(engine.apply('{ a -> a }')),
-                       [ astResult.closure([astObjcode.access(1), astObjcode.returns ], []) ],
+                       [ astResult.closure([astObjcode.access(0), astObjcode.returns ], []) ],
                        'execute a constant.');
         test.done();
     },
@@ -43,7 +50,7 @@ export default {
         test.expect(1);
         const engine = engineFactory();
         test.deepEqual(destruct(engine.apply('def ID { a -> a }')),
-                       [ astResult.closure([ astObjcode.access(1), astObjcode.returns ], []) ],
+                       [ astResult.closure([ astObjcode.access(0), astObjcode.returns ], []) ],
                        'execute a definition.');
         test.done();
     },
@@ -73,7 +80,7 @@ export default {
     'execute an applied true definition': function(test) {
         test.expect(1);
         const engine = engineFactory();
-        engine.apply('def true { t f -> t }');
+        engine.apply('def true { t -> { t } }');
         test.deepEqual(destruct(engine.apply('true 42 43')),
                        [ astResult.constant(42) ],
                        'execute an applied definition.');
@@ -83,7 +90,7 @@ export default {
     'execute an applied false definition with implicit parameters': function(test) {
         test.expect(1);
         const engine = engineFactory();
-        engine.apply('def false { { _ } }');
+        engine.apply('def false {{ _ }}');
         test.deepEqual(destruct(engine.apply('false 42 43')),
                        [ astResult.constant(43) ],
                        'execute an applied definition.');
