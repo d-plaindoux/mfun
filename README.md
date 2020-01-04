@@ -6,9 +6,9 @@
 
 ## Introduction
 
-F&micro;N is a micro functional language designed for compilation explaination purpose. 
+F&micro;N is a micro functional language designed for compilation explanation purpose. 
 
-[Slides in french are available](https://www.slideshare.net/dplaindoux/compiling-fn-language).
+[Slides are available](https://www.slideshare.net/dplaindoux/compiling-fn-language).
 
 ## Grammar
 
@@ -24,10 +24,9 @@ Exp ::=
    SExp+    	       	   
 
 SExp ::=
-   { ((DENT+ "->")? SExp } 	         
-   "(" Exp ")"
-   "(" ")"
-   "$ Exp
+   { (IDENT+ "->")? SExp } 	         
+   "(" Exp? ")"
+   "$" Exp
    NUMBER
    STRING
    "native" STRING
