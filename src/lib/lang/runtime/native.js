@@ -21,6 +21,7 @@ function mustBe(v, type) {
 // Remember De Bruijn indexes
 
 export default {
+    // Dom operations
     'set': env => {
         const node = env[1],
             text = env[0];

@@ -91,12 +91,12 @@ class Variable extends DeBruijnExpression {
 }
 
 export default {
-    ident: n => new Ident(n),
-    constant: c => new Constant(c),
+    ident: (n) => new Ident(n),
+    constant: (c) => new Constant(c),
     native: (n) => new Native(n),
     application: (f, a) => new Application(f, a),
     abstraction: (b) => new Abstraction(b),
-    variable: n => new Variable(n),
+    variable: (n) => new Variable(n),
     definition: ast.definition,
     main: ast.main
 }

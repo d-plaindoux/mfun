@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <link rel="stylesheet" href="css/reveal.css">
-    <link rel="stylesheet" href="css/theme/league.css" id="theme">
+    <link rel="stylesheet" href="css/theme/sky.css" id="theme">
 
     <!-- Code syntax highlighting -->
     <link rel="stylesheet" href="lib/css/zenburn.css">
@@ -38,7 +38,7 @@
     def cond   { c t f -> c t f () }
 
     def do    { f   -> then () f }
-    def then  { v f -> { v c -> c v } $ f v }
+    def then  { v f -> yield $ f v }
     def yield { v f  -> f v }
     </script>
 
@@ -75,6 +75,11 @@
         .tk {
             font-style: revert;
             color: #00BBFF;
+        }
+
+        .tkl {
+            font-style: revert;
+            color: #3533ff;
         }
 
         .remark {
@@ -136,8 +141,8 @@
     <div class="slides">
 
         <section>
-            <h2>The <span class="name">F&micro;N</span> programming language</h2>
-            <h3 class="fragment"> From Definition to Execution </h3>
+            <h3>The <span class="name">F&micro;N</span> language</h3>
+            <h4 class="fragment"> From Definition to Execution </h4>
             <br/>
             <div class="p" style="text-align:middle">16 Janvier 2019</div>
             <div class="p" style="text-align:middle">LilleFP</div>
@@ -168,7 +173,7 @@
             <h3> Language Grammar </h3>
             <pre class="remark">
           exp  ::= sexp+
-          sexp ::= <span class="tk">{</span> (IDENT+ <span class="tk">-></span>)? exp <span class="tk">}</span> -- à la Swift or Kotlin
+          sexp ::= <span class="tk">{</span> (IDENT+ <span class="tk">&rightarrow;</span>)? exp <span class="tk">}</span> -- à la Swift or Kotlin
                  | <span class="tk">(</span> exp? <span class="tk">)</span>
                  | <span class="tk">$</span> exp                -- Infix application
                  | IDENT
@@ -183,16 +188,16 @@
         <section>
             <h3> Example </h3>
             <pre><code class="mfun">
-    def leq   { l r t f -> native "leq"   } // l <= r ? t : f
-    def mult  { l r     -> native "mult"  }
-    def minus { l r     -> native "minus" }
+    def leq   { l r t f &rightarrow; native "leq"   } // l <= r ? t : f
+    def mult  { l r     &rightarrow; native "mult"  }
+    def minus { l r     &rightarrow; native "minus" }
 
-    def cond { c t f -> c t f () }
+    def cond { c t f &rightarrow; c t f () }
 
-    def fact { a ->
+    def fact { a &rightarrow;
        cond (leq a 1)
-            { _ -> 1 }
-            { _ -> mult a (fact (minus a 1)) }
+            { _ &rightarrow; 1 }
+            { _ &rightarrow; mult a (fact (minus a 1)) }
     }
 
     fact 12
@@ -200,15 +205,15 @@
         </section>
 
         <section>
-            <h3> Example Cont'd </h3>
+            <h3> Example :: Simplification </h3>
             <pre><code class="mfun">
-    def leq   { l r t f -> native "leq"   } // l <= r ? t : f
-    def mult  { l r     -> native "mult"  }
-    def minus { l r     -> native "minus" }
+    def leq   { l r t f &rightarrow; native "leq"   } // l <= r ? t : f
+    def mult  { l r     &rightarrow; native "mult"  }
+    def minus { l r     &rightarrow; native "minus" }
 
-    def cond { c t f -> c t f () }
+    def cond { c t f &rightarrow; c t f () }
 
-    def fact { a ->
+    def fact { a &rightarrow;
        cond (leq a 1)
             { 1 }
             { mult a $ fact $ minus a 1 }
@@ -221,13 +226,26 @@
         <section>
             <h3> Example :: DSL </h3>
             <pre><code class="mfun">
-    def do    { f   -> then () f }
-    def then  { v f -> { v c -> c v } $ f v }
-    def yield { v f -> f v }
+    def yield { v c &rightarrow; c v }
+    def then  { v c &rightarrow; yield $ c v }
+    def do    { c   &rightarrow; then () c }
 
     do    { plus 20 2 }
     then  { minus _ 1 }
-    yield { mult _ 2 } // 42
+    yield { mult 2 _ } // 42
+            </code></pre>
+        </section>
+
+        <section>
+            <h3> Example :: DSL </h3>
+            <pre><code class="mfun">
+    def yield { v c &rightarrow; c v }
+    def then  { v c &rightarrow; yield $ c v }
+    def do    (then ())
+
+    do    { plus 20 2 }
+    then  { minus _ 1 }
+    yield (mult 2)     // 42
             </code></pre>
         </section>
 
@@ -243,15 +261,15 @@
                         <td> Infix Application</td>
                     </tr>
                     <tr>
-                        <td width="30%" align="right"><tt> { a -> { b -> ... } } </tt></td>
+                        <td width="30%" align="right"><tt> { a &rightarrow; { b &rightarrow; ... } } </tt></td>
                         <td width="2%">&equiv;</td>
-                        <td width="20%"><tt> { a b -> ... } </tt></td>
+                        <td width="20%"><tt> { a b &rightarrow; ... } </tt></td>
                         <td> Currified form</td>
                     </tr>
                     <tr>
-                        <td width="30%" align="right"><tt> { a -> f a } </tt></td>
+                        <td width="30%" align="right"><tt> { a &rightarrow; plus a 42 } </tt></td>
                         <td width="2%">&equiv;</td>
-                        <td width="20%"><tt> { f _ } </tt></td>
+                        <td width="20%"><tt> { plus _ 42 } </tt></td>
                         <td> Implicit argument</td>
                     </tr>
                 </table>
@@ -266,7 +284,7 @@
                         <td> Abstraction vs. Application</td>
                     </tr>
                     <tr>
-                        <td width="30%" align="right"><tt> { a -> { b -> f a } } </tt></td>
+                        <td width="30%" align="right"><tt> { a &rightarrow; { b &rightarrow; f a } } </tt></td>
                         <td width="2%">&nequiv;</td>
                         <td width="20%"><tt> { { f _ } } </tt></td>
                         <td> Implicit variable scope</td>
@@ -278,11 +296,11 @@
         <section>
             <h3> Analyze </h3>
 
-            Sequence char &rightarrow; Try Ast
+            Sequence char &DoubleLongRightArrow; Ast
         </section>
 
         <section>
-            <h3> (parser char Token).chain(parser Token Ast) </h3>
+            <h4> (parser char Token).chain(parser Token Ast) </h4>
 
             <div>
                 <ul>
@@ -301,20 +319,20 @@
         </section>
 
         <section>
-            <h3> From concrete syntax to abstract syntax </h3>
+            <h4> From concrete syntax to abstract syntax </h4>
 
             <pre>
 
  [_] :: Sequence Token &rightarrow; Ast
 
- [<span class="tk">{</span> a <span class="tk">-></span> b <span class="tk">}</span>] = Ast.abstraction(a, [b]))
+ [<span class="tkl">{</span> a <span class="tkl">&rightarrow;</span> b <span class="tkl">}</span>]  = Ast.abstraction(a, [b]))
  [a b]        = Ast.application([a],[b])
  [i]          = Ast.ident(i)             if i &in; IDENT
  [n]          = Ast.constant(n)          if n &in; NUMBER &cup; STRING
- [<span class="tk">native</span> s]   = Ast.native(s)
- [<span class="tk">(</span> a <span class="tk">)</span>]      = [a]
- [<span class="tk">$</span> a]        = [a]
- [<span class="tk">()</span>]         = Ast.constant(unit)
+ [<span class="tkl">native</span> s]   = Ast.native(s)
+ [<span class="tkl">(</span> a <span class="tkl">)</span>]      = [a]
+ [<span class="tkl">$</span> a]        = [a]
+ [<span class="tkl">()</span>]         = Ast.constant(unit)
       </pre>
 
             <div class="fragment ribbon"><span>Live Code</span></div>
@@ -322,11 +340,11 @@
 
         <section>
             <h3> Transform </h3>
-            Ast &rightarrow; AstDB
+            Ast &DoubleLongRightArrow; AstDB
         </section>
 
         <section>
-            <h3> De Bruijn index </h3>
+            <h4> De Bruijn index </h4>
 
             <p>
                 <img class="plain" src="images/De_Bruijn_index.png">
@@ -340,7 +358,7 @@
         </section>
 
         <section>
-            <h3> Determine De Bruijn indexes </h3>
+            <h4> Determine De Bruijn indexes </h4>
 
             <pre>
 
@@ -365,7 +383,7 @@
         </section>
 
         <section>
-            <h3> Operational semantic </h3>
+            <h4> Operational semantic </h4>
 
             <pre>
 
@@ -389,12 +407,12 @@
         <section>
             <h3> Compile </h3>
 
-            <p> AstDB &rightarrow; Objcode </p>
+            <p> AstDB &DoubleLongRightArrow; Objcode </p>
 
         </section>
 
         <section>
-            <h3> Abstract machine </h3>
+            <h4> Abstract machine </h4>
 
             <ul>
                 <li> J-L. Krivine's machine</li>
@@ -403,7 +421,7 @@
         </section>
 
         <section>
-            <h3> Compilation process </h3>
+            <h4> Compilation process </h4>
 
             <pre>
 
@@ -424,11 +442,11 @@
 
         <section>
             <h3> Execute </h3>
-            Objcode &rightarrow; Try Result
+            Objcode &DoubleLongRightArrow; Result
         </section>
 
         <section>
-            <h3> Execution process :: Core </h3>
+            <h4> Execution process :: Core </h4>
 
             <pre>
 
@@ -451,13 +469,13 @@
         </section>
 
         <section>
-            <h3> Execution process :: Extension </h3>
+            <h4> Execution process :: Extension </h4>
 
             <pre>
 
  ...
- definition :: String -> Result
- native     :: String -> Env -> Result
+ definition :: String &rightarrow; Result
+ native     :: String &rightarrow; Env &rightarrow; Result
 
  [Objcode.ident(n);c]<sub>e s</sub>              = [c]<sub>e (definition n)::s</sub>
  [Objcode.native(n);c]<sub>e s</sub>             = [c]<sub>e (native n e)::s</sub>
@@ -471,15 +489,18 @@
 
             <h3> REPL </h3>
 
-            <p> Sequence char &rightarrow; Try Result </p>
+            <p> Sequence char &DoubleLongRightArrow; Result </p>
 
         </section>
 
         <section>
 
-            <h4>
-                 s => Print(Analyze(s).map(Transform).map.(Compile).flatmap(Execute))
-            </h4>
+            <h6>
+                 Analyze
+                    |> Transform
+                    |> Compile
+                    |> Execute
+            </h6>
 
         </section>
 
@@ -487,8 +508,16 @@
 
             <h3><span class="name">F&micro;N</span> in a browser </h3>
 
-            <div style="font-size: 50%" onclick="bootstrap()">
-                <code>fact &lt;i id='val'><i class="tk" id='val'>?</i>&lt;/i> = &lt;i id='res'><i class="tk" id='res'>?</i>&lt/i></code>
+            <pre><code class="html">  &lt;script type="application/mfun"></code><code class="mfun">    def compute_then_display { v &rightarrow;
+        do    { changeDom "val" v }
+        then  { changeDom "res" $ fact v }
+        yield { () }
+    }
+
+    compute_then_display 100</code><code class="html">  &lt;/script></code></pre>
+
+            <div class="fragment" style="font-size: 90%" onclick="bootstrap()">
+                <code>fact &lt;i id='val'><i class="tk" id='val'>?</i>&lt;/i> <br> = <br> &lt;i id='res'><i class="tk" id='res'>?</i>&lt/i></code>
             </div>
 
             <script type="application/mfun">
@@ -502,19 +531,11 @@
 
             </script>
 
-            <pre class="fragment"><code class="html">  &lt;script type="application/mfun"></code><code class="mfun">    def compute_then_display { v ->
-        do    { changeDom "val" v }
-        then  { changeDom "res" $ fact v }
-        yield { () }
-    }
-
-    compute_then_display 100</code><code class="html">  &lt;/script></code></pre>
-
             <div class="ribbon"><span class="name">F&micro;N inside</span></div>
 
         </section>
         <section>
-            <h3> What's Next? </h3>
+            <h4> What's Next? </h4>
 
             <ul>
                 <li> Call-by-Name</li>

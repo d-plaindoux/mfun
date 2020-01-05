@@ -38,7 +38,7 @@
         }
 
         function execute() {
-            mFun.default.reader.browser(evalPrint);
+            mFun.default.reader.browser(document).execute(evalPrint);
         }
     </script>
 
@@ -50,8 +50,10 @@
   
   <script type="application/mfun">
     def compute_then_display { v ->
-        do    { changeDom "val" v }
-        then  { changeDom "res" $ fact v }
+        do    { v }
+        then  { changeDom "val" _
+        then  { fact v }
+        then  { changeDom "res" _ }
         yield { () }
     }
 

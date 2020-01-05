@@ -110,7 +110,8 @@ class Machine {
     // -------------------------------------------------------------------------
 
     definition(d) {
-        return this.execute(d.expression).onSuccess(r => this.definitions[d.name] = r);
+        return this.execute(d.expression)
+            .onSuccess(r => this.definitions[d.name] = r);
     }
 
     main(m) {

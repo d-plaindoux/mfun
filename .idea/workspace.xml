@@ -3,37 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="7515c4cf-6f38-468b-954b-8e00087ca8ca" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/css/reveal.css" beforeDir="false" afterPath="$PROJECT_DIR$/doc/css/reveal.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/css/reveal.scss" beforeDir="false" afterPath="$PROJECT_DIR$/doc/css/reveal.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/doc/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/js/reveal.js" beforeDir="false" afterPath="$PROJECT_DIR$/doc/js/reveal.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/examples/fact.html" beforeDir="false" afterPath="$PROJECT_DIR$/examples/fact.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/extensions/array.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/extensions/array.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/lang/analyzer/ast.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/lang/analyzer/ast.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/lang/analyzer/parser.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/lang/analyzer/parser.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/lang/compiler/ast-debruijn.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/lang/compiler/ast-debruijn.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/lang/compiler/ast-objcode.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/lang/compiler/ast-objcode.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/lang/compiler/debruijn.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/lang/compiler/debruijn.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/lang/compiler/objcode.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/lang/compiler/objcode.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/lang/runtime/ast-result.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/lang/runtime/ast-result.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/lang/runtime/machine.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/lang/runtime/machine.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/lang/runtime/native.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/lang/runtime/native.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/lang/toplevel/eval_print.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/lang/toplevel/eval_print.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/lang/toplevel/evaluator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/lang/toplevel/evaluator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/lang/toplevel/printer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/lang/toplevel/printer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/reader/browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/reader/browser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/reader/console.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/lang/analyzer/parser_entities_test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/lang/analyzer/parser_entities_test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/lang/analyzer/parser_expressions_test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/lang/analyzer/parser_expressions_test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/lang/compiler/debruijn_expression_test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/lang/compiler/debruijn_expression_test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/lang/compiler/objcode_expression_test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/lang/compiler/objcode_expression_test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/lang/runtime/machine_test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/lang/runtime/machine_test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/lang/toplevel/repl_test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/lang/toplevel/repl_test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +24,9 @@
     <annotation-enable>false</annotation-enable>
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
+  </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
   <component name="ProjectId" id="1RvsVilup90WQ6sP5o2j3tBItHI" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -71,6 +49,7 @@
     <property name="nodejs.jest.jest_package" value="" />
     <property name="nodejs.mocha.mocha_node_package_dir" value="" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
+    <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
@@ -229,7 +208,8 @@
       <workItem from="1536845431055" duration="11000" />
       <workItem from="1570558934190" duration="482000" />
       <workItem from="1570868695038" duration="10700000" />
-      <workItem from="1578068111496" duration="8440000" />
+      <workItem from="1578068111496" duration="12003000" />
+      <workItem from="1578238415979" duration="5111000" />
     </task>
     <servers />
   </component>
@@ -295,10 +275,10 @@
       <screen x="0" y="23" width="1634" height="1027" />
     </state>
     <state x="100" y="123" width="1207" height="827" key="DiffContextDialog/0.23.1634.1027@0.23.1634.1027" timestamp="1578170839812" />
-    <state width="791" height="445" key="SwitcherDM" timestamp="1578171116987">
+    <state width="791" height="445" key="SwitcherDM" timestamp="1578172917078">
       <screen x="0" y="23" width="1634" height="1027" />
     </state>
-    <state width="791" height="445" key="SwitcherDM/0.23.1634.1027@0.23.1634.1027" timestamp="1578171116987" />
+    <state width="791" height="445" key="SwitcherDM/0.23.1634.1027@0.23.1634.1027" timestamp="1578172917078" />
     <state x="285" y="261" width="837" height="550" key="find.popup" timestamp="1578170143847">
       <screen x="0" y="23" width="1634" height="1027" />
     </state>
