@@ -53,6 +53,6 @@
     "rimraf": "^2.6.1"
   },
   "dependencies": {
-    "parser-combinator": "^0.4.1"
+    "@masala/parser": "^0.8.1"
   }
 }

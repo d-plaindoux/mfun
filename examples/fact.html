@@ -51,7 +51,7 @@
   <script type="application/mfun">
     def compute_then_display { v ->
         do    { v }
-        then  { changeDom "val" _
+        then  { changeDom "val" _ }
         then  { fact v }
         then  { changeDom "res" _ }
         yield { () }

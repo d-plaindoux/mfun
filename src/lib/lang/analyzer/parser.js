@@ -6,64 +6,75 @@
  * Licensed under the LGPL2 license.
  */
 
-import {genlex as GLex, F as Flow, data} from 'parser-combinator';
+import {C as Char, data, F as Flow, N as Number} from '@masala/parser';
 import ast from './ast';
 import '../../extensions/array'
 
-// Facilities provided by the generic lexer library
-const tkNumber = GLex.token.parser.number,
-    tkString = GLex.token.parser.string,
-    tkIdent = GLex.token.parser.ident,
-    tkUnderscore = GLex.token.parser.keyword.match('_'),
-    tkKeyword = (s) => GLex.token.parser.keyword.match(s).drop();
-
-// unit -> Parser Expression Token
-function atom() {
-    return (tkIdent.or(tkUnderscore).map(ast.ident))
-        .or(tkNumber.or(tkString).map(ast.constant));
-}
+const
+    skip = Char.charIn(' \t\n\r\f').optrep().drop(),
+    numberLiteral = skip.then(Number.number()).then(skip).single(),
+    stringLiteral = skip.then(Char.stringLiteral()).then(skip).single(),
+    identifier = skip.then(Char.letters().or(Char.char('_'))).then(skip).single(),
+    atom = (s) => skip.then(Char.string(s)).then(skip).drop();
 
 // unit -> Parser Expression Token
 function abstraction() {
-    return tkKeyword('{')
-        .then(Flow.try(tkIdent.rep().then(tkKeyword('->'))).opt())
+    return atom('{')
+        .then(Flow.try(identifier.rep().then(atom('->'))).opt())
         .then(Flow.lazy(expression))
-        .then(tkKeyword('}'))
-        .map(t => t[0].map(p => p.array()).orElse(['_']).foldRight(ast.abstraction, t[1]));
-}
-
-// unit -> Parser Expression Token
-function native() {
-    return tkKeyword('native').then(tkString.map(ast.native));
+        .then(atom('}'))
+        .map(t =>
+            t.at(0)
+                .map(p => p.array()).orElse(['_'])
+                .foldRight(ast.abstraction, t.at(1))
+        );
 }
 
 // unit -> Parser Expression Token
 function block() {
-    return tkKeyword('(')
-        .then(Flow.lazy(expression).opt().map(t => t.orElse(ast.constant(data.unit))))
-        .then(tkKeyword(')'));
+    return atom('(')
+        .then(Flow.lazy(expression).opt())
+        .then(atom(')'))
+        .single()
+        .map(t => t.orElse(ast.constant(data.unit)));
 }
 
 // unit -> Parser Expression Token
 function endBlock() {
-    return tkKeyword('$').then(Flow.lazy(expression));
+    return atom('$').then(Flow.lazy(expression)).single();
+}
+
+// unit -> Parser Expression Token
+function native() {
+    return atom('native').then(stringLiteral).single().map(ast.native);
+}
+
+// unit -> Parser Expression Token
+function terminal() {
+    return identifier.map(ast.ident)
+        .or(numberLiteral.map(ast.constant))
+        .or(stringLiteral.map(ast.constant));
 }
 
 // unit -> Parser Expression Token
 function simpleExpression() {
-    return abstraction().or(block()).or(endBlock()).or(atom()).or(native());
+    return abstraction().or(block()).or(endBlock()).or(native()).or(terminal());
 }
 
 // unit -> Parser Expression Token
 function expression() {
-    return simpleExpression().then(simpleExpression().optrep())
-        .map(t => t[1].array().foldLeft(t[0], ast.application));
+    return simpleExpression().flatMap(f =>
+        simpleExpression().optrep()
+            .map(t => {
+                return t.array().foldLeft(f, ast.application)
+            })
+    );
 }
 
 // unit -> Parser Entity Token
 function definition() {
-    return tkKeyword('def').then(tkIdent).then(simpleExpression())
-        .map(t => ast.definition(t[0], t[1]));
+    return atom('def').then(identifier).then(simpleExpression())
+        .map(t => ast.definition(t.at(0), t.at(1)));
 }
 
 // unit -> Parser Entity Token
@@ -76,16 +87,7 @@ function entities() {
     return definition().or(main()).optrep();
 }
 
-// Parser a' Token -> Parser a' char
-function analyzer(parser) {
-    return GLex.genlex
-        .generator(['def', 'native', '{', '}', '->', '(', ')', '$', '_'])
-        .tokenBetweenSpaces(GLex.token.builder)
-        .chain(parser.then(Flow.eos.drop()))
-        .parse;
-}
-
 export default {
-    expression: analyzer(expression()),
-    entities: analyzer(entities())
+    expression,
+    entities
 };

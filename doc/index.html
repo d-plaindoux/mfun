@@ -162,7 +162,7 @@
 
             <ul>
                 <li class="fragment"> &lambda;-Calculus: variable, abstraction and application</li>
-                <li class="fragment"> Constant: number and string</li>
+                <li class="fragment"> Constant: Number and String</li>
                 <li class="fragment"> Definition: function and constant</li>
                 <li class="fragment"> Native: function and constant</li>
             </ul>
@@ -170,83 +170,79 @@
         </section>
 
         <section>
-            <h3> Language Grammar </h3>
-            <pre class="remark">
-          exp  ::= sexp+
-          sexp ::= <span class="tk">{</span> (IDENT+ <span class="tk">&rightarrow;</span>)? exp <span class="tk">}</span> -- à la Swift or Kotlin
-                 | <span class="tk">(</span> exp? <span class="tk">)</span>
-                 | <span class="tk">$</span> exp                -- Infix application
-                 | IDENT
-                 | NUMBER | STRING
-                 | <span class="tk">native</span> STRING
-          def  ::= <span class="tk">def</span> IDENT sexp
-                 | exp
-          s0   ::= def* </pre>
-        </section>
-
-
-        <section>
-            <h3> Example </h3>
+            <h3> Proposition </h3>
             <pre><code class="mfun">
     def leq   { l r t f &rightarrow; native "leq"   } // l <= r ? t : f
     def mult  { l r     &rightarrow; native "mult"  }
     def minus { l r     &rightarrow; native "minus" }
 
-    def cond { c t f &rightarrow; c t f () }
+</code><code class="mfun fragment">    def cond { c t f &rightarrow; c t f () }
 
-    def fact { a &rightarrow;
+</code><code class="mfun fragment">    def fact { a &rightarrow;
        cond (leq a 1)
             { _ &rightarrow; 1 }
             { _ &rightarrow; mult a (fact (minus a 1)) }
     }
 
-    fact 12
-      </code></pre>
+</code><code class="mfun fragment">    fact 12
+            </code></pre>
         </section>
 
         <section>
-            <h3> Example :: Simplification </h3>
+            <h3> Proposition :: Simplification </h3>
             <pre><code class="mfun">
     def leq   { l r t f &rightarrow; native "leq"   } // l <= r ? t : f
     def mult  { l r     &rightarrow; native "mult"  }
     def minus { l r     &rightarrow; native "minus" }
 
-    def cond { c t f &rightarrow; c t f () }
+</code><code class="mfun">    def cond { c t f &rightarrow; c t f () }
 
-    def fact { a &rightarrow;
+</code><code class="mfun">    def fact { a &rightarrow;
        cond (leq a 1)
             { 1 }
             { mult a $ fact $ minus a 1 }
     }
 
-    fact 12
-      </code></pre>
-        </section>
-
-        <section>
-            <h3> Example :: DSL </h3>
-            <pre><code class="mfun">
-    def yield { v c &rightarrow; c v }
-    def then  { v c &rightarrow; yield $ c v }
-    def do    { c   &rightarrow; then () c }
-
-    do    { plus 20 2 }
-    then  { minus _ 1 }
-    yield { mult 2 _ } // 42
+</code><code class="mfun">    fact 12
             </code></pre>
         </section>
 
         <section>
-            <h3> Example :: DSL </h3>
-            <pre><code class="mfun">
+            <h3> Example :: DSL using CPS </h3>
+            <pre><code class="mfun fragment">
     def yield { v c &rightarrow; c v }
-    def then  { v c &rightarrow; yield $ c v }
-    def do    (then ())
 
-    do    { plus 20 2 }
+</code><code class="mfun fragment">    def then  { v c &rightarrow; yield $ c v }
+
+</code><code class="mfun fragment">    def do    { c   &rightarrow; then () c }
+
+</code><code class="mfun fragment">    do    { plus 20 3 }
     then  { minus _ 1 }
-    yield (mult 2)     // 42
+    then  { minus _ 2 }
+    yield ( mult 2 )
             </code></pre>
+        </section>
+
+        <section>
+
+            <h3> Ocaml :: DSL</h3>
+            <pre><code class="ocaml">
+    # let yield a f = f a ;;
+    val yield : 'a &rightarrow; ('a &rightarrow; 'b) &rightarrow; 'b = &lt;fun>
+
+</code><code class="ocaml fragment">    # let _then v f = yield @@ f v ;;
+    val _then : 'a &rightarrow; ('a &rightarrow; 'b) &rightarrow; ('b &rightarrow; 'c) &rightarrow; 'c = &lt;fun>
+
+</code><code class="ocaml fragment">    # let _do = _then () ;;
+    val _do : (unit &rightarrow; 'a) &rightarrow; ('a &rightarrow; 'b) &rightarrow; 'b = &lt;fun>
+
+</code><code class="ocaml fragment">    # _do (fun () &rightarrow; "3")     (* : (string &rightarrow; 'a) &rightarrow; 'a *)
+      _then int_of_string    (* : (int &rightarrow; 'a) &rightarrow; 'a    *)
+      _then (( * ) 4  )      (* : (int &rightarrow; 'a) &rightarrow; 'a    *)
+      yield (( + ) 30 );;    (* : int                *)
+    - : int = 42
+            </code></pre>
+
         </section>
 
         <section>
@@ -294,22 +290,40 @@
         </section>
 
         <section>
+            <h3> Language Grammar </h3>
+            <pre class="remark">
+    exp  ::= sexp+
+    sexp ::= <span class="tk">{</span> (IDENT+ <span class="tk">&rightarrow;</span>)? exp <span class="tk">}</span>  -- à la Swift or Kotlin
+           | <span class="tk">(</span> exp? <span class="tk">)</span>
+           | <span class="tk">$</span> exp                -- Infix application
+           | <span class="tk">native</span> String
+           | IDENT
+           | Number | String
+    def  ::= <span class="tk">def</span> IDENT sexp
+           | exp
+    s0   ::= def* </pre>
+        </section>
+
+        <section>
             <h3> Analyze </h3>
 
             Sequence char &DoubleLongRightArrow; Ast
         </section>
 
         <section>
-            <h4> (parser char Token).chain(parser Token Ast) </h4>
+            <h4> Parser char Ast </h4>
 
             <div>
                 <ul>
-                    <li>
-                        <a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/parsec-paper-letter.pdf">
-                            Parser Combinators </a></li>
-                    <li> Generic lexer cf. <a href="https://caml.inria.fr/pub/docs/manual-ocaml/libref/Genlex.html">
+                    <li class="fragment"> Parser generator cf. <a href="http://gallium.inria.fr/~fpottier/menhir/">
+                        OCaml
+                        Menhir </a></li>
+                    <li class="fragment"> Generic lexer cf. <a href="https://caml.inria.fr/pub/docs/manual-ocaml/libref/Genlex.html">
                         OCaml
                         Genlex </a></li>
+                    <li class="fragment">
+                        <a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/parsec-paper-letter.pdf">
+                            Parser Combinators </a></li>
                 </ul>
             </div>
 
@@ -328,7 +342,7 @@
  [<span class="tkl">{</span> a <span class="tkl">&rightarrow;</span> b <span class="tkl">}</span>]  = Ast.abstraction(a, [b]))
  [a b]        = Ast.application([a],[b])
  [i]          = Ast.ident(i)             if i &in; IDENT
- [n]          = Ast.constant(n)          if n &in; NUMBER &cup; STRING
+ [n]          = Ast.constant(n)          if n &in; Number &cup; String
  [<span class="tkl">native</span> s]   = Ast.native(s)
  [<span class="tkl">(</span> a <span class="tkl">)</span>]      = [a]
  [<span class="tkl">$</span> a]        = [a]
@@ -387,8 +401,9 @@
 
             <pre>
 
- type Result = NUMBER | STRING | (AstDB,Env)
+ type Result = Number | String | (AstDB,Env)
   and Env    = List Result
+                
  [_] :: AstDB &rightarrow; Env &rightarrow; Result
 
  [AstDB.constant(c)]<sub>e</sub>       = c
@@ -450,7 +465,7 @@
 
             <pre>
 
- type Result = NUMBER | STRING | (Objcode,Env)
+ type Result = Number | String | (Objcode,Env)
   and Env    = List Result
   and Stack  = List (Result | Env | Objcode)
 

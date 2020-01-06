@@ -2,6 +2,10 @@
 # yarn lockfile v1
 
 
+"@masala/parser@^0.8.1":
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/@masala/parser/-/parser-0.8.1.tgz#d2c687be46330b52c51b6612de80ea413e76f805"
+
 Base64@~0.2.0:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/Base64/-/Base64-0.2.1.tgz#ba3a4230708e186705065e66babdd4c35cf60028"
@@ -2605,10 +2609,6 @@ parse-json@^2.2.0:
   resolved "https://registry.yarnpkg.com/parse-json/-/parse-json-2.2.0.tgz#f480f40434ef80741f8469099f8dea18f55a4dc9"
   dependencies:
     error-ex "^1.2.0"
-
-parser-combinator@^0.4.1:
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/parser-combinator/-/parser-combinator-0.4.1.tgz#c2480b62510ffb770527d1deff909810923ecf53"
 
 path-browserify@~0.0.0:
   version "0.0.0"

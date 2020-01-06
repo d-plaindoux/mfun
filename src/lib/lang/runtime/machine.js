@@ -6,7 +6,7 @@
  * Licensed under the LGPL2 license.
  */
 
-import {data} from 'parser-combinator';
+import {data} from '@masala/parser';
 import native from "./native";
 import astResult from "./ast-result";
 

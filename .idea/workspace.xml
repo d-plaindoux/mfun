@@ -5,9 +5,12 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/doc/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/examples/fact.html" beforeDir="false" afterPath="$PROJECT_DIR$/examples/fact.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/lang/compiler/ast-debruijn.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/lang/compiler/ast-debruijn.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/lang/analyzer/parser.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/lang/analyzer/parser.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/lang/runtime/machine.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/lang/runtime/machine.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/lang/runtime/native.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/lang/runtime/native.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/lang/toplevel/evaluator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/lang/toplevel/evaluator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/lang/analyzer/parser_entities_test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/lang/analyzer/parser_entities_test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/lang/analyzer/parser_expressions_test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/lang/analyzer/parser_expressions_test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -39,7 +42,7 @@
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="full.screen.before.presentation.mode" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test/lang/analyzer" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -51,15 +54,18 @@
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test/lang/analyzer" />
+      <recent name="$PROJECT_DIR$/src/lib/lang/analyzer" />
+      <recent name="$PROJECT_DIR$/dist" />
+      <recent name="$PROJECT_DIR$/src/lib/lang/toplevel" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/" />
       <recent name="$PROJECT_DIR$/src/lib/reader" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/dist" />
-      <recent name="$PROJECT_DIR$/src/lib/lang/toplevel" />
     </key>
   </component>
   <component name="RunManager" selected="Nodeunit.Tests Expressions">
@@ -209,41 +215,9 @@
       <workItem from="1570558934190" duration="482000" />
       <workItem from="1570868695038" duration="10700000" />
       <workItem from="1578068111496" duration="12003000" />
-      <workItem from="1578238415979" duration="5111000" />
+      <workItem from="1578238415979" duration="21465000" />
     </task>
     <servers />
-  </component>
-  <component name="TestHistory">
-    <history-entry file="Tests_De_Bruijn - 2017.09.19 at 05h 56m 15s.xml">
-      <configuration name="Tests De Bruijn" configurationId="NodeunitConfigurationType" />
-    </history-entry>
-    <history-entry file="Tests_De_Bruijn - 2017.09.19 at 05h 56m 25s.xml">
-      <configuration name="Tests De Bruijn" configurationId="NodeunitConfigurationType" />
-    </history-entry>
-    <history-entry file="Tests_De_Bruijn - 2017.09.19 at 05h 57m 59s.xml">
-      <configuration name="Tests De Bruijn" configurationId="NodeunitConfigurationType" />
-    </history-entry>
-    <history-entry file="Tests_Expressions - 2017.09.18 at 11h 56m 59s.xml">
-      <configuration name="Tests Expressions" configurationId="NodeunitConfigurationType" />
-    </history-entry>
-    <history-entry file="Tests_Expressions - 2017.09.18 at 11h 57m 15s.xml">
-      <configuration name="Tests Expressions" configurationId="NodeunitConfigurationType" />
-    </history-entry>
-    <history-entry file="Tests_Runtime - 2017.09.09 at 09h 40m 00s.xml">
-      <configuration name="Tests Runtime" configurationId="NodeunitConfigurationType" />
-    </history-entry>
-    <history-entry file="Tests_Runtime - 2017.09.09 at 20h 34m 31s.xml">
-      <configuration name="Tests Runtime" configurationId="NodeunitConfigurationType" />
-    </history-entry>
-    <history-entry file="Tests_Runtime - 2017.09.09 at 20h 56m 09s.xml">
-      <configuration name="Tests Runtime" configurationId="NodeunitConfigurationType" />
-    </history-entry>
-    <history-entry file="Tests_Runtime - 2017.09.20 at 11h 18m 20s.xml">
-      <configuration name="Tests Runtime" configurationId="NodeunitConfigurationType" />
-    </history-entry>
-    <history-entry file="Tests_Runtime - 2017.10.17 at 08h 10m 51s.xml">
-      <configuration name="Tests Runtime" configurationId="NodeunitConfigurationType" />
-    </history-entry>
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -275,17 +249,23 @@
       <screen x="0" y="23" width="1634" height="1027" />
     </state>
     <state x="100" y="123" width="1207" height="827" key="DiffContextDialog/0.23.1634.1027@0.23.1634.1027" timestamp="1578170839812" />
-    <state width="791" height="445" key="SwitcherDM" timestamp="1578172917078">
+    <state width="791" height="445" key="SwitcherDM" timestamp="1578342285019">
       <screen x="0" y="23" width="1634" height="1027" />
     </state>
-    <state width="791" height="445" key="SwitcherDM/0.23.1634.1027@0.23.1634.1027" timestamp="1578172917078" />
-    <state x="285" y="261" width="837" height="550" key="find.popup" timestamp="1578170143847">
-      <screen x="0" y="23" width="1634" height="1027" />
+    <state width="791" height="445" key="SwitcherDM/0.23.1634.1027@0.23.1634.1027" timestamp="1578342285019" />
+    <state x="205" y="-830" width="1374" height="625" key="find.popup" timestamp="1578319225834">
+      <screen x="-130" y="-1080" width="1920" height="1080" />
     </state>
+    <state x="205" y="-830" width="1374" height="625" key="find.popup/-130.-1080.1920.1080/0.23.1636.1027@-130.-1080.1920.1080" timestamp="1578319225834" />
     <state x="285" y="261" width="837" height="550" key="find.popup/0.23.1634.1027@0.23.1634.1027" timestamp="1578170143847" />
-    <state x="368" y="250" width="670" height="676" key="search.everywhere.popup" timestamp="1578170268603">
-      <screen x="0" y="23" width="1634" height="1027" />
+    <state x="495" y="-290" key="run.anything.popup" timestamp="1578325464349">
+      <screen x="-130" y="-1080" width="1920" height="1080" />
     </state>
+    <state x="495" y="-290" key="run.anything.popup/-130.-1080.1920.1080/0.23.1636.1027@-130.-1080.1920.1080" timestamp="1578325464349" />
+    <state x="302" y="-841" width="788" height="711" key="search.everywhere.popup" timestamp="1578319976681">
+      <screen x="-130" y="-1080" width="1920" height="1080" />
+    </state>
+    <state x="302" y="-841" width="788" height="711" key="search.everywhere.popup/-130.-1080.1920.1080/0.23.1636.1027@-130.-1080.1920.1080" timestamp="1578319976681" />
     <state x="368" y="250" width="670" height="676" key="search.everywhere.popup/0.23.1634.1027@0.23.1634.1027" timestamp="1578170268603" />
   </component>
   <component name="masterDetails">
