@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <link rel="stylesheet" href="css/reveal.css">
-    <link rel="stylesheet" href="css/theme/sky.css" id="theme">
+    <link rel="stylesheet" href="css/theme/league.css" id="theme">
 
     <!-- Code syntax highlighting -->
     <link rel="stylesheet" href="lib/css/zenburn.css">
@@ -142,10 +142,11 @@
 
         <section>
             <h3>The <span class="name">F&micro;N</span> language</h3>
-            <h4 class="fragment"> From Definition to Execution </h4>
-            <br/>
+            <h3 class="fragment"> From Definition to Execution </h3>
             <div class="p" style="text-align:middle">16 Janvier 2019</div>
-            <div class="p" style="text-align:middle">LilleFP</div>
+            <div class="p" style="text-align:middle">
+                <img src="images/lambdalille.png">
+            </div>
             <div class="p" style="text-align:middle">
 	    <span>
 	      <a href="http://twitter.com/dplaindoux">@dplaindoux</a>
@@ -153,9 +154,22 @@
             </div>
         </section>
 
+        <!-- ####################### -->
+
         <section>
-            About me ...
+            <h1> Chocolatine </h1>
         </section>
+
+        <!-- ####################### -->
+
+        <section>
+            <h1 style="font-size: 250%;text-transform: none">
+            C C++ OCaml Lisp Scheme Prolog Perl Java Javascript PHP Python Objective-C Swift Rust Kotlin Haskell Idris COQ ...
+                <span class="fragment" style="text-transform: none">F&micro;N</span>
+            </h1>
+        </section>
+
+        <!-- ####################### -->
 
         <section>
             <h3> Language Definition </h3>
@@ -169,6 +183,8 @@
 
         </section>
 
+        <!-- ####################### -->
+
         <section>
             <h3> Proposition </h3>
             <pre><code class="mfun">
@@ -176,9 +192,9 @@
     def mult  { l r     &rightarrow; native "mult"  }
     def minus { l r     &rightarrow; native "minus" }
 
-</code><code class="mfun fragment">    def cond { c t f &rightarrow; c t f () }
+</code><code class="mfun fragment">    def cond  { c t f &rightarrow; c t f () }
 
-</code><code class="mfun fragment">    def fact { a &rightarrow;
+</code><code class="mfun fragment">    def fact  { a &rightarrow;
        cond (leq a 1)
             { _ &rightarrow; 1 }
             { _ &rightarrow; mult a (fact (minus a 1)) }
@@ -188,6 +204,8 @@
             </code></pre>
         </section>
 
+        <!-- ####################### -->
+
         <section>
             <h3> Proposition :: Simplification </h3>
             <pre><code class="mfun">
@@ -195,9 +213,9 @@
     def mult  { l r     &rightarrow; native "mult"  }
     def minus { l r     &rightarrow; native "minus" }
 
-</code><code class="mfun">    def cond { c t f &rightarrow; c t f () }
+</code><code class="mfun">    def cond  { c t f &rightarrow; c t f () }
 
-</code><code class="mfun">    def fact { a &rightarrow;
+</code><code class="mfun">    def fact  { a &rightarrow;
        cond (leq a 1)
             { 1 }
             { mult a $ fact $ minus a 1 }
@@ -206,6 +224,8 @@
 </code><code class="mfun">    fact 12
             </code></pre>
         </section>
+
+        <!-- ####################### -->
 
         <section>
             <h3> Example :: DSL using CPS </h3>
@@ -223,9 +243,11 @@
             </code></pre>
         </section>
 
+        <!-- ####################### -->
+
         <section>
 
-            <h3> Ocaml :: DSL</h3>
+            <h3> Ocaml :: DSL using CPS </h3>
             <pre><code class="ocaml">
     # let yield a f = f a ;;
     val yield : 'a &rightarrow; ('a &rightarrow; 'b) &rightarrow; 'b = &lt;fun>
@@ -244,6 +266,8 @@
             </code></pre>
 
         </section>
+
+        <!-- ####################### -->
 
         <section>
             <h3> syntax highlights </h3>
@@ -289,19 +313,24 @@
             </div>
         </section>
 
+        <!-- ####################### -->
+
         <section>
             <h3> Language Grammar </h3>
             <pre class="remark">
-    exp  ::= sexp+
-    sexp ::= <span class="tk">{</span> (IDENT+ <span class="tk">&rightarrow;</span>)? exp <span class="tk">}</span>  -- à la Swift or Kotlin
-           | <span class="tk">(</span> exp? <span class="tk">)</span>
-           | <span class="tk">$</span> exp                -- Infix application
-           | <span class="tk">native</span> String
-           | IDENT
-           | Number | String
-    def  ::= <span class="tk">def</span> IDENT sexp
-           | exp
-    s0   ::= def* </pre>
+    exp ::= <span class="tk">{</span> (Id+ <span class="tk">&rightarrow;</span>)? exp+ <span class="tk">}</span>    -- Abstraction à la Kotlin
+          | <span class="tk">(</span> exp+ <span class="tk">)</span>             -- Block of application
+          | <span class="tk">$</span> exp+               -- Infix application
+          | <span class="tk">native</span> String        -- Native binding
+          | Id                   -- Identifier
+          | Number               -- Float literal e.g. -1.3e23
+          | String               -- String literal e.g. "o_O"
+          | <span class="tk">()</span>                   -- Unit
+    Id  ::= IDENT
+          | <span class="tk">_</span>
+    def ::= <span class="tk">def</span> IDENT exp
+          | exp+
+    s0  ::= def* </pre>
         </section>
 
         <section>
@@ -311,14 +340,15 @@
         </section>
 
         <section>
-            <h4> Parser char Ast </h4>
+            <h3> Parsing </h3>
 
             <div>
                 <ul>
-                    <li class="fragment"> Parser generator cf. <a href="http://gallium.inria.fr/~fpottier/menhir/">
+                    <li class="fragment"> Generator cf. <a href="http://gallium.inria.fr/~fpottier/menhir/">
                         OCaml
                         Menhir </a></li>
-                    <li class="fragment"> Generic lexer cf. <a href="https://caml.inria.fr/pub/docs/manual-ocaml/libref/Genlex.html">
+                    <li class="fragment"> Generic lexer cf. <a
+                            href="https://caml.inria.fr/pub/docs/manual-ocaml/libref/Genlex.html">
                         OCaml
                         Genlex </a></li>
                     <li class="fragment">
@@ -326,53 +356,62 @@
                             Parser Combinators </a></li>
                 </ul>
             </div>
-
-            <br>
-
-            <div class="remark fragment"> LL(1) or when k > 1 with try parser i.e. backtrack</div>
         </section>
 
+        <!-- ####################### -->
+
         <section>
-            <h4> From concrete syntax to abstract syntax </h4>
+            <h3> Parser combinator </h3>
 
-            <pre>
-
- [_] :: Sequence Token &rightarrow; Ast
-
- [<span class="tkl">{</span> a <span class="tkl">&rightarrow;</span> b <span class="tkl">}</span>]  = Ast.abstraction(a, [b]))
- [a b]        = Ast.application([a],[b])
- [i]          = Ast.ident(i)             if i &in; IDENT
- [n]          = Ast.constant(n)          if n &in; Number &cup; String
- [<span class="tkl">native</span> s]   = Ast.native(s)
- [<span class="tkl">(</span> a <span class="tkl">)</span>]      = [a]
- [<span class="tkl">$</span> a]        = [a]
- [<span class="tkl">()</span>]         = Ast.constant(unit)
-      </pre>
+            <ul>
+                <li class="fragment"> LL grammars i.e. no left recursion </li>
+                <li class="fragment"> Based on composition i.e. Monadic </li>
+                <li class="fragment"> Test Driven Development compliant </li>
+            </ul>
 
             <div class="fragment ribbon"><span>Live Code</span></div>
         </section>
+
+        <!-- ####################### -->
 
         <section>
             <h3> Transform </h3>
             Ast &DoubleLongRightArrow; AstDB
         </section>
 
-        <section>
-            <h4> De Bruijn index </h4>
+        <!-- ####################### -->
 
-            <p>
+        <section>
+            <h3> De Bruijn index </h3>
+
+            <p> &lambda;-terms representation without <br> naming the bind variables </p>
+
+            <p class="fragment">
+                <code>&lambda;f.(((&lambda;x.x (&lambda;y.y)) (&lambda;z.f z)) </code>
+            </p>
+
+            <p class="fragment">
                 <img class="plain" src="images/De_Bruijn_index.png">
             </p>
 
+        </section>
+
+        <!-- ####################### -->
+
+        <section>
+            <h3> De Bruijn index Cont'd </h3>
+
             <ul>
-                <li type="none"> Invariant with respect to &alpha;-conversion</li>
-                <li type="none"> Direct access in an environment</li>
+                <li class="fragment"> Invariant with respect to &alpha;-conversion</li>
+                <li class="fragment"> Direct access in an environment</li>
             </ul>
 
         </section>
 
+        <!-- ####################### -->
+
         <section>
-            <h4> Determine De Bruijn indexes </h4>
+            <h3> Determine De Bruijn indexes </h3>
 
             <pre>
 
@@ -390,14 +429,18 @@
             <div class="fragment ribbon"><span>Live Code</span></div>
         </section>
 
+        <!-- ####################### -->
+
         <section>
             <h3> Interpret </h3>
 
             AstDB &rightarrow; Result
         </section>
 
+        <!-- ####################### -->
+
         <section>
-            <h4> Operational semantic </h4>
+            <h3> Operational semantic </h3>
 
             <pre>
 
@@ -419,6 +462,8 @@
 
         </section>
 
+        <!-- ####################### -->
+
         <section>
             <h3> Compile </h3>
 
@@ -426,8 +471,10 @@
 
         </section>
 
+        <!-- ####################### -->
+
         <section>
-            <h4> Abstract machine </h4>
+            <h3> Abstract machine </h3>
 
             <ul>
                 <li> J-L. Krivine's machine</li>
@@ -435,8 +482,10 @@
             </ul>
         </section>
 
+        <!-- ####################### -->
+
         <section>
-            <h4> Compilation process </h4>
+            <h3> Compilation process </h3>
 
             <pre>
 
@@ -455,13 +504,17 @@
             <div class="fragment ribbon"><span>Live Code</span></div>
         </section>
 
+        <!-- ####################### -->
+
         <section>
             <h3> Execute </h3>
             Objcode &DoubleLongRightArrow; Result
         </section>
 
+        <!-- ####################### -->
+
         <section>
-            <h4> Execution process :: Core </h4>
+            <h3> Execution process :: Core </h3>
 
             <pre>
 
@@ -483,8 +536,10 @@
 
         </section>
 
+        <!-- ####################### -->
+
         <section>
-            <h4> Execution process :: Extension </h4>
+            <h3> Execution process :: Extension </h3>
 
             <pre>
 
@@ -500,6 +555,8 @@
 
         </section>
 
+        <!-- ####################### -->
+
         <section>
 
             <h3> REPL </h3>
@@ -508,16 +565,20 @@
 
         </section>
 
+        <!-- ####################### -->
+
         <section>
 
             <h6>
-                 Analyze
-                    |> Transform
-                    |> Compile
-                    |> Execute
+                Analyze
+                |> Transform
+                |> Compile
+                |> Execute
             </h6>
 
         </section>
+
+        <!-- ####################### -->
 
         <section>
 
@@ -532,7 +593,8 @@
     compute_then_display 100</code><code class="html">  &lt;/script></code></pre>
 
             <div class="fragment" style="font-size: 90%" onclick="bootstrap()">
-                <code>fact &lt;i id='val'><i class="tk" id='val'>?</i>&lt;/i> <br> = <br> &lt;i id='res'><i class="tk" id='res'>?</i>&lt/i></code>
+                <code>fact &lt;i id='val'><i class="tk" id='val'>?</i>&lt;/i> <br> = <br> &lt;i id='res'><i class="tk"
+                                                                                                            id='res'>?</i>&lt/i></code>
             </div>
 
             <script type="application/mfun">
@@ -543,20 +605,22 @@
     }
 
     compute_then_display 100
-
             </script>
 
             <div class="ribbon"><span class="name">F&micro;N inside</span></div>
 
         </section>
+
+        <!-- ####################### -->
+
         <section>
-            <h4> What's Next? </h4>
+            <h3> What's Next? </h3>
 
             <ul>
                 <li> Call-by-Name</li>
-                <li> Tail recursive</li>
-                <li> Type checker</li>
-                <li> G-Machine, SECD-Machine etc.</li>
+                <li> Tail recursion </li>
+                <li> Type checker </li>
+                <li> G-Machine, SECD-Machine etc. </li>
             </ul>
         </section>
 
@@ -577,28 +641,28 @@
                 dependencies: [
                     {
                         src: 'lib/js/classList.js', condition: function () {
-                        return !document.body.classList;
-                    }
+                            return !document.body.classList;
+                        }
                     },
                     {
                         src: 'plugin/markdown/marked.js', condition: function () {
-                        return !!document.querySelector('[data-markdown]');
-                    }
+                            return !!document.querySelector('[data-markdown]');
+                        }
                     },
                     {
                         src: 'plugin/markdown/markdown.js', condition: function () {
-                        return !!document.querySelector('[data-markdown]');
-                    }
+                            return !!document.querySelector('[data-markdown]');
+                        }
                     },
                     {
                         src: 'plugin/highlight/highlight.js', async: true, callback: function () {
-                        hljs.initHighlightingOnLoad();
-                        // And register my language
+                            hljs.initHighlightingOnLoad();
+                            // And register my language
 
-                        // Disable all the auto detection
-                        hljs.configure({languages: []});
+                            // Disable all the auto detection
+                            hljs.configure({languages: []});
 
-                    }
+                        }
                     },
                     {src: 'plugin/zoom-js/zoom.js', async: true},
                     {src: 'plugin/notes/notes.js', async: true}

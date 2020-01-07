@@ -6,7 +6,7 @@
  * Licensed under the LGPL2 license.
  */
 
-import astDB from './ast-debruijn';
+import AstDB from './ast-debruijn';
 
 class Transformer {
 
@@ -14,41 +14,45 @@ class Transformer {
         this.variables = variables;
     }
 
+    // -----------------------------------------------------------------------------
+
     definition(d) {
-        return astDB.definition(d.name, d.expression.visit(this));
+        return AstDB.definition(d.name, d.expression.visit(this));
     }
 
     main(m) {
-        return astDB.main(m.expression.visit(this));
+        return AstDB.main(m.expression.visit(this));
     }
+
+    // -----------------------------------------------------------------------------
 
     ident(i) {
         const index = this.variables.indexOf(i.name);
 
         if (index === -1) {
-            return astDB.ident(i.name);
+            return AstDB.ident(i.name);
+        } else {
+            return AstDB.variable(index);
         }
-
-        return astDB.variable(index);
     }
 
     constant(c) {
-        return astDB.constant(c.value);
+        return AstDB.constant(c.value);
     }
 
     native(n) {
-        return astDB.native(n.name);
+        return AstDB.native(n.name);
     }
 
     application(a) {
-        return astDB.application(a.abstraction.visit(this), a.argument.visit(this));
+        return AstDB.application(a.abstraction.visit(this), a.argument.visit(this));
     }
 
     abstraction(a) {
         const newVariables = [a.variable].concat(this.variables),
             newTransformer = new Transformer(newVariables);
 
-        return astDB.abstraction(a.body.visit(newTransformer));
+        return AstDB.abstraction(a.body.visit(newTransformer));
     }
 }
 

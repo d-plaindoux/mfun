@@ -10,7 +10,7 @@ import {data} from '@masala/parser';
 import native from "./native";
 import astResult from "./ast-result";
 
-class GetClosure {
+class ToClosure {
 
     constant() {
         throw new EvalError("Waiting for a closure")
@@ -25,7 +25,7 @@ class GetClosure {
 class Machine {
 
     constructor() {
-        this.getClosure = new GetClosure();
+        this.toClosure = new ToClosure();
         this.definitions = {};
         this.init([]);
     }
@@ -61,7 +61,7 @@ class Machine {
 
     apply() {
         const v = this.stack.shift(),
-            c = this.stack.shift().visit(this.getClosure);
+            c = this.stack.shift().visit(this.toClosure);
 
         this.stack.unshift(this.env);
         this.stack.unshift(this.code);

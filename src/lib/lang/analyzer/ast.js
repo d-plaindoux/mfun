@@ -7,14 +7,14 @@
  */
 
 // -----------------------------------------------------------------------------
-// Generic entity definition
+// Entity definition
 // -----------------------------------------------------------------------------
 
-class /*abstract*/
-Entity /* 'a */ {
+/*abstract*/
+class Entity {
 }
 
-class Definition extends Entity /* 'a */ {
+class Definition extends Entity {
     // String -> Expression
     constructor(name, expression) {
         super();
@@ -28,7 +28,7 @@ class Definition extends Entity /* 'a */ {
     }
 }
 
-class Main extends Entity /* 'a */ {
+class Main extends Entity {
     // String -> Expression
     constructor(expression) {
         super();
@@ -43,8 +43,8 @@ class Main extends Entity /* 'a */ {
 
 // -----------------------------------------------------------------------------
 
-class /*abstract*/
-Expression {
+/*abstract*/
+class Expression {
 }
 
 class Ident extends Expression {

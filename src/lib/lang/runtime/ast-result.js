@@ -6,8 +6,8 @@
  * Licensed under the LGPL2 license.
  */
 
-class /*abstract*/
-Result {
+/*abstract*/
+class Result {
 }
 
 class Constant extends Result {
