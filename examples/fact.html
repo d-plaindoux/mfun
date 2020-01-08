@@ -7,24 +7,20 @@
     def setDom { n v     -> native "set"   }
     def getDom { n       -> native "get"   }
 
-    def leq    { l r t f -> native "leq"   }
-    def plus   { l r     -> native "plus" }
-    def mult   { l r     -> native "mult"  }
-    def minus  { l r     -> native "minus" }
-    </script>
+    def leq   = { l r t f -> native "leq"   }
+    def plus  = { l r     -> native "plus" }
+    def mult  = { l r     -> native "mult"  }
+    def minus = { l r     -> native "minus" }
 
-    <script type="application/mfun">
-    def changeDom { n v -> do { setDom (getDom n) v } yield { v } }
+    def changeDom = { n v -> do { setDom (getDom n) v } yield { v } }
 
-    def cond   { c t f -> c t f () }
+    def cond  = { c t f -> c t f () }
 
-    def do    { f   -> then () f }
-    def then  { v f -> { v c -> c v } $ f v }
-    def yield { v f  -> f v }
-    </script>
+    def do    = { f   -> then () f }
+    def then  = { v f -> { v c -> c v } $ f v }
+    def yield = { v f  -> f v }
 
-    <script type="application/mfun">
-    def fact { a ->
+    def fact  = { a ->
         cond (leq a 1)
              { 1 }
              { mult a $ fact $ minus a 1 }
@@ -49,7 +45,7 @@
   </div>
   
   <script type="application/mfun">
-    def compute_then_display { v ->
+    def compute_then_display = { v ->
         do    { v }
         then  { changeDom "val" _ }
         then  { fact v }
@@ -57,8 +53,7 @@
         yield { () }
     }
 
-    compute_then_display 100
-
+    def _ = compute_then_display 100
   </script>
 </body>
 </html>

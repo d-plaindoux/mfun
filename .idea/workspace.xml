@@ -2,19 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7515c4cf-6f38-468b-954b-8e00087ca8ca" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/doc/images/lambdalille.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/doc/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/lang/analyzer/ast.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/lang/analyzer/ast.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/plugin/highlight/highlight.js" beforeDir="false" afterPath="$PROJECT_DIR$/doc/plugin/highlight/highlight.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/fact.fun" beforeDir="false" afterPath="$PROJECT_DIR$/examples/fact.fun" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/fact.html" beforeDir="false" afterPath="$PROJECT_DIR$/examples/fact.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/lang/analyzer/parser.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/lang/analyzer/parser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/lang/compiler/debruijn.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/lang/compiler/debruijn.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/lang/compiler/objcode.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/lang/compiler/objcode.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/lang/runtime/ast-result.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/lang/runtime/ast-result.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/lang/runtime/machine.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/lang/runtime/machine.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/lang/toplevel/evaluator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/lang/toplevel/evaluator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/lang/analyzer/parser_entities_test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/lang/analyzer/parser_entities_test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/lang/compiler/debruijn_expression_test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/lang/compiler/debruijn_expression_test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/lang/analyzer/parser_expressions_test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/lang/analyzer/parser_expressions_test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/lang/runtime/machine_test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/lang/runtime/machine_test.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -221,7 +216,8 @@
       <workItem from="1570558934190" duration="482000" />
       <workItem from="1570868695038" duration="10700000" />
       <workItem from="1578068111496" duration="12003000" />
-      <workItem from="1578238415979" duration="35353000" />
+      <workItem from="1578238415979" duration="38715000" />
+      <workItem from="1578478779211" duration="10692000" />
     </task>
     <servers />
   </component>
@@ -255,9 +251,10 @@
       <screen x="0" y="23" width="1634" height="1027" />
     </state>
     <state x="100" y="123" width="1207" height="827" key="DiffContextDialog/0.23.1634.1027@0.23.1634.1027" timestamp="1578170839812" />
-    <state width="791" height="445" key="SwitcherDM" timestamp="1578342285019">
-      <screen x="0" y="23" width="1634" height="1027" />
+    <state width="814" height="455" key="SwitcherDM" timestamp="1578503523044">
+      <screen x="-1680" y="0" width="1680" height="1050" />
     </state>
+    <state width="814" height="455" key="SwitcherDM/-1680.0.1680.1050/0.23.1635.1027@-1680.0.1680.1050" timestamp="1578503523044" />
     <state width="791" height="445" key="SwitcherDM/0.23.1634.1027@0.23.1634.1027" timestamp="1578342285019" />
     <state x="205" y="-830" width="1374" height="625" key="find.popup" timestamp="1578319225834">
       <screen x="-130" y="-1080" width="1920" height="1080" />
@@ -268,10 +265,15 @@
       <screen x="-130" y="-1080" width="1920" height="1080" />
     </state>
     <state x="495" y="-290" key="run.anything.popup/-130.-1080.1920.1080/0.23.1636.1027@-130.-1080.1920.1080" timestamp="1578325464349" />
-    <state x="-1302" y="232" width="690" height="692" key="search.everywhere.popup" timestamp="1578416988656">
+    <state x="-1302" y="232" width="690" height="692" key="search.everywhere.popup" timestamp="1578501085364">
       <screen x="-1680" y="0" width="1680" height="1050" />
     </state>
+    <state x="-1631" y="0" width="1582" height="3208" key="search.everywhere.popup.inPresentationMode" timestamp="1578508894728">
+      <screen x="-1680" y="0" width="1680" height="1050" />
+    </state>
+    <state x="-1631" y="0" width="1582" height="3208" key="search.everywhere.popup.inPresentationMode/-1680.0.1680.1050/0.0.1680.1050@-1680.0.1680.1050" timestamp="1578508894728" />
     <state x="302" y="-841" width="788" height="711" key="search.everywhere.popup/-130.-1080.1920.1080/0.23.1636.1027@-130.-1080.1920.1080" timestamp="1578319976681" />
+    <state x="-1302" y="232" width="690" height="692" key="search.everywhere.popup/-1680.0.1680.1050/0.23.1635.1027@-1680.0.1680.1050" timestamp="1578501085364" />
     <state x="-1302" y="232" width="690" height="692" key="search.everywhere.popup/-1680.0.1680.1050/0.23.1636.1027@-1680.0.1680.1050" timestamp="1578416988656" />
     <state x="368" y="250" width="670" height="676" key="search.everywhere.popup/0.23.1634.1027@0.23.1634.1027" timestamp="1578170268603" />
   </component>

@@ -10,6 +10,10 @@ import {Streams} from '@masala/parser';
 import Parser from '../../../lib/lang/analyzer/parser';
 import Ast from '../../../lib/lang/analyzer/ast';
 
+function entities(s) {
+    return Parser.entities().parse(Streams.ofString(s)).value;
+}
+
 export default {
     setUp: function (done) {
         done();
@@ -18,7 +22,7 @@ export default {
     'parse constant definition': function (test) {
         test.expect(1);
         test.deepEqual(
-            Parser.entities().parse(Streams.ofString('def Ultimate 42')).value.array(),
+            entities('def Ultimate = 42').array(),
             [
                 Ast.definition('Ultimate', Ast.constant(42))
             ],
@@ -29,7 +33,7 @@ export default {
     'parse Identity definition': function (test) {
         test.expect(1);
         test.deepEqual(
-            Parser.entities().parse(Streams.ofString('def Identity { x -> x }')).value.array(),
+            entities('def Identity = { x -> x }').array(),
             [
                 Ast.definition('Identity', Ast.abstraction('x', Ast.ident('x')))
             ],
@@ -40,7 +44,7 @@ export default {
     'parse main definition': function (test) {
         test.expect(1);
         test.deepEqual(
-            Parser.entities().parse(Streams.ofString('{ x -> x } 42')).value.array(),
+            entities('def _ = { x -> x } 42').array(),
             [
                 Ast.main(Ast.application(Ast.abstraction('x', Ast.ident('x')), Ast.constant(42)))
             ],
@@ -51,10 +55,10 @@ export default {
     'parse multiple definitions': function (test) {
         test.expect(1);
         test.deepEqual(
-            Parser.entities().parse(Streams.ofString('def Identity { x -> x } Identity 42')).value.array(),
+            entities('def the_identity = { x -> x } def _ = the_identity 42').array(),
             [
-                Ast.definition('Identity', Ast.abstraction('x', Ast.ident('x'))),
-                Ast.main(Ast.application(Ast.ident('Identity'), Ast.constant(42)))
+                Ast.definition('the_identity', Ast.abstraction('x', Ast.ident('x'))),
+                Ast.main(Ast.application(Ast.ident('the_identity'), Ast.constant(42)))
             ],
             'should accept identity and an application definitions.');
         test.done();

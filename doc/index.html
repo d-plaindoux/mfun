@@ -23,28 +23,28 @@
     <script type="application/javascript" src="../dist/mFun.min.js"></script>
 
     <script type="application/mfun">
-    def setDom { n v     -> native "set"   }
-    def getDom { n       -> native "get"   }
+    def setDom = { n v     -> native "set"   }
+    def getDom = { n       -> native "get"   }
 
-    def leq    { l r t f -> native "leq"   }
-    def plus   { l r     -> native "plus" }
-    def mult   { l r     -> native "mult"  }
-    def minus  { l r     -> native "minus" }
+    def leq?   = { l r t f -> native "leq"   }
+    def plus   = { l r     -> native "plus" }
+    def mult   = { l r     -> native "mult"  }
+    def minus  = { l r     -> native "minus" }
     </script>
 
     <script type="application/mfun">
-    def changeDom { n v -> do { setDom (getDom n) v } yield { v } }
+    def changeDom = { n v -> do { setDom (getDom n) v } yield { v } }
 
-    def cond   { c t f -> c t f () }
+    def cond  = { c t f -> c t f () }
 
-    def do    { f   -> then () f }
-    def then  { v f -> yield $ f v }
-    def yield { v f  -> f v }
+    def do    = { f   -> then () f }
+    def then  = { v f -> yield $ f v }
+    def yield = { v f  -> f v }
     </script>
 
     <script type="application/mfun">
-    def fact { a ->
-        cond (leq a 1)
+    def fact = { a ->
+        cond (leq? a 1)
              { 1 }
              { mult a $ fact $ minus a 1 }
     }
@@ -164,7 +164,8 @@
 
         <section>
             <h1 style="font-size: 250%;text-transform: none">
-            C C++ OCaml Lisp Scheme Prolog Perl Java Javascript PHP Python Objective-C Swift Rust Kotlin Haskell Idris COQ ...
+                C C++ OCaml Lisp Scheme Haskell Prolog Perl Java Javascript Scala PHP Python Objective-C Swift Rust Kotlin
+                Idris Coq ...
                 <span class="fragment" style="text-transform: none">F&micro;N</span>
             </h1>
         </section>
@@ -172,56 +173,66 @@
         <!-- ####################### -->
 
         <section>
-            <h3> Language Definition </h3>
+            <h3> Language Proposition </h3>
 
-            <ul>
-                <li class="fragment"> &lambda;-Calculus: variable, abstraction and application</li>
-                <li class="fragment"> Constant: Number and String</li>
-                <li class="fragment"> Definition: function and constant</li>
-                <li class="fragment"> Native: function and constant</li>
-            </ul>
+            <p> A functional programming language with primitive data and a naive Javascript interoperability </p>
+        </section>
 
+        <section>
+            <h3 style="text-transform: none"> Abstraction and Application  </h3>
+
+            <pre><code class="mfun">
+    def id      = { a -> a }
+    def compose = { f g x -> f (g x) }
+    def pipe    = let swap = { a b c -> a c b } in swap compose
+    def _       = pipe id id
+            </code></pre>
+
+        </section>
+
+        <section>
+            <h3 style="text-transform: none"> Primitive data and Javascript interoperability </h3>
         </section>
 
         <!-- ####################### -->
 
         <section>
-            <h3> Proposition </h3>
+            <h3> Example </h3>
             <pre><code class="mfun">
-    def leq   { l r t f &rightarrow; native "leq"   } // l <= r ? t : f
-    def mult  { l r     &rightarrow; native "mult"  }
-    def minus { l r     &rightarrow; native "minus" }
+    def leq?  = { l r t f &rightarrow; native "leq"   } // l <= r ? t : f
+    def mult  = { l r     &rightarrow; native "mult"  }
+    def minus = { l r     &rightarrow; native "minus" }
 
-</code><code class="mfun fragment">    def cond  { c t f &rightarrow; c t f () }
+</code><code class="mfun fragment">    def cond  = { c t f &rightarrow; c t f () }
 
-</code><code class="mfun fragment">    def fact  { a &rightarrow;
-       cond (leq a 1)
+</code><code class="mfun fragment">    def fact  = { a &rightarrow;
+       cond (leq? a 1)
             { _ &rightarrow; 1 }
             { _ &rightarrow; mult a (fact (minus a 1)) }
     }
 
-</code><code class="mfun fragment">    fact 12
+</code><code class="mfun fragment">    def _ = fact 12
             </code></pre>
         </section>
 
         <!-- ####################### -->
 
         <section>
-            <h3> Proposition :: Simplification </h3>
+            <h3> Example :: Simplification </h3>
             <pre><code class="mfun">
-    def leq   { l r t f &rightarrow; native "leq"   } // l <= r ? t : f
-    def mult  { l r     &rightarrow; native "mult"  }
-    def minus { l r     &rightarrow; native "minus" }
+    def leq?  = { l r t f &rightarrow; native "leq"   } // l <= r ? t : f
+    def mult  = { l r     &rightarrow; native "mult"  }
+    def minus = { l r     &rightarrow; native "minus" }
 
-</code><code class="mfun">    def cond  { c t f &rightarrow; c t f () }
+</code><code class="mfun">    def cond  = { c t f &rightarrow; c t f () }
 
-</code><code class="mfun">    def fact  { a &rightarrow;
-       cond (leq a 1)
+</code><code class="mfun">    def fact  = { a &rightarrow;
+       cond (leq? a 1)
             { 1 }
             { mult a $ fact $ minus a 1 }
     }
 
-</code><code class="mfun">    fact 12
+</code><code class="mfun">    def _ = fact 12
             </code></pre>
         </section>
 
@@ -230,16 +241,16 @@
         <section>
             <h3> Example :: DSL using CPS </h3>
             <pre><code class="mfun fragment">
-    def yield { v c &rightarrow; c v }
+    def yield = { v c &rightarrow; c v }
 
-</code><code class="mfun fragment">    def then  { v c &rightarrow; yield $ c v }
+</code><code class="mfun fragment">    def then = { v c &rightarrow; yield $ c v }
 
-</code><code class="mfun fragment">    def do    { c   &rightarrow; then () c }
+</code><code class="mfun fragment">    def do = { c &rightarrow; then () c }
 
-</code><code class="mfun fragment">    do    { plus 20 3 }
-    then  { minus _ 1 }
-    then  { minus _ 2 }
-    yield ( mult 2 )
+</code><code class="mfun fragment">    def _ = do    { plus 20 3 }
+            then  { minus _ 1 }
+            then  { minus _ 2 }
+            yield ( mult 2 )
             </code></pre>
         </section>
 
@@ -316,20 +327,19 @@
         <!-- ####################### -->
 
         <section>
-            <h3> Language Grammar </h3>
+            <h3> EBNF Grammar </h3>
             <pre class="remark">
-    exp ::= <span class="tk">{</span> (Id+ <span class="tk">&rightarrow;</span>)? exp+ <span class="tk">}</span>    -- Abstraction à la Kotlin
-          | <span class="tk">(</span> exp+ <span class="tk">)</span>             -- Block of application
-          | <span class="tk">$</span> exp+               -- Infix application
-          | <span class="tk">native</span> String        -- Native binding
-          | Id                   -- Identifier
-          | Number               -- Float literal e.g. -1.3e23
-          | String               -- String literal e.g. "o_O"
-          | <span class="tk">()</span>                   -- Unit
-    Id  ::= IDENT
-          | <span class="tk">_</span>
-    def ::= <span class="tk">def</span> IDENT exp
-          | exp+
+    exp ::= <span class="tk">{</span> (id+ <span class="tk">&rightarrow;</span>)? exp+ <span class="tk">}</span>     -- Abstraction à la Kotlin
+          | <span class="tk">(</span> exp+ <span class="tk">)</span>              -- Block of application
+          | <span class="tk">$</span> exp+                -- Infix application
+          | id                    -- Identifier
+          | Number                -- Float literal e.g. -1.3e2
+          | String                -- String literal e.g. "o_O"
+          | <span class="tk">()</span>                    -- Unit
+          | <span class="tk">let</span> id <span class="tk">=</span> exp+ <span class="tk">in</span> exp+ -- Binding
+          | <span class="tk">native</span> String         -- Native binding
+    id  ::= [a-zA-Z_][a-zA-Z_$?]*
+    def ::= <span class="tk">def</span> id <span class="tk">=</span> exp+
     s0  ::= def* </pre>
         </section>
 
@@ -364,9 +374,9 @@
             <h3> Parser combinator </h3>
 
             <ul>
-                <li class="fragment"> LL grammars i.e. no left recursion </li>
-                <li class="fragment"> Based on composition i.e. Monadic </li>
-                <li class="fragment"> Test Driven Development compliant </li>
+                <li class="fragment"> LL grammars i.e. no left recursion</li>
+                <li class="fragment"> Based on composition i.e. Monadic</li>
+                <li class="fragment"> Test Driven Development compliant</li>
             </ul>
 
             <div class="fragment ribbon"><span>Live Code</span></div>
@@ -446,7 +456,7 @@
 
  type Result = Number | String | (AstDB,Env)
   and Env    = List Result
-                
+
  [_] :: AstDB &rightarrow; Env &rightarrow; Result
 
  [AstDB.constant(c)]<sub>e</sub>       = c
@@ -570,10 +580,7 @@
         <section>
 
             <h6>
-                Analyze
-                |> Transform
-                |> Compile
-                |> Execute
+                Analyze.map(Transform).map(Compile).map(Execute).join()
             </h6>
 
         </section>
@@ -584,27 +591,33 @@
 
             <h3><span class="name">F&micro;N</span> in a browser </h3>
 
-            <pre><code class="html">  &lt;script type="application/mfun"></code><code class="mfun">    def compute_then_display { v &rightarrow;
+            <pre><code class="html">  &lt;script type="application/mfun"></code><code class="mfun">    def compute_then_display = { v &rightarrow;
         do    { changeDom "val" v }
         then  { changeDom "res" $ fact v }
         yield { () }
     }
 
-    compute_then_display 100</code><code class="html">  &lt;/script></code></pre>
+    def _ = compute_then_display 100</code><code class="html">  &lt;/script></code></pre>
 
-            <div class="fragment" style="font-size: 90%" onclick="bootstrap()">
-                <code>fact &lt;i id='val'><i class="tk" id='val'>?</i>&lt;/i> <br> = <br> &lt;i id='res'><i class="tk"
-                                                                                                            id='res'>?</i>&lt/i></code>
+        </section>
+
+
+        <!-- ####################### -->
+
+        <section>
+
+            <div style="font-size: 60%" onclick="bootstrap()">
+                <code>fact &lt;i id='val'><i class="tk" id='val'>?</i>&lt;/i> = &lt;i id='res'><i class="tk" id='res'>?</i>&lt/i></code>
             </div>
 
             <script type="application/mfun">
-    def compute_then_display { v ->
+    def compute_then_display = { v ->
         do    { changeDom "val" v }
         then  { changeDom "res" $ fact v }
         yield { () }
     }
 
-    compute_then_display 100
+    def _ = compute_then_display 100
             </script>
 
             <div class="ribbon"><span class="name">F&micro;N inside</span></div>
@@ -618,9 +631,9 @@
 
             <ul>
                 <li> Call-by-Name</li>
-                <li> Tail recursion </li>
-                <li> Type checker </li>
-                <li> G-Machine, SECD-Machine etc. </li>
+                <li> Tail recursion</li>
+                <li> Type checker</li>
+                <li> G-Machine, SECD-Machine etc.</li>
             </ul>
         </section>
 
