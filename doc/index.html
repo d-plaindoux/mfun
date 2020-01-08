@@ -338,7 +338,7 @@
           | <span class="tk">()</span>                    -- Unit
           | <span class="tk">let</span> id <span class="tk">=</span> exp+ <span class="tk">in</span> exp+ -- Binding
           | <span class="tk">native</span> String         -- Native binding
-    id  ::= [a-zA-Z_][a-zA-Z_$?]*
+    id  ::= [a-zA-Z_][a-zA-Z0-9_$?]*
     def ::= <span class="tk">def</span> id <span class="tk">=</span> exp+
     s0  ::= def* </pre>
         </section>

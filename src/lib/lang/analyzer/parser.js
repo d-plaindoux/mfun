@@ -12,7 +12,7 @@ import '../../extensions/array'
 
 // unit -> Parser Expression string
 const
-    keywords = ['def', 'let', 'in'],
+    keywords = ['def', 'let', 'in', 'native'],
     ident = Char.letter().or(Char.char('_'))
         .then(Char.letter().or(Number.digit()).or(Char.charIn('_$?')).optrep())
         .map(s => s.array().join(''))
