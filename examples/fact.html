@@ -4,11 +4,11 @@
     <script type="application/javascript" src="../dist/mFun.min.js"></script>
 
     <script type="application/mfun">
-    def setDom { n v     -> native "set"   }
-    def getDom { n       -> native "get"   }
+    def setDom = { n v     -> native "set"   }
+    def getDom = { n       -> native "get"   }
 
-    def leq   = { l r t f -> native "leq"   }
-    def plus  = { l r     -> native "plus" }
+    def leq?  = { l r t f -> native "leq"   }
+    def plus  = { l r     -> native "plus"  }
     def mult  = { l r     -> native "mult"  }
     def minus = { l r     -> native "minus" }
 
@@ -17,11 +17,11 @@
     def cond  = { c t f -> c t f () }
 
     def do    = { f   -> then () f }
-    def then  = { v f -> { v c -> c v } $ f v }
+    def then  = { v f -> yield $ f v }
     def yield = { v f  -> f v }
 
     def fact  = { a ->
-        cond (leq a 1)
+        cond (leq? a 1)
              { 1 }
              { mult a $ fact $ minus a 1 }
     }
@@ -40,11 +40,13 @@
 
 </head>
 <body>
-  <div onclick="execute()">
-    <pre>fact &lt;i id='val'><i class="tk" id='val'>?</i>&lt;/i> = &lt;i id='res'><i class="tk" id='res'>?</i>&lt/i></pre>
-  </div>
-  
-  <script type="application/mfun">
+
+    <div style="font-size: 200%" onclick="execute()">
+    fact &lt;i id='val'><i class="tk" id='val'>?</i>&lt;/i> =
+    &lt;i id='res'><i class="tk" id='res'>?</i>&lt;/i>
+    </div>
+
+    <script type="application/mfun">
     def compute_then_display = { v ->
         do    { v }
         then  { changeDom "val" _ }
@@ -54,6 +56,6 @@
     }
 
     def _ = compute_then_display 100
-  </script>
+    </script>
 </body>
 </html>

@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7515c4cf-6f38-468b-954b-8e00087ca8ca" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/doc/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/fact.html" beforeDir="false" afterPath="$PROJECT_DIR$/examples/fact.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/lang/compiler/ast-debruijn.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/lang/compiler/ast-debruijn.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/lang/runtime/native.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/lang/runtime/native.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -209,7 +213,7 @@
       <workItem from="1570868695038" duration="10700000" />
       <workItem from="1578068111496" duration="12003000" />
       <workItem from="1578238415979" duration="38715000" />
-      <workItem from="1578478779211" duration="10907000" />
+      <workItem from="1578478779211" duration="14018000" />
     </task>
     <servers />
   </component>

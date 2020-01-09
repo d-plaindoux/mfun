@@ -8,7 +8,7 @@
 
 /*global document*/
 
-import astResult from './ast-result';
+import AstResult from './ast-result';
 
 function mustBe(v, type) {
     if (typeof v === type) {
@@ -33,26 +33,26 @@ export default {
     'get': env => {
         const identifier = mustBe(env[0].value, "string");
 
-        return astResult.constant(document.getElementById(identifier));
+        return AstResult.constant(document.getElementById(identifier));
     },
     // Number operations
     'plus': env => {
         const a = env[1].value,
             b = env[0].value;
 
-        return astResult.constant(a + b);
+        return AstResult.constant(a + b);
     },
     'minus': env => {
         const a = mustBe(env[1].value, "number"),
             b = mustBe(env[0].value, "number");
-
-        return astResult.constant(a - b);
+xz
+        return AstResult.constant(a - b);
     },
     'mult': env => {
         const a = mustBe(env[1].value, "number"),
             b = mustBe(env[0].value, "number");
 
-        return astResult.constant(a * b);
+        return AstResult.constant(a * b);
     },
     // Predicates
     'equal': env => {

@@ -12,7 +12,7 @@ import ast from "../analyzer/ast"
 }
 
 class Ident extends DeBruijnExpression {
-    // String -> DeBruijnExpression
+    // Number -> DeBruijnExpression
     constructor(name) {
         super();
         this.name = name;
@@ -25,7 +25,7 @@ class Ident extends DeBruijnExpression {
 }
 
 class Native extends DeBruijnExpression {
-    // String, Number -> DeBruijnExpression
+    // String -> DeBruijnExpression
     constructor(name) {
         super();
         this.name = name;
@@ -65,7 +65,7 @@ class Application extends DeBruijnExpression {
 }
 
 class Abstraction extends DeBruijnExpression {
-    // String, DeBruijnExpression -> DeBruijnExpression
+    // DeBruijnExpression -> DeBruijnExpression
     constructor(body) {
         super();
         this.body = body;

@@ -192,7 +192,21 @@
 
         <section>
             <h3 style="text-transform: none"> Primitive data and Javascript interoperability </h3>
-        </section>
+
+            <pre><code class="mfun">
+    def response = 42
+    def hello    = "Hello"
+    def pi       = native "pi"
+            </code></pre>
+
+            <pre class="fragment"><code class="javascript">
+    ...
+    'pi': _ => {
+        return AstResult.constant(Math.PI);
+    }
+    ...
+            </code></pre>
+         </section>
 
         <!-- ####################### -->
 
