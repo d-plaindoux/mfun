@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 
 <head>
     <meta charset="utf-8">
@@ -77,9 +77,9 @@
             color: #00BBFF;
         }
 
-        .tkl {
+        .tkF {
             font-style: revert;
-            color: #3533ff;
+            color: #e54a2f;
         }
 
         .remark {
@@ -164,7 +164,8 @@
 
         <section>
             <h1 style="font-size: 250%;text-transform: none">
-                C C++ OCaml Lisp Scheme Haskell Prolog Perl Java Javascript Scala PHP Python Objective-C Swift Rust Kotlin
+                C C++ OCaml Lisp Scheme Haskell Prolog Perl Java Javascript Scala PHP Python Objective-C Swift Rust
+                Kotlin
                 Idris Coq ...
                 <span class="fragment" style="text-transform: none">F&micro;N</span>
             </h1>
@@ -179,7 +180,7 @@
         </section>
 
         <section>
-            <h3 style="text-transform: none"> Abstraction and Application  </h3>
+            <h3 style="text-transform: none"> Abstraction and Application </h3>
 
             <pre><code class="mfun">
     def id      = { a -> a }
@@ -196,17 +197,9 @@
             <pre><code class="mfun">
     def response = 42
     def hello    = "Hello"
-    def pi       = native "pi"
+    def pi       = native "pi" (* pi is a Javascript function *)
             </code></pre>
-
-            <pre class="fragment"><code class="javascript">
-    ...
-    'pi': _ => {
-        return AstResult.constant(Math.PI);
-    }
-    ...
-            </code></pre>
-         </section>
+        </section>
 
         <!-- ####################### -->
 
@@ -343,24 +336,24 @@
         <section>
             <h3> EBNF Grammar </h3>
             <pre class="remark">
-    exp ::= <span class="tk">{</span> (id+ <span class="tk">&rightarrow;</span>)? exp+ <span class="tk">}</span>     -- Abstraction à la Kotlin
-          | <span class="tk">(</span> exp+ <span class="tk">)</span>              -- Block of application
-          | <span class="tk">$</span> exp+                -- Infix application
-          | id                    -- Identifier
-          | Number                -- Float literal e.g. -1.3e2
-          | String                -- String literal e.g. "o_O"
-          | <span class="tk">()</span>                    -- Unit
-          | <span class="tk">let</span> id <span class="tk">=</span> exp+ <span class="tk">in</span> exp+ -- Binding
-          | <span class="tk">native</span> String         -- Native binding
-    id  ::= [a-zA-Z_][a-zA-Z0-9_$?]*
-    def ::= <span class="tk">def</span> id <span class="tk">=</span> exp+
+    Id  ::= [a-zA-Z_][a-zA-Z0-9_$?]*
+    exp ::= Id                      -- Identifier
+          | Number                  -- Float literal e.g. -1.3e2
+          | String                  -- String literal e.g. "o_O"
+          | <span class="tk">native</span> String           -- Native binding
+          | <span class="tk">()</span>                      -- Unit
+          | <span class="tk">(</span> exp+ <span class="tk">)</span>                -- Block of application
+          | <span class="tk">$</span> exp+                  -- Infix application
+          | <span class="tk">{</span> (Id+ <span class="tk">&rightarrow;</span>)? exp+ <span class="tk">}</span>       -- Abstraction à la Kotlin
+          | <span class="tk">let</span> Id <span class="tk">=</span> exp+ <span class="tk">in</span> exp+   -- Binding
+    def ::= <span class="tk">def</span> Id <span class="tk">=</span> exp+
     s0  ::= def* </pre>
         </section>
 
         <section>
             <h3> Analyze </h3>
 
-            Sequence char &DoubleLongRightArrow; Ast
+            Sequence char &DoubleLongRightArrow; Ast | Error
         </section>
 
         <section>
@@ -392,6 +385,25 @@
                 <li class="fragment"> Based on composition i.e. Monadic</li>
                 <li class="fragment"> Test Driven Development compliant</li>
             </ul>
+        </section>
+
+        <section>
+            <h3> From concrete syntax to abstract syntax </h3>
+
+            <pre>
+
+ <span class="tkF">P&langle;</span>_<span class="tkF">&rangle;</span> :: Sequence char &rightarrow; Ast
+
+ <span class="tkF">P&langle;</span>i<span class="tkF">&rangle;</span>              = Ast.ident(i)         if i &in; Id
+ <span class="tkF">P&langle;</span>n<span class="tkF">&rangle;</span>              = Ast.constant(n)      if n &in; Number &cup; String
+ <span class="tkF">P&langle;</span><span class="tk">native</span> s<span class="tkF">&rangle;</span>       = Ast.native(s)        if s &in; String
+ <span class="tkF">P&langle;</span><span class="tk">()</span><span class="tkF">&rangle;</span>             = Ast.constant(unit)
+ <span class="tkF">P&langle;</span><span class="tk">(</span> a <span class="tk">)</span><span class="tkF">&rangle;</span>          = <span class="tkF">P&langle;</span>a<span class="tkF">&rangle;</span>
+ <span class="tkF">P&langle;</span><span class="tk">$</span> a<span class="tkF">&rangle;</span>            = <span class="tkF">P&langle;</span>a<span class="tkF">&rangle;</span>
+ <span class="tkF">P&langle;</span><span class="tk">{</span> a <span class="tk">-></span> b <span class="tk">}</span><span class="tkF">&rangle;</span>     = Ast.abstraction(a, <span class="tkF">P&langle;</span>b<span class="tkF">&rangle;</span>))
+ <span class="tkF">P&langle;</span><span class="tk">let</span> a <span class="tk">=</span> c <span class="tk">in</span> b<span class="tkF">&rangle;</span> = <span class="tkF">P&langle;</span><span class="tk">{</span> a <span class="tk">-></span> b <span class="tk">}</span> c<span class="tkF">&rangle;</span>
+ <span class="tkF">P&langle;</span>a b<span class="tkF">&rangle;</span>            = Ast.application(<span class="tkF">P&langle;</span>a<span class="tkF">&rangle;</span>,<span class="tkF">P&langle;</span>b<span class="tkF">&rangle;</span>)
+      </pre>
 
             <div class="fragment ribbon"><span>Live Code</span></div>
         </section>
@@ -410,25 +422,17 @@
 
             <p> &lambda;-terms representation without <br> naming the bind variables </p>
 
-            <p class="fragment">
-                <code>&lambda;f.(((&lambda;x.x (&lambda;y.y)) (&lambda;z.f z)) </code>
+            <pre class="fragment">
+
+                    &lambda;f.(((&lambda;x.x (&lambda;y.y)) (&lambda;z.f z))
+                             &darr;     &darr;       &darr; &darr;
+                    <span style="color: aqua">&lambda;</span>. (((<span style="color: #d33682">&lambda;</span>. <span style="color: #d33682">0</span> (<span style="color: chartreuse">&lambda;</span>. <span style="color: chartreuse">0</span>)) (<span style="color: #00BBFF">&lambda;</span>. <span style="color: aqua">1</span> <span style="color: #00BBFF">0</span>))
+            </pre>
+
+            <p class="remark fragment">
+                Invariant with respect to &alpha;-conversion
+                and direct access in an environment
             </p>
-
-            <p class="fragment">
-                <img class="plain" src="images/De_Bruijn_index.png">
-            </p>
-
-        </section>
-
-        <!-- ####################### -->
-
-        <section>
-            <h3> De Bruijn index Cont'd </h3>
-
-            <ul>
-                <li class="fragment"> Invariant with respect to &alpha;-conversion</li>
-                <li class="fragment"> Direct access in an environment</li>
-            </ul>
 
         </section>
 
@@ -439,15 +443,15 @@
 
             <pre>
 
- [_] :: Ast &rightarrow; List String &rightarrow; AstDB
+ <span class="tkF">A&langle;</span>_<span class="tkF">&rangle;</span> :: Ast &rightarrow; List String &rightarrow; AstDB
 
- [Ast.constant(c)]<sub>e</sub>       = AstDB.constant(c)
- [Ast.native(c)]<sub>e</sub>         = AstDB.native(c)
- [Ast.application(a,b)]<sub>e</sub>  = AstDB.application([a]<sub>e</sub>, [b]<sub>e</sub>)
- [Ast.abstraction(a,b)]<sub>e</sub>  = AstDB.abstraction([b]<sub>(a::e)</sub>)
- [Ast.ident(n)]<sub>e</sub>          = AstDB.ident(n)    if &forall; i   / e[i]&ne;n
- [Ast.ident(n)]<sub>e</sub>          = AstDB.variable(i) if &exist; i   / e[i]=n
-                                                 &forall; j&lt;i / e[j]&ne;n
+ <span class="tkF">A&langle;</span>Ast.constant(c)<span class="tkF">&rangle;</span><sub>e</sub>       = AstDB.constant(c)
+ <span class="tkF">A&langle;</span>Ast.native(c)<span class="tkF">&rangle;</span><sub>e</sub>         = AstDB.native(c)
+ <span class="tkF">A&langle;</span>Ast.application(a,b)<span class="tkF">&rangle;</span><sub>e</sub>  = AstDB.application(<span class="tkF">A&langle;</span>a<span class="tkF">&rangle;</span><sub>e</sub>, <span class="tkF">A&langle;</span>b<span class="tkF">&rangle;</span><sub>e</sub>)
+ <span class="tkF">A&langle;</span>Ast.abstraction(a,b)<span class="tkF">&rangle;</span><sub>e</sub>  = AstDB.abstraction(<span class="tkF">A&langle;</span>b<span class="tkF">&rangle;</span><sub>a::e</sub>)
+ <span class="tkF">A&langle;</span>Ast.ident(n)<span class="tkF">&rangle;</span><sub>e</sub>          = AstDB.ident(n)    if &forall; i   / e[i]&ne;n
+ <span class="tkF">A&langle;</span>Ast.ident(n)<span class="tkF">&rangle;</span><sub>e</sub>          = AstDB.variable(i) if &exist; i   / e[i]=n
+                                                  &forall; j&lt;i / e[j]&ne;n
       </pre>
 
             <div class="fragment ribbon"><span>Live Code</span></div>
@@ -458,7 +462,7 @@
         <section>
             <h3> Interpret </h3>
 
-            AstDB &rightarrow; Result
+            AstDB &DoubleLongRightArrow; Result | Error
         </section>
 
         <!-- ####################### -->
@@ -471,13 +475,13 @@
  type Result = Number | String | (AstDB,Env)
   and Env    = List Result
 
- [_] :: AstDB &rightarrow; Env &rightarrow; Result
+ <span class="tkF">O&langle;</span>_<span class="tkF">&rangle;</span> :: AstDB &rightarrow; Env &rightarrow; Result
 
- [AstDB.constant(c)]<sub>e</sub>       = c
- [AstDB.variable(i)]<sub>e</sub>       = e[i]
- [AstDB.abstraction(b)]<sub>e</sub>    = (b,e)
- [AstDB.application(a,b)]<sub>e</sub>  = [c]<sub>d::e'</sub> when [a]<sub>e</sub> =<sub>*</sub> (c,e')
-                                        and [b]<sub>e</sub> =<sub>*</sub> d
+ <span class="tkF">O&langle;</span>AstDB.constant(c)<span class="tkF">&rangle;</span><sub>e</sub>       = <span class="fragment">c</span>
+ <span class="tkF">O&langle;</span>AstDB.variable(i)<span class="tkF">&rangle;</span><sub>e</sub>       = <span class="fragment">e[i]</span>
+ <span class="tkF">O&langle;</span>AstDB.abstraction(b)<span class="tkF">&rangle;</span><sub>e</sub>    = <span class="fragment">(b,e)</span>
+ <span class="tkF">O&langle;</span>AstDB.application(a,b)<span class="tkF">&rangle;</span><sub>e</sub>  = <span class="fragment"><span class="tkF">O&langle;</span>c<span class="tkF">&rangle;</span><sub>d::e'</sub> when <span class="tkF">O&langle;</span>b<span class="tkF">&rangle;</span><sub>e</sub> =<sub>*</sub> d
+                                          and <span class="tkF">O&langle;</span>a<span class="tkF">&rangle;</span><sub>e</sub> =<sub>*</sub> (c,e')</span>
             </pre>
 
             <div class="remark fragment">
@@ -501,8 +505,10 @@
             <h3> Abstract machine </h3>
 
             <ul>
-                <li> J-L. Krivine's machine</li>
-                <li> X. Leroy's ZINC abstract machine</li>
+                <li><a href="https://www.cs.cmu.edu/afs/cs/user/crary/www/819-f09/Landin64.pdf">P. J. Landin's SECD
+                    machine</a></li>
+                <li><a href="http://lucacardelli.name/Papers/FAM.pdf">L. Cardelli's FAM machine</a></li>
+                <li><a href="https://core.ac.uk/download/pdf/82453178.pdf">Curien's CAM machine</a></li>
             </ul>
         </section>
 
@@ -512,16 +518,17 @@
             <h3> Compilation process </h3>
 
             <pre>
+ <span class="tkF">C&langle;</span>_<span class="tkF">&rangle;</span>:: AstDB &rightarrow; Objcode list
 
- [_] :: AstDB &rightarrow; Objcode
+ <span class="tkF">C&langle;</span>AstDB.ident(n)<span class="tkF">&rangle;</span>         = <span class="fragment">[Objcode.ident(n)&rangle;</span>
+ <span class="tkF">C&langle;</span>AstDB.constant(c)<span class="tkF">&rangle;</span>      = <span class="fragment">[Objcode.constant(c)&rangle;</span>
+ <span class="tkF">C&langle;</span>AstDB.native(c)<span class="tkF">&rangle;</span>        = <span class="fragment">[Objcode.native(c)&rangle;</span>
 
- [AstDB.variable(i)]      = Objcode.access(i)
- [AstDB.application(a,b)] = [a];[b];Objcode.apply
- [AstDB.abstraction(b)]   = Objcode.closure([b];Objcode.returns)
-
- [AstDB.ident(n)]         = Objcode.ident(n)
- [AstDB.constant(c)]      = Objcode.constant(c)
- [AstDB.native(c)]        = Objcode.native(c)
+ <span class="tkF">C&langle;</span>AstDB.variable(i)<span class="tkF">&rangle;</span>      = <span class="fragment">[Objcode.access(i)&rangle;</span>
+ <span class="tkF">C&langle;</span>AstDB.application(a,b)<span class="tkF">&rangle;</span> = <span class="fragment"><span class="tkF">C&langle;</span>a<span class="tkF">&rangle;</span> @ <span class="tkF">C&langle;</span>b<span class="tkF">&rangle;</span> @ [Objcode.apply]</span>
+ <span class="tkF">C&langle;</span>AstDB.abstraction(b)<span class="tkF">&rangle;</span>   = <span class="fragment">[Objcode.closure(
+                                 <span class="tkF">C&langle;</span>b<span class="tkF">&rangle;</span> @ [Objcode.returns]
+                             )]</span>
       </pre>
 
             <div class="fragment remark"> Standard call-by-value</div>
@@ -532,7 +539,7 @@
 
         <section>
             <h3> Execute </h3>
-            Objcode &DoubleLongRightArrow; Result
+            Objcode &DoubleLongRightArrow; Result | Error
         </section>
 
         <!-- ####################### -->
@@ -541,23 +548,19 @@
             <h3> Execution process :: Core </h3>
 
             <pre>
-
  type Result = Number | String | (Objcode,Env)
   and Env    = List Result
   and Stack  = List (Result | Env | Objcode)
 
- [_] :: Objcode &rightarrow; Env &rightarrow; Stack &rightarrow; Result
+ <span class="tkF">E&langle;</span>_<span class="tkF">&rangle;</span> :: Objcode list &rightarrow; Env &rightarrow; Stack &rightarrow; Result
 
- [Objcode.constant(n);c]<sub>e s</sub>        = [c]<sub>e n::s</sub>
- [Objcode.access(i);c]<sub>e s</sub>          = [c]<sub>e e[i]::s</sub>
- [Objcode.closure(c');c]<sub>e s</sub>        = [c]<sub>e (c',e)::s</sub>
- [Objcode.apply;c]<sub>e v::(c',e')::s</sub>  = [c']<sub>v::e' c::e::s</sub>
- [Objcode.returns;c]<sub>e v::c'::e'::s</sub> = [c']<sub>e' v::s</sub>
+ <span class="tkF">E&langle;</span>Objcode.constant(n)::c<span class="tkF">&rangle;</span><sub>e s</sub>        = <span class="fragment"><span class="tkF">E&langle;</span>c<span class="tkF">&rangle;</span><sub>e n::s</sub></span>
+ <span class="tkF">E&langle;</span>Objcode.access(i)::c<span class="tkF">&rangle;</span><sub>e s</sub>          = <span class="fragment"><span class="tkF">E&langle;</span>c<span class="tkF">&rangle;</span><sub>e e[i]::s</sub></span>
+ <span class="tkF">E&langle;</span>Objcode.closure(c')::c<span class="tkF">&rangle;</span><sub>e s</sub>        = <span class="fragment"><span class="tkF">E&langle;</span>c<span class="tkF">&rangle;</span><sub>e (c',e)::s</sub></span>
+ <span class="tkF">E&langle;</span>Objcode.apply::c<span class="tkF">&rangle;</span><sub>e v::(c',e')::s</sub>  = <span class="fragment"><span class="tkF">E&langle;</span>c'<span class="tkF">&rangle;</span><sub>v::e' c::e::s</sub></span>
+ <span class="tkF">E&langle;</span>Objcode.returns::_<span class="tkF">&rangle;</span><sub>e v::c'::e'::s</sub> = <span class="fragment"><span class="tkF">E&langle;</span>c'<span class="tkF">&rangle;</span><sub>e' v::s</sub></span>
  ...
     </pre>
-
-            <div class="fragment ribbon"><span>Live Code</span></div>
-
         </section>
 
         <!-- ####################### -->
@@ -571,8 +574,8 @@
  definition :: String &rightarrow; Result
  native     :: String &rightarrow; Env &rightarrow; Result
 
- [Objcode.ident(n);c]<sub>e s</sub>              = [c]<sub>e (definition n)::s</sub>
- [Objcode.native(n);c]<sub>e s</sub>             = [c]<sub>e (native n e)::s</sub>
+ <span class="tkF">E&langle;</span>Objcode.ident(n);c<span class="tkF">&rangle;</span><sub>e s</sub>            = <span class="tkF">E&langle;</span>c<span class="tkF">&rangle;</span><sub>e (definition n)::s</sub>
+ <span class="tkF">E&langle;</span>Objcode.native(n);c<span class="tkF">&rangle;</span><sub>e s</sub>           = <span class="tkF">E&langle;</span>c<span class="tkF">&rangle;</span><sub>e (native n e)::s</sub>
   </pre>
 
             <div class="fragment ribbon"><span>Live Code</span></div>
@@ -582,10 +585,48 @@
         <!-- ####################### -->
 
         <section>
+            <h3> Open problem </h3>
+
+            <p> Currying and functions with multiple arguments? </p>
+
+            <div class="remark">
+                <table width="100%">
+                    <tr>
+                        <td width="30%" align="right"><tt> f a b c </tt></td>
+                        <td width="2%">&equiv;</td>
+                        <td width="20%"><tt> ((f a) b) c </tt></td>
+                        <td> Left associativity </td>
+                    </tr>
+                    <tr>
+                        <td width="30%" align="right"><tt> { a &rightarrow; { b &rightarrow; ... } } </tt></td>
+                        <td width="2%">&equiv;</td>
+                        <td width="20%"><tt> { a b &rightarrow; ... } </tt></td>
+                        <td> Currified form </td>
+                    </tr>
+                </table>
+            </div>
+
+            <p class="fragment alert"> Short lived closures construction and calls that returns immediately! </p>
+        </section>
+
+        <!-- ####################### -->
+
+        <section>
+            <h3> The X. Leroy's ZINC abstract machine </h3>
+
+            <img width="80%" src="images/zinc0.png">
+            <img class="fragment" width="80%" src="images/zinc1.png">
+
+            <p style="font-size: 80%"> <a href="https://xavierleroy.org/talks/zam-kazam05.pdf">"From Krivine’s machine to the Caml implementations"</a> - Xavier Leroy </p>
+        </section>
+
+        <!-- ####################### -->
+
+        <section>
 
             <h3> REPL </h3>
 
-            <p> Sequence char &DoubleLongRightArrow; Result </p>
+            <p> Sequence char &DoubleLongRightArrow; Result | Error </p>
 
         </section>
 
@@ -593,8 +634,8 @@
 
         <section>
 
-            <h6>
-                Analyze.map(Transform).map(Compile).map(Execute).join()
+            <h6 style="text-transform: none">
+                <span class="tkF">P&langle;</span>_<span class="tkF">&rangle;</span>.map(<span class="tkF">A&langle;</span>_<span class="tkF">&rangle;</span><sub>[]</sub>).map(<span class="tkF">C&langle;</span>_<span class="tkF">&rangle;</span>).map(<span class="tkF">E&langle;</span>_<span class="tkF">&rangle;</span><sub>[] []</sub>).join()
             </h6>
 
         </section>
@@ -621,7 +662,8 @@
         <section>
 
             <div style="font-size: 60%" onclick="bootstrap()">
-                <code>fact &lt;i id='val'><i class="tk" id='val'>?</i>&lt;/i> = &lt;i id='res'><i class="tk" id='res'>?</i>&lt/i></code>
+                <code>fact &lt;i id='val'><i class="tkF" id='val'>?</i>&lt;/i> = &lt;i id='res'><i class="tkF"
+                                                                                                  id='res'>?</i>&lt/i></code>
             </div>
 
             <script type="application/mfun">
@@ -641,14 +683,20 @@
         <!-- ####################### -->
 
         <section>
-            <h3> What's Next? </h3>
+            <section>
+                <h3>The <span class="name">F&micro;N</span> language</h3>
 
-            <ul>
-                <li> Call-by-Name</li>
-                <li> Tail recursion</li>
-                <li> Type checker</li>
-                <li> G-Machine, SECD-Machine etc.</li>
-            </ul>
+                <div class="p" style="text-align:middle">
+	    <span>
+	      <a href="http://twitter.com/dplaindoux">@dplaindoux</a>
+	    </span>
+                </div>
+
+                <br>
+                <h3> Thank you </h3>
+
+            </section>
+
         </section>
 
         <script src="lib/js/head.min.js"></script>
