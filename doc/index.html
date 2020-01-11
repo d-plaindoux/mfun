@@ -392,7 +392,7 @@
 
             <pre>
 
- <span class="tkF">P&langle;</span>_<span class="tkF">&rangle;</span> :: Sequence char &rightarrow; Ast
+ <span class="tkF">P&langle;</span>_<span class="tkF">&rangle;</span> :: Sequence char &rightarrow; Ast | Error
 
  <span class="tkF">P&langle;</span>i<span class="tkF">&rangle;</span>              = Ast.ident(i)         if i &in; Id
  <span class="tkF">P&langle;</span>n<span class="tkF">&rangle;</span>              = Ast.constant(n)      if n &in; Number &cup; String
@@ -475,7 +475,7 @@
  type Result = Number | String | (AstDB,Env)
   and Env    = List Result
 
- <span class="tkF">O&langle;</span>_<span class="tkF">&rangle;</span> :: AstDB &rightarrow; Env &rightarrow; Result
+ <span class="tkF">O&langle;</span>_<span class="tkF">&rangle;</span> :: AstDB &rightarrow; Env &rightarrow; Result | Error
 
  <span class="tkF">O&langle;</span>AstDB.constant(c)<span class="tkF">&rangle;</span><sub>e</sub>       = <span class="fragment">c</span>
  <span class="tkF">O&langle;</span>AstDB.variable(i)<span class="tkF">&rangle;</span><sub>e</sub>       = <span class="fragment">e[i]</span>
@@ -552,7 +552,7 @@
   and Env    = List Result
   and Stack  = List (Result | Env | Objcode)
 
- <span class="tkF">E&langle;</span>_<span class="tkF">&rangle;</span> :: Objcode list &rightarrow; Env &rightarrow; Stack &rightarrow; Result
+ <span class="tkF">E&langle;</span>_<span class="tkF">&rangle;</span> :: Objcode list &rightarrow; Env &rightarrow; Stack &rightarrow; Result | Error
 
  <span class="tkF">E&langle;</span>Objcode.constant(n)::c<span class="tkF">&rangle;</span><sub>e s</sub>        = <span class="fragment"><span class="tkF">E&langle;</span>c<span class="tkF">&rangle;</span><sub>e n::s</sub></span>
  <span class="tkF">E&langle;</span>Objcode.access(i)::c<span class="tkF">&rangle;</span><sub>e s</sub>          = <span class="fragment"><span class="tkF">E&langle;</span>c<span class="tkF">&rangle;</span><sub>e e[i]::s</sub></span>
