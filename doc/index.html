@@ -143,7 +143,7 @@
         <section>
             <h3>The <span class="name">F&micro;N</span> language</h3>
             <h3 class="fragment"> From Definition to Execution </h3>
-            <div class="p" style="text-align:middle">16 Janvier 2019</div>
+            <div class="p" style="text-align:middle">16 Janvier 2020</div>
             <div class="p" style="text-align:middle">
                 <img src="images/lambdalille.png">
             </div>
@@ -361,10 +361,10 @@
 
             <div>
                 <ul>
-                    <li class="fragment"> Generator cf. <a href="http://gallium.inria.fr/~fpottier/menhir/">
+                    <li class="fragment"> Generator e.g. <a href="http://gallium.inria.fr/~fpottier/menhir/">
                         OCaml
                         Menhir </a></li>
-                    <li class="fragment"> Generic lexer cf. <a
+                    <li class="fragment"> Generic lexer e.g. <a
                             href="https://caml.inria.fr/pub/docs/manual-ocaml/libref/Genlex.html">
                         OCaml
                         Genlex </a></li>
@@ -392,16 +392,18 @@
 
             <pre>
 
+ type Native = Number &cup; String
+
  <span class="tkF">P&langle;</span>_<span class="tkF">&rangle;</span> :: Sequence char &rightarrow; Ast | Error
 
- <span class="tkF">P&langle;</span>i<span class="tkF">&rangle;</span>              = Ast.ident(i)         if i &in; Id
- <span class="tkF">P&langle;</span>n<span class="tkF">&rangle;</span>              = Ast.constant(n)      if n &in; Number &cup; String
- <span class="tkF">P&langle;</span><span class="tk">native</span> s<span class="tkF">&rangle;</span>       = Ast.native(s)        if s &in; String
+ <span class="tkF">P&langle;</span>i<span class="tkF">&rangle;</span>              = Ast.ident(i)               if i &in; Id
+ <span class="tkF">P&langle;</span>n<span class="tkF">&rangle;</span>              = Ast.constant(n)            if n &in; Native
+ <span class="tkF">P&langle;</span><span class="tk">native</span> s<span class="tkF">&rangle;</span>       = Ast.native(s)              if s &in; String
  <span class="tkF">P&langle;</span><span class="tk">()</span><span class="tkF">&rangle;</span>             = Ast.constant(unit)
  <span class="tkF">P&langle;</span><span class="tk">(</span> a <span class="tk">)</span><span class="tkF">&rangle;</span>          = <span class="tkF">P&langle;</span>a<span class="tkF">&rangle;</span>
  <span class="tkF">P&langle;</span><span class="tk">$</span> a<span class="tkF">&rangle;</span>            = <span class="tkF">P&langle;</span>a<span class="tkF">&rangle;</span>
- <span class="tkF">P&langle;</span><span class="tk">{</span> a <span class="tk">-></span> b <span class="tk">}</span><span class="tkF">&rangle;</span>     = Ast.abstraction(a, <span class="tkF">P&langle;</span>b<span class="tkF">&rangle;</span>))
- <span class="tkF">P&langle;</span><span class="tk">let</span> a <span class="tk">=</span> c <span class="tk">in</span> b<span class="tkF">&rangle;</span> = <span class="tkF">P&langle;</span><span class="tk">{</span> a <span class="tk">-></span> b <span class="tk">}</span> c<span class="tkF">&rangle;</span>
+ <span class="tkF">P&langle;</span><span class="tk">{</span> a <span class="tk">-></span> b <span class="tk">}</span><span class="tkF">&rangle;</span>     = Ast.abstraction(a, <span class="tkF">P&langle;</span>b<span class="tkF">&rangle;</span>))  if a &in; Id
+ <span class="tkF">P&langle;</span><span class="tk">let</span> a <span class="tk">=</span> c <span class="tk">in</span> b<span class="tkF">&rangle;</span> = <span class="tkF">P&langle;</span><span class="tk">{</span> a <span class="tk">-></span> b <span class="tk">}</span> c<span class="tkF">&rangle;</span>            if a &in; Id
  <span class="tkF">P&langle;</span>a b<span class="tkF">&rangle;</span>            = Ast.application(<span class="tkF">P&langle;</span>a<span class="tkF">&rangle;</span>,<span class="tkF">P&langle;</span>b<span class="tkF">&rangle;</span>)
       </pre>
 
@@ -586,7 +588,7 @@
         <section>
             <h3> Open problem </h3>
 
-            <p> Currying and functions with multiple arguments? </p>
+            <p> Function with multiple arguments? </p>
 
             <div class="remark">
                 <table width="100%">
