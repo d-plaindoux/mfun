@@ -420,13 +420,13 @@
         <section>
             <h3> De Bruijn index </h3>
 
-            <p> &lambda;-terms representation without <br> naming the bind variables </p>
+            <p> <a href="https://www.win.tue.nl/automath/archive/pdf/aut029.pdf">&lambda;-terms representation without <br> naming the bind variables </a>  </p>
 
             <pre class="fragment">
 
-                    &lambda;f.(((&lambda;x.x (&lambda;y.y)) (&lambda;z.f z))
-                             &darr;     &darr;       &darr; &darr;
-                    <span style="color: aqua">&lambda;</span>. (((<span style="color: #d33682">&lambda;</span>. <span style="color: #d33682">0</span> (<span style="color: chartreuse">&lambda;</span>. <span style="color: chartreuse">0</span>)) (<span style="color: #00BBFF">&lambda;</span>. <span style="color: aqua">1</span> <span style="color: #00BBFF">0</span>))
+                    &lambda;f.(&lambda;x.x &lambda;y.y &lambda;z.(f z))
+<span class="fragment">                           &darr;    &darr;     &darr; &darr;
+                     <span style="color: aqua">&lambda;</span>.( <span style="color: #d33682">&lambda;</span>.<span style="color: #d33682">0</span>  <span style="color: chartreuse">&lambda;</span>.<span style="color: chartreuse">0</span>  <span style="color: #00BBFF">&lambda;</span>.(<span style="color: aqua">1</span> <span style="color: #00BBFF">0</span>))</span>
             </pre>
 
             <p class="remark fragment">
@@ -445,13 +445,13 @@
 
  <span class="tkF">A&langle;</span>_<span class="tkF">&rangle;</span> :: Ast &rightarrow; List String &rightarrow; AstDB
 
- <span class="tkF">A&langle;</span>Ast.constant(c)<span class="tkF">&rangle;</span><sub>e</sub>       = AstDB.constant(c)
- <span class="tkF">A&langle;</span>Ast.native(c)<span class="tkF">&rangle;</span><sub>e</sub>         = AstDB.native(c)
- <span class="tkF">A&langle;</span>Ast.application(a,b)<span class="tkF">&rangle;</span><sub>e</sub>  = AstDB.application(<span class="tkF">A&langle;</span>a<span class="tkF">&rangle;</span><sub>e</sub>, <span class="tkF">A&langle;</span>b<span class="tkF">&rangle;</span><sub>e</sub>)
- <span class="tkF">A&langle;</span>Ast.abstraction(a,b)<span class="tkF">&rangle;</span><sub>e</sub>  = AstDB.abstraction(<span class="tkF">A&langle;</span>b<span class="tkF">&rangle;</span><sub>a::e</sub>)
- <span class="tkF">A&langle;</span>Ast.ident(n)<span class="tkF">&rangle;</span><sub>e</sub>          = AstDB.ident(n)    if &forall; i   / e[i]&ne;n
- <span class="tkF">A&langle;</span>Ast.ident(n)<span class="tkF">&rangle;</span><sub>e</sub>          = AstDB.variable(i) if &exist; i   / e[i]=n
-                                                  &forall; j&lt;i / e[j]&ne;n
+ <span class="tkF">A&langle;</span>Ast.constant(c)<span class="tkF">&rangle;</span><sub>e</sub>       = <span class="fragment">AstDB.constant(c)</span>
+ <span class="tkF">A&langle;</span>Ast.native(c)<span class="tkF">&rangle;</span><sub>e</sub>         = <span class="fragment">AstDB.native(c)</span>
+ <span class="tkF">A&langle;</span>Ast.application(a,b)<span class="tkF">&rangle;</span><sub>e</sub>  = <span class="fragment">AstDB.application(<span class="tkF">A&langle;</span>a<span class="tkF">&rangle;</span><sub>e</sub>, <span class="tkF">A&langle;</span>b<span class="tkF">&rangle;</span><sub>e</sub>)</span>
+ <span class="tkF">A&langle;</span>Ast.abstraction(a,b)<span class="tkF">&rangle;</span><sub>e</sub>  = <span class="fragment">AstDB.abstraction(<span class="tkF">A&langle;</span>b<span class="tkF">&rangle;</span><sub>a::e</sub>)</span>
+ <span class="tkF">A&langle;</span>Ast.ident(n)<span class="tkF">&rangle;</span><sub>e</sub>          = <span class="fragment">AstDB.ident(n)    if &forall; i   / e[i]&ne;n</span>
+ <span class="tkF">A&langle;</span>Ast.ident(n)<span class="tkF">&rangle;</span><sub>e</sub>          = <span class="fragment">AstDB.variable(i) if &exist; i   / e[i]=n
+                                                  &forall; j&lt;i / e[j]&ne;n</span>
       </pre>
 
             <div class="fragment ribbon"><span>Live Code</span></div>
@@ -462,7 +462,7 @@
         <section>
             <h3> Interpret </h3>
 
-            AstDB &DoubleLongRightArrow; Result | Error
+            AstDB &DoubleLongRightArrow; Result<sub>O</sub> | Error
         </section>
 
         <!-- ####################### -->
@@ -472,10 +472,10 @@
 
             <pre>
 
- type Result = Number | String | (AstDB,Env)
-  and Env    = List Result
+ type Result<sub>O</sub> = Number | String | (AstDB,Env)
+  and Env     = List Result<sub>O</sub>
 
- <span class="tkF">O&langle;</span>_<span class="tkF">&rangle;</span> :: AstDB &rightarrow; Env &rightarrow; Result | Error
+ <span class="tkF">O&langle;</span>_<span class="tkF">&rangle;</span> :: AstDB &rightarrow; Env &rightarrow; Result<sub>O</sub> | Error
 
  <span class="tkF">O&langle;</span>AstDB.constant(c)<span class="tkF">&rangle;</span><sub>e</sub>       = <span class="fragment">c</span>
  <span class="tkF">O&langle;</span>AstDB.variable(i)<span class="tkF">&rangle;</span><sub>e</sub>       = <span class="fragment">e[i]</span>
@@ -539,7 +539,7 @@
 
         <section>
             <h3> Execute </h3>
-            Objcode &DoubleLongRightArrow; Result | Error
+            Objcode &DoubleLongRightArrow; Result<sub>E</sub> | Error
         </section>
 
         <!-- ####################### -->
@@ -548,13 +548,12 @@
             <h3> Execution process :: Core </h3>
 
             <pre>
- type Result = Number | String | (Objcode,Env)
-  and Env    = List Result
-  and Stack  = List (Result | Env | Objcode)
+ type Result<sub>E</sub> = Number | String | (Objcode,Env)
+  and Env     = List Result<sub>E</sub>
+  and Stack   = List (Result<sub>E</sub> | Env | Objcode)
 
- <span class="tkF">E&langle;</span>_<span class="tkF">&rangle;</span> :: Objcode list &rightarrow; Env &rightarrow; Stack &rightarrow; Result | Error
+ <span class="tkF">E&langle;</span>_<span class="tkF">&rangle;</span> :: Objcode list &rightarrow; Env &rightarrow; Stack &rightarrow; Result<sub>E</sub> | Error
 
- <span class="tkF">E&langle;</span>Objcode.constant(n)::c<span class="tkF">&rangle;</span><sub>e s</sub>        = <span class="fragment"><span class="tkF">E&langle;</span>c<span class="tkF">&rangle;</span><sub>e n::s</sub></span>
  <span class="tkF">E&langle;</span>Objcode.access(i)::c<span class="tkF">&rangle;</span><sub>e s</sub>          = <span class="fragment"><span class="tkF">E&langle;</span>c<span class="tkF">&rangle;</span><sub>e e[i]::s</sub></span>
  <span class="tkF">E&langle;</span>Objcode.closure(c')::c<span class="tkF">&rangle;</span><sub>e s</sub>        = <span class="fragment"><span class="tkF">E&langle;</span>c<span class="tkF">&rangle;</span><sub>e (c',e)::s</sub></span>
  <span class="tkF">E&langle;</span>Objcode.apply::c<span class="tkF">&rangle;</span><sub>e v::(c',e')::s</sub>  = <span class="fragment"><span class="tkF">E&langle;</span>c'<span class="tkF">&rangle;</span><sub>v::e' c::e::s</sub></span>
@@ -570,10 +569,10 @@
 
             <pre>
 
- ...
- definition :: String &rightarrow; Result
- native     :: String &rightarrow; Env &rightarrow; Result
+ definition :: String &rightarrow; Result<sub>E</sub>
+ native     :: String &rightarrow; Env &rightarrow; Result<sub>E</sub>
 
+ <span class="tkF">E&langle;</span>Objcode.constant(n)::c<span class="tkF">&rangle;</span><sub>e s</sub>        = <span class="tkF">E&langle;</span>c<span class="tkF">&rangle;</span><sub>e n::s</sub>
  <span class="tkF">E&langle;</span>Objcode.ident(n);c<span class="tkF">&rangle;</span><sub>e s</sub>            = <span class="tkF">E&langle;</span>c<span class="tkF">&rangle;</span><sub>e (definition n)::s</sub>
  <span class="tkF">E&langle;</span>Objcode.native(n);c<span class="tkF">&rangle;</span><sub>e s</sub>           = <span class="tkF">E&langle;</span>c<span class="tkF">&rangle;</span><sub>e (native n e)::s</sub>
   </pre>
@@ -626,7 +625,7 @@
 
             <h3> REPL </h3>
 
-            <p> Sequence char &DoubleLongRightArrow; Result | Error </p>
+            <p> Sequence char &DoubleLongRightArrow; Result<sub>E</sub> | Error </p>
 
         </section>
 
