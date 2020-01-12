@@ -141,12 +141,11 @@
     <div class="slides">
 
         <section>
-            <h3>The <span class="name">F&micro;N</span> language</h3>
-            <h3 class="fragment"> From Definition to Execution </h3>
-            <div class="p" style="text-align:middle">16 Janvier 2020</div>
+             <h3>The <span class="name">F&micro;N</span> language: From Definition to Execution </h3>
             <div class="p" style="text-align:middle">
                 <img src="images/lambdalille.png">
             </div>
+            <div class="p" style="text-align:middle">16 Janvier 2020</div>
             <div class="p" style="text-align:middle">
 	    <span>
 	      <a href="http://twitter.com/dplaindoux">@dplaindoux</a>
@@ -157,7 +156,8 @@
         <!-- ####################### -->
 
         <section>
-            <h1> Chocolatine </h1>
+            <h2> Chocolatine </h2>
+            <img width="60%" src="images/chocolatine.jpeg">
         </section>
 
         <!-- ####################### -->
@@ -248,16 +248,14 @@
         <section>
             <h3> Example :: DSL using CPS </h3>
             <pre><code class="mfun fragment">
-    def yield = { v c &rightarrow; c v }
+    def yield = { v c &rightarrow; c v         }
+    def then  = { v c &rightarrow; yield $ c v }
+    def do    = { c   &rightarrow; then () c   }
 
-</code><code class="mfun fragment">    def then = { v c &rightarrow; yield $ c v }
-
-</code><code class="mfun fragment">    def do = { c &rightarrow; then () c }
-
-</code><code class="mfun fragment">    def _ = do    { plus 20 3 }
+</code><code class="mfun fragment">    def _ = do    { plus 20 4 }
             then  { minus _ 1 }
             then  { minus _ 2 }
-            yield ( mult 2 )
+            yield $ mult 2
             </code></pre>
         </section>
 
@@ -267,19 +265,19 @@
 
             <h3> Ocaml :: DSL using CPS </h3>
             <pre><code class="ocaml">
-    # let yield a f = f a ;;
+    # let yield a c = c a ;;
     val yield : 'a &rightarrow; ('a &rightarrow; 'b) &rightarrow; 'b = &lt;fun>
 
-</code><code class="ocaml fragment">    # let _then v f = yield @@ f v ;;
+</code><code class="ocaml fragment">    # let _then v c = yield @@ c v ;;
     val _then : 'a &rightarrow; ('a &rightarrow; 'b) &rightarrow; ('b &rightarrow; 'c) &rightarrow; 'c = &lt;fun>
 
-</code><code class="ocaml fragment">    # let _do = _then () ;;
+</code><code class="ocaml fragment">    # let _do c = _then () c ;;
     val _do : (unit &rightarrow; 'a) &rightarrow; ('a &rightarrow; 'b) &rightarrow; 'b = &lt;fun>
 
-</code><code class="ocaml fragment">    # _do (fun () &rightarrow; "3")     (* : (string &rightarrow; 'a) &rightarrow; 'a *)
-      _then int_of_string    (* : (int &rightarrow; 'a) &rightarrow; 'a    *)
-      _then (( * ) 4  )      (* : (int &rightarrow; 'a) &rightarrow; 'a    *)
-      yield (( + ) 30 );;    (* : int                *)
+</code><code class="ocaml fragment">    # _do (fun () &rightarrow; "3")     (* (string &rightarrow; '_a) &rightarrow; '_a *)
+      _then int_of_string    (* (int    &rightarrow; '_b) &rightarrow; '_b *)
+      _then (( * ) 4  )      (* (int    &rightarrow; '_c) &rightarrow; '_c *)
+      yield (( + ) 30 );;    (* int                  *)
     - : int = 42
             </code></pre>
 
@@ -475,15 +473,15 @@
             <pre>
 
  type Result<sub>O</sub> = Number | String | (AstDB,Env)
-  and Env     = List Result<sub>O</sub>
+  and Env     = List Result<sub>I</sub>
 
- <span class="tkF">O&langle;</span>_<span class="tkF">&rangle;</span> :: AstDB &rightarrow; Env &rightarrow; Result<sub>O</sub> | Error
+ <span class="tkF">I&langle;</span>_<span class="tkF">&rangle;</span> :: AstDB &rightarrow; Env &rightarrow; Result<sub>I</sub> | Error
 
- <span class="tkF">O&langle;</span>AstDB.constant(c)<span class="tkF">&rangle;</span><sub>e</sub>       = <span class="fragment">c</span>
- <span class="tkF">O&langle;</span>AstDB.variable(i)<span class="tkF">&rangle;</span><sub>e</sub>       = <span class="fragment">e[i]</span>
- <span class="tkF">O&langle;</span>AstDB.abstraction(b)<span class="tkF">&rangle;</span><sub>e</sub>    = <span class="fragment">(b,e)</span>
- <span class="tkF">O&langle;</span>AstDB.application(a,b)<span class="tkF">&rangle;</span><sub>e</sub>  = <span class="fragment"><span class="tkF">O&langle;</span>c<span class="tkF">&rangle;</span><sub>d::e'</sub> when <span class="tkF">O&langle;</span>b<span class="tkF">&rangle;</span><sub>e</sub> =<sub>*</sub> d
-                                          and <span class="tkF">O&langle;</span>a<span class="tkF">&rangle;</span><sub>e</sub> =<sub>*</sub> (c,e')</span>
+ <span class="tkF">I&langle;</span>AstDB.constant(c)<span class="tkF">&rangle;</span><sub>e</sub>       = <span class="fragment">c</span>
+ <span class="tkF">I&langle;</span>AstDB.variable(i)<span class="tkF">&rangle;</span><sub>e</sub>       = <span class="fragment">e[i]</span>
+ <span class="tkF">I&langle;</span>AstDB.abstraction(b)<span class="tkF">&rangle;</span><sub>e</sub>    = <span class="fragment">(b,e)</span>
+ <span class="tkF">I&langle;</span>AstDB.application(a,b)<span class="tkF">&rangle;</span><sub>e</sub>  = <span class="fragment"><span class="tkF">I&langle;</span>c<span class="tkF">&rangle;</span><sub>d::e'</sub> when <span class="tkF">I&langle;</span>b<span class="tkF">&rangle;</span><sub>e</sub> =<sub>*</sub> d
+                                          and <span class="tkF">I&langle;</span>a<span class="tkF">&rangle;</span><sub>e</sub> =<sub>*</sub> (c,e')</span>
             </pre>
 
             <div class="remark fragment">
