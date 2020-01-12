@@ -6,9 +6,9 @@
 
 ## Introduction
 
-F&micro;N is a micro functional language designed for compilation explanation purpose. 
-
 [Slides](http://d.plaindoux.free.fr/talks/lambdalille/mfun/index.html#/)
+
+F&micro;N is a micro functional language designed for compilation explanation purpose equiped with primitive data and a naive Javascript interoperability.
 
 ## Grammar
 
