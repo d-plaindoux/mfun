@@ -472,7 +472,7 @@
 
             <pre>
 
- type Result<sub>O</sub> = Number | String | (AstDB,Env)
+ type Result<sub>I</sub> = Number | String | (AstDB,Env)
   and Env     = List Result<sub>I</sub>
 
  <span class="tkF">I&langle;</span>_<span class="tkF">&rangle;</span> :: AstDB &rightarrow; Env &rightarrow; Result<sub>I</sub> | Error
@@ -572,9 +572,9 @@
  definition :: String &rightarrow; Result<sub>E</sub>
  native     :: String &rightarrow; Env &rightarrow; Result<sub>E</sub>
 
- <span class="tkF">E&langle;</span>Objcode.constant(n)::c<span class="tkF">&rangle;</span><sub>e s</sub>        = <span class="tkF">E&langle;</span>c<span class="tkF">&rangle;</span><sub>e n::s</sub>
- <span class="tkF">E&langle;</span>Objcode.ident(n);c<span class="tkF">&rangle;</span><sub>e s</sub>            = <span class="tkF">E&langle;</span>c<span class="tkF">&rangle;</span><sub>e (definition n)::s</sub>
- <span class="tkF">E&langle;</span>Objcode.native(n);c<span class="tkF">&rangle;</span><sub>e s</sub>           = <span class="tkF">E&langle;</span>c<span class="tkF">&rangle;</span><sub>e (native n e)::s</sub>
+ <span class="tkF">E&langle;</span>Objcode.constant(n)::c<span class="tkF">&rangle;</span><sub>e s</sub>        = <span class="fragment"><span class="tkF">E&langle;</span>c<span class="tkF">&rangle;</span><sub>e n::s</sub></span>
+ <span class="tkF">E&langle;</span>Objcode.ident(n)::c<span class="tkF">&rangle;</span><sub>e s</sub>           = <span class="fragment"><span class="tkF">E&langle;</span>c<span class="tkF">&rangle;</span><sub>e (definition n)::s</sub></span>
+ <span class="tkF">E&langle;</span>Objcode.native(n)::c<span class="tkF">&rangle;</span><sub>e s</sub>          = <span class="fragment"><span class="tkF">E&langle;</span>c<span class="tkF">&rangle;</span><sub>e (native n e)::s</sub></span>
   </pre>
 
             <div class="fragment ribbon"><span>Live Code</span></div>
@@ -682,21 +682,31 @@
         <!-- ####################### -->
 
         <section>
-            <section>
-                <h3>The <span class="name">F&micro;N</span> language</h3>
+            <h3> Going further </h3>
 
-                <div class="p" style="text-align:middle">
-	    <span>
-	      <a href="http://twitter.com/dplaindoux">@dplaindoux</a>
-	    </span>
-                </div>
-
-                <br>
-                <h3> Thank you </h3>
-
-            </section>
-
+            <ul>
+                <li> Control flow analysis </li>
+                <li> Type checker </li>
+                <li> Data representation </li>
+            </ul>
         </section>
+
+        <!-- ####################### -->
+
+        <section>
+            <h3>The <span class="name">F&micro;N</span> language</h3>
+
+            <div class="p" style="text-align:middle">
+            <span>
+              <a href="http://twitter.com/dplaindoux">@dplaindoux</a>
+            </span>
+            </div>
+
+            <br>
+            <h3> Thank you </h3>
+        </section>
+
+        <!-- ####################### -->
 
         <script src="lib/js/head.min.js"></script>
         <script src="js/reveal.js"></script>

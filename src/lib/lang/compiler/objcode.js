@@ -11,10 +11,6 @@ import '../../extensions/array'
 
 class Generator {
 
-    constructor(variables) {
-        this.variables = variables;
-    }
-
     // -----------------------------------------------------------------------------
 
     definition(d) {
@@ -54,4 +50,4 @@ class Generator {
     }
 }
 
-export default (e) => e.visit(new Generator([]));
+export default (e) => e.visit(new Generator());

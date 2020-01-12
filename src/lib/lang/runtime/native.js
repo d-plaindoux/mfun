@@ -10,7 +10,7 @@
 
 import AstResult from './ast-result';
 
-function mustBe(v, type) {
+function ofType(v, type) {
     if (typeof v === type) {
         return v;
     } else {
@@ -31,7 +31,7 @@ export default {
         return node;
     },
     'get': env => {
-        const identifier = mustBe(env[0].value, "string");
+        const identifier = ofType(env[0].value, "string");
 
         return AstResult.constant(document.getElementById(identifier));
     },
@@ -43,14 +43,14 @@ export default {
         return AstResult.constant(a + b);
     },
     'minus': env => {
-        const a = mustBe(env[1].value, "number"),
-            b = mustBe(env[0].value, "number");
+        const a = ofType(env[1].value, "number"),
+            b = ofType(env[0].value, "number");
 xz
         return AstResult.constant(a - b);
     },
     'mult': env => {
-        const a = mustBe(env[1].value, "number"),
-            b = mustBe(env[0].value, "number");
+        const a = ofType(env[1].value, "number"),
+            b = ofType(env[0].value, "number");
 
         return AstResult.constant(a * b);
     },

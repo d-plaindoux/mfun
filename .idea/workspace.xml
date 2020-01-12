@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7515c4cf-6f38-468b-954b-8e00087ca8ca" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/doc/images/chocolatine.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/doc/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/lang/compiler/objcode.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/lang/compiler/objcode.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/lang/runtime/native.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/lang/runtime/native.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,7 +212,7 @@
       <workItem from="1570868695038" duration="10700000" />
       <workItem from="1578068111496" duration="12003000" />
       <workItem from="1578238415979" duration="38715000" />
-      <workItem from="1578478779211" duration="37739000" />
+      <workItem from="1578478779211" duration="40859000" />
     </task>
     <servers />
   </component>
@@ -313,12 +314,12 @@
       <screen x="0" y="23" width="1635" height="1027" />
     </state>
     <state width="1479" height="192" key="GridCell.Tab.3.right/0.23.1635.1027@0.23.1635.1027" timestamp="1578731105706" />
-    <state width="792" height="445" key="SwitcherDM" timestamp="1578730372573">
-      <screen x="0" y="23" width="1635" height="1027" />
+    <state width="791" height="445" key="SwitcherDM" timestamp="1578841769821">
+      <screen x="0" y="23" width="1634" height="1027" />
     </state>
     <state width="931" height="468" key="SwitcherDM/-130.-1080.1920.1080/0.23.1635.1027@-130.-1080.1920.1080" timestamp="1578561547323" />
     <state width="814" height="455" key="SwitcherDM/-1680.0.1680.1050/0.23.1635.1027@-1680.0.1680.1050" timestamp="1578503523044" />
-    <state width="791" height="445" key="SwitcherDM/0.23.1634.1027@0.23.1634.1027" timestamp="1578647315603" />
+    <state width="791" height="445" key="SwitcherDM/0.23.1634.1027@0.23.1634.1027" timestamp="1578841769821" />
     <state width="792" height="445" key="SwitcherDM/0.23.1635.1027@0.23.1635.1027" timestamp="1578730372573" />
     <state x="205" y="-830" width="1374" height="625" key="find.popup" timestamp="1578319225834">
       <screen x="-130" y="-1080" width="1920" height="1080" />
