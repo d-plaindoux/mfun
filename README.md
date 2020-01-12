@@ -11,23 +11,18 @@ F&micro;N is a micro functional language designed for compilation explanation pu
 ## Grammar
 
 ```
-s0 ::=
-   definition*
-
-definition ::=
-   "def" IDENT Exp
-   Exp
-
-Exp ::=
-   SExp+    	       	   
-
-SExp ::=
-   { (IDENT+ "->")? SExp } 	         
-   "(" Exp? ")"
-   "$" Exp
-   NUMBER
-   STRING
-   "native" STRING
+Id  ::= [a-zA-Z_][a-zA-Z0-9_$?]*
+exp ::= Id                      -- Identifier
+      | Number                  -- Float literal e.g. -1.3e2
+      | String                  -- String literal e.g. "o_O"
+      | native String           -- Native binding
+      | ()                      -- Unit
+      | ( exp+ )                -- Block of application
+      | $ exp+                  -- Infix application
+      | { (Id+ →)? exp+ }       -- Abstraction à la Kotlin
+      | let Id = exp+ in exp+   -- Binding
+def ::= def Id = exp+
+s0  ::= def* 
 ```
 
 ## Example
@@ -45,7 +40,7 @@ def fact { a ->
          { mult a $ fact $ minus a 1 }
 }         
 
-fact 12
+def _ = fact 12
 ```
 
 ## License
