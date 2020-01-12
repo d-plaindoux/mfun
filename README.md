@@ -8,7 +8,7 @@
 
 F&micro;N is a micro functional language designed for compilation explanation purpose. 
 
-[Slides](http://d.plaindoux.free.fr/talks/meetup/mfun/index.html#/)
+[Slides](http://d.plaindoux.free.fr/talks/lambdalille/mfun/index.html#/)
 
 ## Grammar
 
