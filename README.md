@@ -45,7 +45,7 @@ def _ = fact 12
 
 ## License
 
-Copyright (C)2019 D. Plaindoux.
+Copyright (C)2019-2020 D. Plaindoux.
 
 This program is  free software; you can redistribute  it and/or modify
 it  under the  terms  of  the GNU  Lesser  General  Public License  as
