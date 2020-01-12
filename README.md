@@ -21,7 +21,7 @@ exp ::= Id                            -- Identifier
       | '(' ')'                       -- Unit
       | '(' exp+ ')'                  -- Block of application
       | '$' exp+                      -- Infix application
-      | '{' (Id+ →)? exp+ '}'         -- Abstraction à la Kotlin
+      | '{' (Id+ "->")? exp+ '}'      -- Abstraction à la Kotlin
       | "let" Id '=' exp+ "in" exp+   -- Binding
 def ::= "def" Id '=' exp+
 s0  ::= def* 
