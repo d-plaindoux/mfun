@@ -98,13 +98,13 @@ class Machine {
     }
 
     native(n) {
-        const funcall = native[n.name];
+        const fun = native[n.name];
 
-        if (funcall === undefined) {
+        if (fun === undefined) {
             throw new EvalError("Undefined native symbol " + n.name);
         }
 
-        this.stack.unshift(funcall(this.env.slice()));
+        this.stack.unshift(fun(this.env.slice()));
     }
 
     // -------------------------------------------------------------------------

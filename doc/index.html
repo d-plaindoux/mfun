@@ -30,6 +30,8 @@
     def plus   = { l r     -> native "plus" }
     def mult   = { l r     -> native "mult"  }
     def minus  = { l r     -> native "minus" }
+
+
     </script>
 
     <script type="application/mfun">
@@ -40,6 +42,8 @@
     def do    = { f   -> then () f }
     def then  = { v f -> yield $ f v }
     def yield = { v f  -> f v }
+
+
     </script>
 
     <script type="application/mfun">
@@ -48,6 +52,8 @@
              { 1 }
              { mult a $ fact $ minus a 1 }
     }
+
+
     </script>
 
     <script type="application/javascript">
@@ -141,7 +147,7 @@
     <div class="slides">
 
         <section>
-             <h3>The <span class="name">F&micro;N</span> language: From Definition to Execution </h3>
+            <h3>The <span class="name">F&micro;N</span> language: From Definition to Execution </h3>
             <div class="p" style="text-align:middle">
                 <img src="images/lambdalille.png">
             </div>
@@ -174,6 +180,20 @@
         <!-- ####################### -->
 
         <section>
+            <h2> Why designing a language?</h2>
+
+            <ul>
+                <li class="fragment"> New memory management e.g. Rust</li>
+                <li class="fragment"> Combine paradigms e.g. OCaml, Scala, &lambda;Prolog</li>
+                <li class="fragment"> Bring property like immutability e.g. Purescript</li>
+                <li class="fragment"> Program and Proof e.g. Coq, Idris, Agda</li>
+                <li class="fragment"> Or simply because "Yes we can!"</li>
+            </ul>
+        </section>
+
+        <!-- ####################### -->
+
+        <section>
             <h3> Language Proposition </h3>
 
             <p> A functional programming language with primitive data and a naive Javascript interoperability </p>
@@ -183,10 +203,14 @@
             <h3 style="text-transform: none"> Abstraction and Application </h3>
 
             <pre><code class="mfun">
-    def id      = { a -> a }
-    def compose = { f g x -> f (g x) }
-    def pipe    = let swap = { a b c -> a c b } in swap compose
-    def _       = pipe id id
+    def identity = { a -> a }
+
+</code><code class="mfun fragment">    def compose  = { f g x -> f $ g x }
+
+</code><code class="mfun fragment">    def pipe     = let swap = { a b c -> a c b }
+                   in swap compose
+
+</code><code class="mfun fragment">    def _        = pipe identity identity
             </code></pre>
 
         </section>
@@ -196,8 +220,10 @@
 
             <pre><code class="mfun">
     def response = 42
-    def hello    = "Hello"
-    def pi       = native "pi" (* pi is a Javascript function *)
+
+</code><code class="mfun fragment">    def hello    = "Hello"
+
+</code><code class="mfun fragment">    def pi       = native "pi" (* pi is a JS function *)
             </code></pre>
         </section>
 
@@ -385,6 +411,24 @@
             </ul>
         </section>
 
+        <!-- ####################### -->
+
+        <section >
+            <h3> Abstract syntax </h3>
+
+            <pre><code class="ocaml">
+    type Ast =
+    | ident       of String
+    | constant    of Number | String
+    | native      of String
+    | application of Ast * Ast
+    | abstraction of Ast * Ast
+            </code></pre>
+
+        </section>
+
+        <!-- ####################### -->
+
         <section>
             <h3> From concrete syntax to abstract syntax </h3>
 
@@ -398,11 +442,19 @@
  <span class="tkF">P&langle;</span>n<span class="tkF">&rangle;</span>              = Ast.constant(n)            if n &in; Native
  <span class="tkF">P&langle;</span><span class="tk">native</span> s<span class="tkF">&rangle;</span>       = Ast.native(s)              if s &in; String
  <span class="tkF">P&langle;</span><span class="tk">()</span><span class="tkF">&rangle;</span>             = Ast.constant(unit)
- <span class="tkF">P&langle;</span><span class="tk">(</span> a <span class="tk">)</span><span class="tkF">&rangle;</span>          = <span class="tkF">P&langle;</span>a<span class="tkF">&rangle;</span>
- <span class="tkF">P&langle;</span><span class="tk">$</span> a<span class="tkF">&rangle;</span>            = <span class="tkF">P&langle;</span>a<span class="tkF">&rangle;</span>
- <span class="tkF">P&langle;</span><span class="tk">{</span> a <span class="tk">-></span> b <span class="tk">}</span><span class="tkF">&rangle;</span>     = Ast.abstraction(a, <span class="tkF">P&langle;</span>b<span class="tkF">&rangle;</span>))  if a &in; Id
- <span class="tkF">P&langle;</span><span class="tk">let</span> a <span class="tk">=</span> c <span class="tk">in</span> b<span class="tkF">&rangle;</span> = <span class="tkF">P&langle;</span><span class="tk">{</span> a <span class="tk">-></span> b <span class="tk">}</span> c<span class="tkF">&rangle;</span>            if a &in; Id
- <span class="tkF">P&langle;</span>a b<span class="tkF">&rangle;</span>            = Ast.application(<span class="tkF">P&langle;</span>a<span class="tkF">&rangle;</span>,<span class="tkF">P&langle;</span>b<span class="tkF">&rangle;</span>)
+ <span class="tkF">P&langle;</span><span class="tk">(</span> a <span class="tk">)</span><span
+                    class="tkF">&rangle;</span>          = <span class="tkF">P&langle;</span>a<span
+                    class="tkF">&rangle;</span>
+ <span class="tkF">P&langle;</span><span class="tk">$</span> a<span class="tkF">&rangle;</span>            = <span
+                    class="tkF">P&langle;</span>a<span class="tkF">&rangle;</span>
+ <span class="tkF">P&langle;</span><span class="tk">{</span> a <span class="tk">-></span> b <span
+                    class="tk">}</span><span class="tkF">&rangle;</span>     = Ast.abstraction(a, <span class="tkF">P&langle;</span>b<span
+                    class="tkF">&rangle;</span>))  if a &in; Id
+ <span class="tkF">P&langle;</span><span class="tk">let</span> a <span class="tk">=</span> c <span class="tk">in</span> b<span
+                    class="tkF">&rangle;</span> = <span class="tkF">P&langle;</span><span class="tk">{</span> a <span
+                    class="tk">-></span> b <span class="tk">}</span> c<span class="tkF">&rangle;</span>            if a &in; Id
+ <span class="tkF">P&langle;</span>a b<span class="tkF">&rangle;</span>            = Ast.application(<span class="tkF">P&langle;</span>a<span
+                    class="tkF">&rangle;</span>,<span class="tkF">P&langle;</span>b<span class="tkF">&rangle;</span>)
       </pre>
 
             <div class="fragment ribbon"><span>Live Code</span></div>
@@ -420,19 +472,40 @@
         <section>
             <h3> De Bruijn index </h3>
 
-            <p> <a href="https://www.win.tue.nl/automath/archive/pdf/aut029.pdf">&lambda;-terms representation without <br> naming the bind variables </a>  </p>
+            <p><a href="https://www.win.tue.nl/automath/archive/pdf/aut029.pdf">&lambda;-terms representation without
+                <br> naming the bind variables </a></p>
 
             <pre class="fragment">
 
                     &lambda;f.(&lambda;x.x &lambda;y.y &lambda;z.(f z))
 <span class="fragment">                           &darr;    &darr;     &darr; &darr;
-                     <span style="color: aqua">&lambda;</span>.( <span style="color: #d33682">&lambda;</span>.<span style="color: #d33682">0</span>  <span style="color: chartreuse">&lambda;</span>.<span style="color: chartreuse">0</span>  <span style="color: #00BBFF">&lambda;</span>.(<span style="color: aqua">1</span> <span style="color: #00BBFF">0</span>))</span>
+                     <span style="color: red">&lambda;</span>.( <span style="color: #d33682">&lambda;</span>.<span
+            style="color: #d33682">0</span>  <span style="color: chartreuse">&lambda;</span>.<span
+            style="color: chartreuse">0</span>  <span style="color: #00BBFF">&lambda;</span>.(<span
+            style="color: red">1</span> <span style="color: #00BBFF">0</span>))</span>
             </pre>
 
             <p class="remark fragment">
                 Invariant with respect to &alpha;-conversion
                 and direct access in an environment
             </p>
+
+        </section>
+
+        <!-- ####################### -->
+
+        <section >
+            <h3> Abstract syntax </h3>
+
+            <pre><code class="ocaml">
+    type AstDB =
+    | ident       of String
+    | constant    of Number | String
+    | native      of String
+    | application of Ast * Ast
+    | abstraction of Ast              (* No variable binding *)
+    | variable    of Number           (* Direct access       *)
+            </code></pre>
 
         </section>
 
@@ -445,12 +518,20 @@
 
  <span class="tkF">A&langle;</span>_<span class="tkF">&rangle;</span> :: Ast &rightarrow; List String &rightarrow; AstDB
 
- <span class="tkF">A&langle;</span>Ast.constant(c)<span class="tkF">&rangle;</span><sub>e</sub>       = <span class="fragment">AstDB.constant(c)</span>
- <span class="tkF">A&langle;</span>Ast.native(c)<span class="tkF">&rangle;</span><sub>e</sub>         = <span class="fragment">AstDB.native(c)</span>
- <span class="tkF">A&langle;</span>Ast.application(a,b)<span class="tkF">&rangle;</span><sub>e</sub>  = <span class="fragment">AstDB.application(<span class="tkF">A&langle;</span>a<span class="tkF">&rangle;</span><sub>e</sub>, <span class="tkF">A&langle;</span>b<span class="tkF">&rangle;</span><sub>e</sub>)</span>
- <span class="tkF">A&langle;</span>Ast.abstraction(a,b)<span class="tkF">&rangle;</span><sub>e</sub>  = <span class="fragment">AstDB.abstraction(<span class="tkF">A&langle;</span>b<span class="tkF">&rangle;</span><sub>a::e</sub>)</span>
- <span class="tkF">A&langle;</span>Ast.ident(n)<span class="tkF">&rangle;</span><sub>e</sub>          = <span class="fragment">AstDB.ident(n)    if &forall; i   / e[i]&ne;n</span>
- <span class="tkF">A&langle;</span>Ast.ident(n)<span class="tkF">&rangle;</span><sub>e</sub>          = <span class="fragment">AstDB.variable(i) if &exist; i   / e[i]=n
+ <span class="tkF">A&langle;</span>Ast.constant(c)<span class="tkF">&rangle;</span><sub>e</sub>       = <span
+                    class="fragment">AstDB.constant(c)</span>
+ <span class="tkF">A&langle;</span>Ast.native(c)<span class="tkF">&rangle;</span><sub>e</sub>         = <span
+                    class="fragment">AstDB.native(c)</span>
+ <span class="tkF">A&langle;</span>Ast.application(a,b)<span class="tkF">&rangle;</span><sub>e</sub>  = <span
+                    class="fragment">AstDB.application(<span class="tkF">A&langle;</span>a<span
+                    class="tkF">&rangle;</span><sub>e</sub>, <span class="tkF">A&langle;</span>b<span class="tkF">&rangle;</span><sub>e</sub>)</span>
+ <span class="tkF">A&langle;</span>Ast.abstraction(a,b)<span class="tkF">&rangle;</span><sub>e</sub>  = <span
+                    class="fragment">AstDB.abstraction(<span class="tkF">A&langle;</span>b<span
+                    class="tkF">&rangle;</span><sub>a::e</sub>)</span>
+ <span class="tkF">A&langle;</span>Ast.ident(n)<span class="tkF">&rangle;</span><sub>e</sub>          = <span
+                    class="fragment">AstDB.ident(n)    if &forall; i   / e[i]&ne;n</span>
+ <span class="tkF">A&langle;</span>Ast.ident(n)<span class="tkF">&rangle;</span><sub>e</sub>          = <span
+                    class="fragment">AstDB.variable(i) if &exist; i   / e[i]=n
                                                   &forall; j&lt;i / e[j]&ne;n</span>
       </pre>
 
@@ -477,11 +558,18 @@
 
  <span class="tkF">I&langle;</span>_<span class="tkF">&rangle;</span> :: AstDB &rightarrow; Env &rightarrow; Result<sub>I</sub> | Error
 
- <span class="tkF">I&langle;</span>AstDB.constant(c)<span class="tkF">&rangle;</span><sub>e</sub>       = <span class="fragment">c</span>
- <span class="tkF">I&langle;</span>AstDB.variable(i)<span class="tkF">&rangle;</span><sub>e</sub>       = <span class="fragment">e[i]</span>
- <span class="tkF">I&langle;</span>AstDB.abstraction(b)<span class="tkF">&rangle;</span><sub>e</sub>    = <span class="fragment">(b,e)</span>
- <span class="tkF">I&langle;</span>AstDB.application(a,b)<span class="tkF">&rangle;</span><sub>e</sub>  = <span class="fragment"><span class="tkF">I&langle;</span>c<span class="tkF">&rangle;</span><sub>d::e'</sub> when <span class="tkF">I&langle;</span>b<span class="tkF">&rangle;</span><sub>e</sub> =<sub>*</sub> d
-                                          and <span class="tkF">I&langle;</span>a<span class="tkF">&rangle;</span><sub>e</sub> =<sub>*</sub> (c,e')</span>
+ <span class="tkF">I&langle;</span>AstDB.constant(c)<span class="tkF">&rangle;</span><sub>e</sub>       = <span
+                    class="fragment">c</span>
+ <span class="tkF">I&langle;</span>AstDB.variable(i)<span class="tkF">&rangle;</span><sub>e</sub>       = <span
+                    class="fragment">e[i]</span>
+ <span class="tkF">I&langle;</span>AstDB.abstraction(b)<span class="tkF">&rangle;</span><sub>e</sub>    = <span
+                    class="fragment">(b,e)</span>
+ <span class="tkF">I&langle;</span>AstDB.application(a,b)<span class="tkF">&rangle;</span><sub>e</sub>  = <span
+                    class="fragment"><span class="tkF">I&langle;</span>c<span
+                    class="tkF">&rangle;</span><sub>d::e'</sub> when <span class="tkF">I&langle;</span>b<span
+                    class="tkF">&rangle;</span><sub>e</sub> =<sub>*</sub> d
+                                          and <span class="tkF">I&langle;</span>a<span
+                        class="tkF">&rangle;</span><sub>e</sub> =<sub>*</sub> (c,e')</span>
             </pre>
 
             <div class="remark fragment">
@@ -515,17 +603,37 @@
         <!-- ####################### -->
 
         <section>
+            <h3> Compilation instructions </h3>
+
+            <pre><code class="ocaml">
+    type Objcode =
+    | ident    of String
+    | constant of Number | String
+    | native   of String
+    | access   of Number
+    | closure  of List Objcode
+    | apply
+    | returns
+            </code></pre>
+
+        </section>
+
+        <!-- ####################### -->
+
+        <section>
             <h3> Compilation process </h3>
 
             <pre>
- <span class="tkF">C&langle;</span>_<span class="tkF">&rangle;</span>:: AstDB &rightarrow; Objcode list
+ <span class="tkF">C&langle;</span>_<span class="tkF">&rangle;</span>:: AstDB &rightarrow; List Objcode
 
  <span class="tkF">C&langle;</span>AstDB.ident(n)<span class="tkF">&rangle;</span>         = <span class="fragment">[Objcode.ident(n)&rangle;</span>
  <span class="tkF">C&langle;</span>AstDB.constant(c)<span class="tkF">&rangle;</span>      = <span class="fragment">[Objcode.constant(c)&rangle;</span>
  <span class="tkF">C&langle;</span>AstDB.native(c)<span class="tkF">&rangle;</span>        = <span class="fragment">[Objcode.native(c)&rangle;</span>
 
  <span class="tkF">C&langle;</span>AstDB.variable(i)<span class="tkF">&rangle;</span>      = <span class="fragment">[Objcode.access(i)&rangle;</span>
- <span class="tkF">C&langle;</span>AstDB.application(a,b)<span class="tkF">&rangle;</span> = <span class="fragment"><span class="tkF">C&langle;</span>a<span class="tkF">&rangle;</span> @ <span class="tkF">C&langle;</span>b<span class="tkF">&rangle;</span> @ [Objcode.apply]</span>
+ <span class="tkF">C&langle;</span>AstDB.application(a,b)<span class="tkF">&rangle;</span> = <span
+                    class="fragment"><span class="tkF">C&langle;</span>a<span class="tkF">&rangle;</span> @ <span
+                    class="tkF">C&langle;</span>b<span class="tkF">&rangle;</span> @ [Objcode.apply]</span>
  <span class="tkF">C&langle;</span>AstDB.abstraction(b)<span class="tkF">&rangle;</span>   = <span class="fragment">[Objcode.closure(
                                  <span class="tkF">C&langle;</span>b<span class="tkF">&rangle;</span> @ [Objcode.returns]
                              )]</span>
@@ -554,10 +662,16 @@
 
  <span class="tkF">E&langle;</span>_<span class="tkF">&rangle;</span> :: Objcode list &rightarrow; Env &rightarrow; Stack &rightarrow; Result<sub>E</sub> | Error
 
- <span class="tkF">E&langle;</span>Objcode.access(i)::c<span class="tkF">&rangle;</span><sub>e s</sub>          = <span class="fragment"><span class="tkF">E&langle;</span>c<span class="tkF">&rangle;</span><sub>e e[i]::s</sub></span>
- <span class="tkF">E&langle;</span>Objcode.closure(c')::c<span class="tkF">&rangle;</span><sub>e s</sub>        = <span class="fragment"><span class="tkF">E&langle;</span>c<span class="tkF">&rangle;</span><sub>e (c',e)::s</sub></span>
- <span class="tkF">E&langle;</span>Objcode.apply::c<span class="tkF">&rangle;</span><sub>e v::(c',e')::s</sub>  = <span class="fragment"><span class="tkF">E&langle;</span>c'<span class="tkF">&rangle;</span><sub>v::e' c::e::s</sub></span>
- <span class="tkF">E&langle;</span>Objcode.returns::_<span class="tkF">&rangle;</span><sub>e v::c'::e'::s</sub> = <span class="fragment"><span class="tkF">E&langle;</span>c'<span class="tkF">&rangle;</span><sub>e' v::s</sub></span>
+ <span class="tkF">E&langle;</span>Objcode.access(i)::c<span class="tkF">&rangle;</span><sub>e s</sub>          = <span
+                    class="fragment"><span class="tkF">E&langle;</span>c<span
+                    class="tkF">&rangle;</span><sub>e e[i]::s</sub></span>
+ <span class="tkF">E&langle;</span>Objcode.closure(c')::c<span class="tkF">&rangle;</span><sub>e s</sub>        = <span
+                    class="fragment"><span class="tkF">E&langle;</span>c<span class="tkF">&rangle;</span><sub>e (c',e)::s</sub></span>
+ <span class="tkF">E&langle;</span>Objcode.apply::c<span class="tkF">&rangle;</span><sub>e v::(c',e')::s</sub>  = <span
+                    class="fragment"><span class="tkF">E&langle;</span>c'<span class="tkF">&rangle;</span><sub>v::e' c::e::s</sub></span>
+ <span class="tkF">E&langle;</span>Objcode.returns::_<span class="tkF">&rangle;</span><sub>e v::c'::e'::s</sub> = <span
+                    class="fragment"><span class="tkF">E&langle;</span>c'<span
+                    class="tkF">&rangle;</span><sub>e' v::s</sub></span>
  ...
     </pre>
         </section>
@@ -572,9 +686,13 @@
  definition :: String &rightarrow; Result<sub>E</sub>
  native     :: String &rightarrow; Env &rightarrow; Result<sub>E</sub>
 
- <span class="tkF">E&langle;</span>Objcode.constant(n)::c<span class="tkF">&rangle;</span><sub>e s</sub>        = <span class="fragment"><span class="tkF">E&langle;</span>c<span class="tkF">&rangle;</span><sub>e n::s</sub></span>
- <span class="tkF">E&langle;</span>Objcode.ident(n)::c<span class="tkF">&rangle;</span><sub>e s</sub>           = <span class="fragment"><span class="tkF">E&langle;</span>c<span class="tkF">&rangle;</span><sub>e (definition n)::s</sub></span>
- <span class="tkF">E&langle;</span>Objcode.native(n)::c<span class="tkF">&rangle;</span><sub>e s</sub>          = <span class="fragment"><span class="tkF">E&langle;</span>c<span class="tkF">&rangle;</span><sub>e (native n e)::s</sub></span>
+ <span class="tkF">E&langle;</span>Objcode.constant(n)::c<span class="tkF">&rangle;</span><sub>e s</sub>        = <span
+                    class="fragment"><span class="tkF">E&langle;</span>c<span
+                    class="tkF">&rangle;</span><sub>e n::s</sub></span>
+ <span class="tkF">E&langle;</span>Objcode.ident(n)::c<span class="tkF">&rangle;</span><sub>e s</sub>           = <span
+                    class="fragment"><span class="tkF">E&langle;</span>c<span class="tkF">&rangle;</span><sub>e (definition n)::s</sub></span>
+ <span class="tkF">E&langle;</span>Objcode.native(n)::c<span class="tkF">&rangle;</span><sub>e s</sub>          = <span
+                    class="fragment"><span class="tkF">E&langle;</span>c<span class="tkF">&rangle;</span><sub>e (native n e)::s</sub></span>
   </pre>
 
             <div class="fragment ribbon"><span>Live Code</span></div>
@@ -594,13 +712,13 @@
                         <td width="30%" align="right"><tt> f a b c </tt></td>
                         <td width="2%">&equiv;</td>
                         <td width="20%"><tt> ((f a) b) c </tt></td>
-                        <td> Left associativity </td>
+                        <td> Left associativity</td>
                     </tr>
                     <tr>
                         <td width="30%" align="right"><tt> { a &rightarrow; { b &rightarrow; ... } } </tt></td>
                         <td width="2%">&equiv;</td>
                         <td width="20%"><tt> { a b &rightarrow; ... } </tt></td>
-                        <td> Currified form </td>
+                        <td> Currified form</td>
                     </tr>
                 </table>
             </div>
@@ -616,7 +734,8 @@
             <img width="80%" src="images/zinc0.png">
             <img class="fragment" width="80%" src="images/zinc1.png">
 
-            <p style="font-size: 80%"> <a href="https://xavierleroy.org/talks/zam-kazam05.pdf">"From Krivine’s machine to the Caml implementations"</a> - Xavier Leroy </p>
+            <p style="font-size: 80%"><a href="https://xavierleroy.org/talks/zam-kazam05.pdf">"From Krivine’s machine to
+                the Caml implementations"</a> - Xavier Leroy </p>
         </section>
 
         <!-- ####################### -->
@@ -634,7 +753,10 @@
         <section>
 
             <h6 style="text-transform: none">
-                <span class="tkF">P&langle;</span>_<span class="tkF">&rangle;</span>.map(<span class="tkF">A&langle;</span>_<span class="tkF">&rangle;</span><sub>[]</sub>).map(<span class="tkF">C&langle;</span>_<span class="tkF">&rangle;</span>).map(<span class="tkF">E&langle;</span>_<span class="tkF">&rangle;</span><sub>[] []</sub>).join()
+                <span class="tkF">P&langle;</span>_<span class="tkF">&rangle;</span>.map(<span
+                    class="tkF">A&langle;</span>_<span class="tkF">&rangle;</span><sub>[]</sub>).map(<span class="tkF">C&langle;</span>_<span
+                    class="tkF">&rangle;</span>).map(<span class="tkF">E&langle;</span>_<span
+                    class="tkF">&rangle;</span><sub>[] []</sub>).join()
             </h6>
 
         </section>
@@ -662,7 +784,7 @@
 
             <div style="font-size: 60%" onclick="bootstrap()">
                 <code>fact &lt;i id='val'><i class="tkF" id='val'>?</i>&lt;/i> = &lt;i id='res'><i class="tkF"
-                                                                                                  id='res'>?</i>&lt/i></code>
+                                                                                                   id='res'>?</i>&lt/i></code>
             </div>
 
             <script type="application/mfun">
@@ -682,12 +804,23 @@
         <!-- ####################### -->
 
         <section>
+            <h4> When you have enough time ... </h4>
+
+            <pre><code class="ocaml">
+
+            </code></pre>
+
+        </section>
+
+        <!-- ####################### -->
+
+        <section>
             <h3> Going further </h3>
 
             <ul>
-                <li> Control flow analysis </li>
-                <li> Type checker </li>
-                <li> Data representation </li>
+                <li> Control flow analysis</li>
+                <li> Type checker</li>
+                <li> Data representation</li>
             </ul>
         </section>
 
@@ -715,11 +848,11 @@
             // More info https://github.com/hakimel/reveal.js#configuration
             Reveal.initialize({
                 controls: false,
-                progress: false,
+                progress: true,
                 history: true,
                 center: true,
                 slideNumber: true,
-                transition: 'none', // none/fade/slide/convex/concave/zoom
+                transition: 'fade', // none/fade/slide/convex/concave/zoom
 
                 // More info https://github.com/hakimel/reveal.js#dependencies
                 dependencies: [

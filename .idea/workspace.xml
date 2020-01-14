@@ -4,8 +4,8 @@
     <list default="true" id="7515c4cf-6f38-468b-954b-8e00087ca8ca" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/doc/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/lang/compiler/objcode.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/lang/compiler/objcode.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/lang/runtime/native.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/lang/runtime/native.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/lang/analyzer/parser.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/lang/analyzer/parser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/lang/runtime/machine.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/lang/runtime/machine.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +33,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="full.screen.before.presentation.mode" value="false" />
@@ -212,7 +213,7 @@
       <workItem from="1570868695038" duration="10700000" />
       <workItem from="1578068111496" duration="12003000" />
       <workItem from="1578238415979" duration="38715000" />
-      <workItem from="1578478779211" duration="40859000" />
+      <workItem from="1578478779211" duration="51719000" />
     </task>
     <servers />
   </component>
@@ -330,8 +331,8 @@
       <screen x="-130" y="-1080" width="1920" height="1080" />
     </state>
     <state x="495" y="-290" key="run.anything.popup/-130.-1080.1920.1080/0.23.1636.1027@-130.-1080.1920.1080" timestamp="1578325464349" />
-    <state x="302" y="-841" width="789" height="712" key="search.everywhere.popup" timestamp="1578560814514">
-      <screen x="-130" y="-1080" width="1920" height="1080" />
+    <state x="-1302" y="232" width="690" height="692" key="search.everywhere.popup" timestamp="1579017914317">
+      <screen x="-1680" y="0" width="1680" height="1050" />
     </state>
     <state x="-1631" y="0" width="1582" height="3208" key="search.everywhere.popup.inPresentationMode" timestamp="1578508894728">
       <screen x="-1680" y="0" width="1680" height="1050" />
@@ -339,7 +340,7 @@
     <state x="-1631" y="0" width="1582" height="3208" key="search.everywhere.popup.inPresentationMode/-1680.0.1680.1050/0.0.1680.1050@-1680.0.1680.1050" timestamp="1578508894728" />
     <state x="302" y="-841" width="789" height="712" key="search.everywhere.popup/-130.-1080.1920.1080/0.23.1635.1027@-130.-1080.1920.1080" timestamp="1578560814514" />
     <state x="302" y="-841" width="788" height="711" key="search.everywhere.popup/-130.-1080.1920.1080/0.23.1636.1027@-130.-1080.1920.1080" timestamp="1578319976681" />
-    <state x="-1302" y="232" width="690" height="692" key="search.everywhere.popup/-1680.0.1680.1050/0.23.1635.1027@-1680.0.1680.1050" timestamp="1578501085364" />
+    <state x="-1302" y="232" width="690" height="692" key="search.everywhere.popup/-1680.0.1680.1050/0.23.1635.1027@-1680.0.1680.1050" timestamp="1579017914317" />
     <state x="-1302" y="232" width="690" height="692" key="search.everywhere.popup/-1680.0.1680.1050/0.23.1636.1027@-1680.0.1680.1050" timestamp="1578416988656" />
     <state x="368" y="250" width="670" height="676" key="search.everywhere.popup/0.23.1634.1027@0.23.1634.1027" timestamp="1578170268603" />
   </component>
