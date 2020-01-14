@@ -6,3 +6,5 @@ site
 .brackets.json
 npm-debug.log
 coverage
+yarn.lock
+.yarnclean
