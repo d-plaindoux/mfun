@@ -77,7 +77,7 @@ function letBlock() {
 
 // unit -> Parser Expression string
 function expressions() {
-    const expression = abstraction().or(block()).or(infixBlock()).or(native()).or(letBlock()).or(terminal());
+    const expression = abstraction().or(block()).or(infixBlock()).or(native()).or(terminal()).or(letBlock());
 
     return expression.flatMap(first =>
         expression.optrep()
