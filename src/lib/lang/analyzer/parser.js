@@ -9,6 +9,7 @@
 import {data as Data, C as Char, F as Flow, N as Number} from '@masala/parser';
 import  Ast from './ast';
 import '../../extensions/array'
+import todo from "../../extensions/todo";
 
 // unit -> Parser Expression string
 const
@@ -24,6 +25,32 @@ const
     stringLiteral = skip.then(Char.stringLiteral()).then(skip).single(),
     identifier = skip.then(ident).then(skip).single(),
     atom = (s) => skip.then(Char.string(s)).then(skip).drop();
+
+// unit -> Parser Expression string
+function terminal() {
+    return identifier.map(Ast.ident)
+        .or(numberLiteral.map(Ast.constant))
+        .or(stringLiteral.map(Ast.constant));
+}
+
+// unit -> Parser Expression string
+function native() {
+    return atom('native').then(stringLiteral).single().map(Ast.native);
+}
+
+// unit -> Parser Expression string
+function block() {
+    return atom('(')
+        .then(Flow.lazy(expression).opt())
+        .then(atom(')'))
+        .single()
+        .map(t => t.orElse(Ast.constant(Data.unit)));
+}
+
+// unit -> Parser Expression string
+function infixBlock() {
+    return atom('$').then(Flow.lazy(expression)).single();
+}
 
 function abstraction() {
     return atom('{')
@@ -49,38 +76,12 @@ function letBlock() {
 }
 
 // unit -> Parser Expression string
-function block() {
-    return atom('(')
-        .then(Flow.lazy(expression).opt())
-        .then(atom(')'))
-        .single()
-        .map(t => t.orElse(Ast.constant(Data.unit)));
-}
-
-// unit -> Parser Expression string
-function infixBlock() {
-    return atom('$').then(Flow.lazy(expression)).single();
-}
-
-// unit -> Parser Expression string
-function native() {
-    return atom('native').then(stringLiteral).single().map(Ast.native);
-}
-
-// unit -> Parser Expression string
-function terminal() {
-    return identifier.map(Ast.ident)
-        .or(numberLiteral.map(Ast.constant))
-        .or(stringLiteral.map(Ast.constant));
-}
-
-// unit -> Parser Expression string
 function simpleExpression() {
     return abstraction()
-        .or(letBlock())
         .or(block())
         .or(infixBlock())
         .or(native())
+        .or(letBlock())
         .or(terminal());
 }
 

@@ -55,6 +55,15 @@ export default {
         test.done();
     },
 
+    'parse native not well formed': function (test) {
+        test.expect(1);
+        test.deepEqual(
+            expression('native +').location(),
+            7,
+            'should accept native.');
+        test.done();
+    },
+
     'parse ident': function (test) {
         test.expect(1);
         test.deepEqual(
@@ -199,7 +208,7 @@ export default {
         test.done();
     },
 
-    'parse let binding not well formed and provide the right location': function (test) {
+    'parse let binding not well formed and provide the error location': function (test) {
         test.expect(1);
         test.deepEqual(
             expression("let a = in c").location(),
