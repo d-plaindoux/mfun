@@ -6,10 +6,9 @@
  * Licensed under the LGPL2 license.
  */
 
-import {data as Data, C as Char, F as Flow, N as Number} from '@masala/parser';
-import  Ast from './ast';
+import {C as Char, data as Data, F as Flow, N as Number} from '@masala/parser';
+import Ast from './ast';
 import '../../extensions/array'
-import todo from "../../extensions/todo";
 
 // unit -> Parser Expression string
 const
@@ -41,7 +40,7 @@ function native() {
 // unit -> Parser Expression string
 function block() {
     return atom('(')
-        .then(Flow.lazy(expression).opt())
+        .then(Flow.lazy(expressions).opt())
         .then(atom(')'))
         .single()
         .map(t => t.orElse(Ast.constant(Data.unit)));
@@ -49,13 +48,14 @@ function block() {
 
 // unit -> Parser Expression string
 function infixBlock() {
-    return atom('$').then(Flow.lazy(expression)).single();
+    return atom('$').then(Flow.lazy(expressions)).single();
 }
 
+// unit -> Parser Expression string
 function abstraction() {
     return atom('{')
         .then(Flow.try(identifier.rep().then(atom('->'))).opt())
-        .then(Flow.lazy(expression))
+        .then(Flow.lazy(expressions))
         .then(atom('}'))
         .map(t =>
             t.at(0)
@@ -69,26 +69,18 @@ function letBlock() {
     return atom('let')
         .then(identifier)
         .then(atom('='))
-        .then(Flow.lazy(expression))
+        .then(Flow.lazy(expressions))
         .then(atom('in'))
-        .then(Flow.lazy(expression))
+        .then(Flow.lazy(expressions))
         .map(t => Ast.application(Ast.abstraction(t.at(0), t.at(2)), t.at(1)));
 }
 
 // unit -> Parser Expression string
-function simpleExpression() {
-    return abstraction()
-        .or(block())
-        .or(infixBlock())
-        .or(native())
-        .or(letBlock())
-        .or(terminal());
-}
+function expressions() {
+    const expression = abstraction().or(block()).or(infixBlock()).or(native()).or(letBlock()).or(terminal());
 
-// unit -> Parser Expression string
-function expression() {
-    return simpleExpression().flatMap(first =>
-        simpleExpression().optrep()
+    return expression.flatMap(first =>
+        expression.optrep()
             .map(others => {
                 return others.array().foldLeft(first, Ast.application)
             })
@@ -97,7 +89,7 @@ function expression() {
 
 // unit -> Parser Entity string
 function definitionOrMain() {
-    return atom('def').then(identifier).then(atom('=')).then(expression())
+    return atom('def').then(identifier).then(atom('=')).then(expressions())
         .map(t => {
             if (t.at(0) === '_') {
                 return Ast.main(t.at(1));
@@ -113,6 +105,6 @@ function entities() {
 }
 
 export default {
-    expression,
+    expression: expressions,
     entities
 };
