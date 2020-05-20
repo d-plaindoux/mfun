@@ -2,7 +2,7 @@
  * mfun
  * https://github.com/d-plaindoux/mfun
  *
- * Copyright (c) 2019 Didier Plaindoux
+ * Copyright (c) 2018-2020 Didier Plaindoux
  * Licensed under the LGPL2 license.
  */
 

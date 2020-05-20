@@ -1,8 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:npm_and_yarn" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="7515c4cf-6f38-468b-954b-8e00087ca8ca" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/doc/repl/repl.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/repl/repl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/repl.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/repl.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/repl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/lang/analyzer/ast-prettifier.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/lang/compiler/ast-debruijn-prettifier.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/lang/compiler/ast-objcode-prettifier.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/lang/runtime/ast-result-prettifier.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/lang/toplevel/toString.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/css/reveal.css" beforeDir="false" afterPath="$PROJECT_DIR$/doc/css/reveal.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/css/reveal.scss" beforeDir="false" afterPath="$PROJECT_DIR$/doc/css/reveal.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/doc/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/js/reveal.js" beforeDir="false" afterPath="$PROJECT_DIR$/doc/js/reveal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/fact.fun" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/fact.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/extensions/array.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/extensions/array.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/lang/analyzer/ast.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/lang/analyzer/ast.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/lang/analyzer/parser.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/lang/analyzer/parser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/lang/compiler/ast-debruijn.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/lang/compiler/ast-debruijn.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/lang/compiler/ast-objcode.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/lang/compiler/ast-objcode.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/lang/compiler/debruijn.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/lang/compiler/debruijn.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/lang/compiler/objcode.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/lang/compiler/objcode.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/lang/runtime/ast-result.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/lang/runtime/ast-result.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/lang/runtime/machine.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/lang/runtime/machine.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/lang/runtime/native.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/lang/runtime/native.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/lang/toplevel/eval_print.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/lang/toplevel/eval_print.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/lang/toplevel/evaluator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/lang/toplevel/evaluator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/lang/toplevel/printer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/lang/toplevel/printer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/reader/browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/reader/browser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/lang/analyzer/parser_entities_test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/lang/analyzer/parser_entities_test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/lang/analyzer/parser_expressions_test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/lang/analyzer/parser_expressions_test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/lang/compiler/debruijn_expression_test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/lang/compiler/debruijn_expression_test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/lang/compiler/objcode_expression_test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/lang/compiler/objcode_expression_test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/lang/runtime/machine_test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/lang/runtime/machine_test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/lang/runtime/native_test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/lang/toplevel/repl_test.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,15 +97,16 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="full.screen.before.presentation.mode" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test/lang/compiler" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/doc/repl" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -49,20 +121,21 @@
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/doc/repl" />
+      <recent name="$PROJECT_DIR$/src/lib/lang/runtime" />
+      <recent name="$PROJECT_DIR$/src/lib/lang/compiler" />
+      <recent name="$PROJECT_DIR$/src/lib/lang/analyzer" />
+      <recent name="$PROJECT_DIR$/examples" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/lib/lang/runtime" />
       <recent name="$PROJECT_DIR$/doc/images" />
       <recent name="$PROJECT_DIR$/" />
       <recent name="$PROJECT_DIR$/src/lib/reader" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/test/lang/compiler" />
-      <recent name="$PROJECT_DIR$/src/test/lang/analyzer" />
-      <recent name="$PROJECT_DIR$/src/lib/lang/analyzer" />
-      <recent name="$PROJECT_DIR$/dist" />
-      <recent name="$PROJECT_DIR$/src/lib/lang/toplevel" />
-    </key>
   </component>
-  <component name="RunManager" selected="Nodeunit.Tests Expressions">
+  <component name="RunManager" selected="Nodeunit.Tests Runtime">
     <configuration name="ast.js" type="NodeJSConfigurationType" temporary="true" path-to-js-file="ast.js" working-dir="$PROJECT_DIR$/src/lib/lang/analyzer">
       <method v="2" />
     </configuration>
@@ -180,18 +253,6 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -210,7 +271,8 @@
       <workItem from="1570868695038" duration="10700000" />
       <workItem from="1578068111496" duration="12003000" />
       <workItem from="1578238415979" duration="38715000" />
-      <workItem from="1578478779211" duration="60602000" />
+      <workItem from="1578478779211" duration="62874000" />
+      <workItem from="1589821615157" duration="36514000" />
     </task>
     <servers />
   </component>
@@ -224,188 +286,74 @@
     </todo-panel>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="100" y="123" width="1207" height="827" key="DiffContextDialog" timestamp="1578170839812">
-      <screen x="0" y="23" width="1634" height="1027" />
+    <state x="582" y="381" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1589946649436">
+      <screen x="0" y="23" width="1732" height="1097" />
     </state>
-    <state x="100" y="123" width="1207" height="827" key="DiffContextDialog/0.23.1634.1027@0.23.1634.1027" timestamp="1578170839812" />
-    <state width="1614" height="275" key="GridCell.Tab.0.bottom" timestamp="1579194395953">
-      <screen x="0" y="23" width="1635" height="1027" />
+    <state x="582" y="381" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1732.1097@0.23.1732.1097" timestamp="1589946649436" />
+    <state x="604" y="325" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1589953107388">
+      <screen x="0" y="23" width="1732" height="1097" />
     </state>
-    <state width="1680" height="464" key="GridCell.Tab.0.bottom.inPresentationMode" timestamp="1579191796509">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state x="604" y="325" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1732.1097@0.23.1732.1097" timestamp="1589953107388" />
+    <state width="1711" height="303" key="GridCell.Tab.0.bottom" timestamp="1589822134439">
+      <screen x="0" y="23" width="1732" height="1097" />
     </state>
-    <state width="1680" height="464" key="GridCell.Tab.0.bottom.inPresentationMode/0.0.1680.1050@0.0.1680.1050" timestamp="1579191796509" />
-    <state width="1614" height="275" key="GridCell.Tab.0.bottom/0.23.1635.1027@0.23.1635.1027" timestamp="1579194395953" />
-    <state width="1614" height="192" key="GridCell.Tab.0.bottom/0.23.1636.1027@0.23.1636.1027" timestamp="1578682659436" />
-    <state width="1614" height="275" key="GridCell.Tab.0.center" timestamp="1579194395952">
-      <screen x="0" y="23" width="1635" height="1027" />
+    <state width="1711" height="303" key="GridCell.Tab.0.bottom/0.23.1732.1097@0.23.1732.1097" timestamp="1589822134439" />
+    <state width="1711" height="303" key="GridCell.Tab.0.center" timestamp="1589822134438">
+      <screen x="0" y="23" width="1732" height="1097" />
     </state>
-    <state width="1680" height="464" key="GridCell.Tab.0.center.inPresentationMode" timestamp="1579191796507">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state width="1711" height="303" key="GridCell.Tab.0.center/0.23.1732.1097@0.23.1732.1097" timestamp="1589822134438" />
+    <state width="1711" height="303" key="GridCell.Tab.0.left" timestamp="1589822134438">
+      <screen x="0" y="23" width="1732" height="1097" />
     </state>
-    <state width="1680" height="464" key="GridCell.Tab.0.center.inPresentationMode/0.0.1680.1050@0.0.1680.1050" timestamp="1579191796507" />
-    <state width="1614" height="275" key="GridCell.Tab.0.center/0.23.1635.1027@0.23.1635.1027" timestamp="1579194395952" />
-    <state width="1614" height="192" key="GridCell.Tab.0.center/0.23.1636.1027@0.23.1636.1027" timestamp="1578682659436" />
-    <state width="1614" height="275" key="GridCell.Tab.0.left" timestamp="1579194395952">
-      <screen x="0" y="23" width="1635" height="1027" />
+    <state width="1711" height="303" key="GridCell.Tab.0.left/0.23.1732.1097@0.23.1732.1097" timestamp="1589822134438" />
+    <state width="1711" height="303" key="GridCell.Tab.0.right" timestamp="1589822134439">
+      <screen x="0" y="23" width="1732" height="1097" />
     </state>
-    <state width="1680" height="464" key="GridCell.Tab.0.left.inPresentationMode" timestamp="1579191796507">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state width="1711" height="303" key="GridCell.Tab.0.right/0.23.1732.1097@0.23.1732.1097" timestamp="1589822134439" />
+    <state width="500" height="445" key="SwitcherDM" timestamp="1589869118099">
+      <screen x="0" y="23" width="1732" height="1097" />
     </state>
-    <state width="1680" height="464" key="GridCell.Tab.0.left.inPresentationMode/0.0.1680.1050@0.0.1680.1050" timestamp="1579191796507" />
-    <state width="1614" height="275" key="GridCell.Tab.0.left/0.23.1635.1027@0.23.1635.1027" timestamp="1579194395952" />
-    <state width="1614" height="192" key="GridCell.Tab.0.left/0.23.1636.1027@0.23.1636.1027" timestamp="1578682659435" />
-    <state width="1614" height="275" key="GridCell.Tab.0.right" timestamp="1579194395953">
-      <screen x="0" y="23" width="1635" height="1027" />
+    <state width="500" height="445" key="SwitcherDM/0.23.1732.1097@0.23.1732.1097" timestamp="1589869118099" />
+    <state x="567" y="160" width="598" height="822" key="find.popup" timestamp="1589874428857">
+      <screen x="0" y="23" width="1732" height="1097" />
     </state>
-    <state width="1680" height="464" key="GridCell.Tab.0.right.inPresentationMode" timestamp="1579191796508">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state x="567" y="160" width="598" height="822" key="find.popup/0.23.1732.1097@0.23.1732.1097" timestamp="1589874428857" />
+    <state x="531" y="266" key="run.anything.popup" timestamp="1589946160136">
+      <screen x="0" y="23" width="1732" height="1097" />
     </state>
-    <state width="1680" height="464" key="GridCell.Tab.0.right.inPresentationMode/0.0.1680.1050@0.0.1680.1050" timestamp="1579191796508" />
-    <state width="1614" height="275" key="GridCell.Tab.0.right/0.23.1635.1027@0.23.1635.1027" timestamp="1579194395953" />
-    <state width="1614" height="192" key="GridCell.Tab.0.right/0.23.1636.1027@0.23.1636.1027" timestamp="1578682659436" />
-    <state width="1479" height="192" key="GridCell.Tab.1.bottom" timestamp="1578731105704">
-      <screen x="0" y="23" width="1635" height="1027" />
+    <state x="531" y="266" key="run.anything.popup/0.23.1732.1097@0.23.1732.1097" timestamp="1589946160136" />
+    <state x="531" y="268" width="670" height="676" key="search.everywhere.popup" timestamp="1589951788373">
+      <screen x="0" y="23" width="1732" height="1097" />
     </state>
-    <state width="1680" height="464" key="GridCell.Tab.1.bottom.inPresentationMode" timestamp="1579191796511">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="1680" height="464" key="GridCell.Tab.1.bottom.inPresentationMode/0.0.1680.1050@0.0.1680.1050" timestamp="1579191796511" />
-    <state width="1479" height="192" key="GridCell.Tab.1.bottom/0.23.1635.1027@0.23.1635.1027" timestamp="1578731105704" />
-    <state width="1479" height="192" key="GridCell.Tab.1.center" timestamp="1578731105703">
-      <screen x="0" y="23" width="1635" height="1027" />
-    </state>
-    <state width="1680" height="464" key="GridCell.Tab.1.center.inPresentationMode" timestamp="1579191796510">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="1680" height="464" key="GridCell.Tab.1.center.inPresentationMode/0.0.1680.1050@0.0.1680.1050" timestamp="1579191796510" />
-    <state width="1479" height="192" key="GridCell.Tab.1.center/0.23.1635.1027@0.23.1635.1027" timestamp="1578731105703" />
-    <state width="1479" height="192" key="GridCell.Tab.1.left" timestamp="1578731105703">
-      <screen x="0" y="23" width="1635" height="1027" />
-    </state>
-    <state width="1680" height="464" key="GridCell.Tab.1.left.inPresentationMode" timestamp="1579191796509">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="1680" height="464" key="GridCell.Tab.1.left.inPresentationMode/0.0.1680.1050@0.0.1680.1050" timestamp="1579191796509" />
-    <state width="1479" height="192" key="GridCell.Tab.1.left/0.23.1635.1027@0.23.1635.1027" timestamp="1578731105703" />
-    <state width="1479" height="192" key="GridCell.Tab.1.right" timestamp="1578731105704">
-      <screen x="0" y="23" width="1635" height="1027" />
-    </state>
-    <state width="1680" height="464" key="GridCell.Tab.1.right.inPresentationMode" timestamp="1579191796510">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="1680" height="464" key="GridCell.Tab.1.right.inPresentationMode/0.0.1680.1050@0.0.1680.1050" timestamp="1579191796510" />
-    <state width="1479" height="192" key="GridCell.Tab.1.right/0.23.1635.1027@0.23.1635.1027" timestamp="1578731105704" />
-    <state width="1479" height="192" key="GridCell.Tab.2.bottom" timestamp="1578731105705">
-      <screen x="0" y="23" width="1635" height="1027" />
-    </state>
-    <state width="1680" height="464" key="GridCell.Tab.2.bottom.inPresentationMode" timestamp="1579191796512">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="1680" height="464" key="GridCell.Tab.2.bottom.inPresentationMode/0.0.1680.1050@0.0.1680.1050" timestamp="1579191796512" />
-    <state width="1479" height="192" key="GridCell.Tab.2.bottom/0.23.1635.1027@0.23.1635.1027" timestamp="1578731105705" />
-    <state width="1479" height="192" key="GridCell.Tab.2.center" timestamp="1578731105704">
-      <screen x="0" y="23" width="1635" height="1027" />
-    </state>
-    <state width="1680" height="464" key="GridCell.Tab.2.center.inPresentationMode" timestamp="1579191796512">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="1680" height="464" key="GridCell.Tab.2.center.inPresentationMode/0.0.1680.1050@0.0.1680.1050" timestamp="1579191796512" />
-    <state width="1479" height="192" key="GridCell.Tab.2.center/0.23.1635.1027@0.23.1635.1027" timestamp="1578731105704" />
-    <state width="1479" height="192" key="GridCell.Tab.2.left" timestamp="1578731105704">
-      <screen x="0" y="23" width="1635" height="1027" />
-    </state>
-    <state width="1680" height="464" key="GridCell.Tab.2.left.inPresentationMode" timestamp="1579191796511">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="1680" height="464" key="GridCell.Tab.2.left.inPresentationMode/0.0.1680.1050@0.0.1680.1050" timestamp="1579191796511" />
-    <state width="1479" height="192" key="GridCell.Tab.2.left/0.23.1635.1027@0.23.1635.1027" timestamp="1578731105704" />
-    <state width="1479" height="192" key="GridCell.Tab.2.right" timestamp="1578731105705">
-      <screen x="0" y="23" width="1635" height="1027" />
-    </state>
-    <state width="1680" height="464" key="GridCell.Tab.2.right.inPresentationMode" timestamp="1579191796512">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="1680" height="464" key="GridCell.Tab.2.right.inPresentationMode/0.0.1680.1050@0.0.1680.1050" timestamp="1579191796512" />
-    <state width="1479" height="192" key="GridCell.Tab.2.right/0.23.1635.1027@0.23.1635.1027" timestamp="1578731105705" />
-    <state width="1479" height="192" key="GridCell.Tab.3.bottom" timestamp="1578731105706">
-      <screen x="0" y="23" width="1635" height="1027" />
-    </state>
-    <state width="1680" height="464" key="GridCell.Tab.3.bottom.inPresentationMode" timestamp="1579191796514">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="1680" height="464" key="GridCell.Tab.3.bottom.inPresentationMode/0.0.1680.1050@0.0.1680.1050" timestamp="1579191796514" />
-    <state width="1479" height="192" key="GridCell.Tab.3.bottom/0.23.1635.1027@0.23.1635.1027" timestamp="1578731105706" />
-    <state width="1479" height="192" key="GridCell.Tab.3.center" timestamp="1578731105706">
-      <screen x="0" y="23" width="1635" height="1027" />
-    </state>
-    <state width="1680" height="464" key="GridCell.Tab.3.center.inPresentationMode" timestamp="1579191796513">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="1680" height="464" key="GridCell.Tab.3.center.inPresentationMode/0.0.1680.1050@0.0.1680.1050" timestamp="1579191796513" />
-    <state width="1479" height="192" key="GridCell.Tab.3.center/0.23.1635.1027@0.23.1635.1027" timestamp="1578731105706" />
-    <state width="1479" height="192" key="GridCell.Tab.3.left" timestamp="1578731105705">
-      <screen x="0" y="23" width="1635" height="1027" />
-    </state>
-    <state width="1680" height="464" key="GridCell.Tab.3.left.inPresentationMode" timestamp="1579191796513">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="1680" height="464" key="GridCell.Tab.3.left.inPresentationMode/0.0.1680.1050@0.0.1680.1050" timestamp="1579191796513" />
-    <state width="1479" height="192" key="GridCell.Tab.3.left/0.23.1635.1027@0.23.1635.1027" timestamp="1578731105705" />
-    <state width="1479" height="192" key="GridCell.Tab.3.right" timestamp="1578731105706">
-      <screen x="0" y="23" width="1635" height="1027" />
-    </state>
-    <state width="1680" height="464" key="GridCell.Tab.3.right.inPresentationMode" timestamp="1579191796514">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="1680" height="464" key="GridCell.Tab.3.right.inPresentationMode/0.0.1680.1050@0.0.1680.1050" timestamp="1579191796514" />
-    <state width="1479" height="192" key="GridCell.Tab.3.right/0.23.1635.1027@0.23.1635.1027" timestamp="1578731105706" />
-    <state width="791" height="445" key="SwitcherDM" timestamp="1578841769821">
-      <screen x="0" y="23" width="1634" height="1027" />
-    </state>
-    <state width="931" height="468" key="SwitcherDM/-130.-1080.1920.1080/0.23.1635.1027@-130.-1080.1920.1080" timestamp="1578561547323" />
-    <state width="814" height="455" key="SwitcherDM/-1680.0.1680.1050/0.23.1635.1027@-1680.0.1680.1050" timestamp="1578503523044" />
-    <state width="791" height="445" key="SwitcherDM/0.23.1634.1027@0.23.1634.1027" timestamp="1578841769821" />
-    <state width="792" height="445" key="SwitcherDM/0.23.1635.1027@0.23.1635.1027" timestamp="1578730372573" />
-    <state x="285" y="261" width="837" height="550" key="find.popup" timestamp="1579162897615">
-      <screen x="0" y="23" width="1634" height="1027" />
-    </state>
-    <state x="205" y="-830" width="1374" height="625" key="find.popup/-130.-1080.1920.1080/0.23.1636.1027@-130.-1080.1920.1080" timestamp="1578319225834" />
-    <state x="285" y="261" width="837" height="550" key="find.popup/0.23.1634.1027@0.23.1634.1027" timestamp="1579162897615" />
-    <state x="495" y="-290" key="run.anything.popup" timestamp="1578325464349">
-      <screen x="-130" y="-1080" width="1920" height="1080" />
-    </state>
-    <state x="495" y="-290" key="run.anything.popup/-130.-1080.1920.1080/0.23.1636.1027@-130.-1080.1920.1080" timestamp="1578325464349" />
-    <state x="368" y="250" width="671" height="676" key="search.everywhere.popup" timestamp="1579194463897">
-      <screen x="0" y="23" width="1635" height="1027" />
-    </state>
-    <state x="49" y="0" width="1582" height="1050" key="search.everywhere.popup.inPresentationMode" timestamp="1579192575088">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state x="-1631" y="0" width="1582" height="3208" key="search.everywhere.popup.inPresentationMode/-1680.0.1680.1050/0.0.1680.1050@-1680.0.1680.1050" timestamp="1578508894728" />
-    <state x="49" y="0" width="1582" height="1050" key="search.everywhere.popup.inPresentationMode/0.0.1680.1050@0.0.1680.1050" timestamp="1579192575088" />
-    <state x="302" y="-841" width="789" height="712" key="search.everywhere.popup/-130.-1080.1920.1080/0.23.1635.1027@-130.-1080.1920.1080" timestamp="1578560814514" />
-    <state x="302" y="-841" width="788" height="711" key="search.everywhere.popup/-130.-1080.1920.1080/0.23.1636.1027@-130.-1080.1920.1080" timestamp="1578319976681" />
-    <state x="-1302" y="232" width="690" height="692" key="search.everywhere.popup/-1680.0.1680.1050/0.23.1635.1027@-1680.0.1680.1050" timestamp="1579017914317" />
-    <state x="-1302" y="232" width="690" height="692" key="search.everywhere.popup/-1680.0.1680.1050/0.23.1636.1027@-1680.0.1680.1050" timestamp="1579021168471" />
-    <state x="368" y="250" width="670" height="676" key="search.everywhere.popup/0.23.1634.1027@0.23.1634.1027" timestamp="1579166834198" />
-    <state x="368" y="250" width="671" height="676" key="search.everywhere.popup/0.23.1635.1027@0.23.1635.1027" timestamp="1579194463897" />
+    <state x="531" y="268" width="670" height="676" key="search.everywhere.popup/0.23.1732.1097@0.23.1732.1097" timestamp="1589951788373" />
+    <state x="533" y="268" width="672" height="676" key="search.everywhere.popup/0.23.1737.1097@0.23.1737.1097" timestamp="1589906470684" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/examples/repl.js</url>
+          <line>6</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="masterDetails">
     <states>

@@ -2,18 +2,15 @@
  * mfun
  * https://github.com/d-plaindoux/mfun
  *
- * Copyright (c) 2019 Didier Plaindoux
+ * Copyright (c) 2018-2020 Didier Plaindoux
  * Licensed under the LGPL2 license.
  */
 
-import evaluatorFactory from './evaluator'
-import printerFactory from './printer'
-
-const evaluator = evaluatorFactory();
-const printer = printerFactory();
-
-export default sourceCode => {
+export default evaluator => toString => sourceCode => {
     evaluator.apply(sourceCode)
-        .onSuccess(rs => rs.forEach(r => printer.apply(r)))
+        .onSuccess(results =>
+            results.map(r => toString.apply(r))
+                .forEach(r => console.log(r))
+        )
         .onFailure(r => console.log(r));
 }

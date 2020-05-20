@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="repl.css">
+    <script type="application/javascript" src="../dist/mFun.min.js"></script>
+    <script type="application/javascript" src="repl.js"></script>
+    <script type="application/javascript" src="reader.js"></script>
+
+    <script type="application/mfun">
+    let setDom = { n v     -> native "set"   }
+    let getDom = { n       -> native "get"   }
+
+    let leq?  = { l r t f -> native "leq"   }
+    let plus  = { l r     -> native "plus"  }
+    let mult  = { l r     -> native "mult"  }
+    let minus = { l r     -> native "minus" }
+
+    let changeDom = { n v -> do { setDom (getDom n) v } yield { v } }
+
+    let cond  = { c t f -> c t f () }
+
+    let do    = { f   -> then () f }
+    let then  = { v f -> yield $ f v }
+    let yield = { v f  -> f v }
+    </script>
+</head>
+<body onload="bootstrap() & activateEditor()">
+
+<div class="runtime">
+    <div class="runtime">
+        <h3>F&micro;N evaluation</h3>
+        <textarea autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+                  rows="20" id="editor" oninput="readChar(event)"></textarea>
+        <textarea disabled id="output"></textarea>
+    </div>
+</div>
+
+</body>
+</html>
+

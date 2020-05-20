@@ -2,7 +2,7 @@
  * mfun
  * https://github.com/d-plaindoux/mFun
  *
- * Copyright (c) 2019 Didier Plaindoux
+ * Copyright (c) 2018-2020 Didier Plaindoux
  * Licensed under the LGPL2 license.
  */
 
@@ -12,7 +12,7 @@ import '../../extensions/array'
 
 // unit -> Parser Expression string
 const
-    keywords = ['def', 'let', 'in', 'native'],
+    keywords = ['let', 'in', 'native'],
     ident = Char.letter().or(Char.char('_'))
         .then(Char.letter().or(Number.digit()).or(Char.charIn('_$?')).optrep())
         .map(s => s.array().join(''))
@@ -72,7 +72,7 @@ function letBlock() {
         .then(Flow.lazy(expressions))
         .then(atom('in'))
         .then(Flow.lazy(expressions))
-        .map(t => Ast.application(Ast.abstraction(t.at(0), t.at(2)), t.at(1)));
+        .map(t => Ast.application(Ast.abstraction(t.at(0), t.at(2)), t.at(1)))
 }
 
 // unit -> Parser Expression string
@@ -89,7 +89,7 @@ function expressions() {
 
 // unit -> Parser Entity string
 function definitionOrMain() {
-    return atom('def').then(identifier).then(atom('=')).then(expressions())
+    return atom('let').then(identifier).then(atom('=')).then(expressions())
         .map(t => {
             if (t.at(0) === '_') {
                 return Ast.main(t.at(1));
@@ -101,10 +101,10 @@ function definitionOrMain() {
 
 // unit -> Parser [Entity] string
 function entities() {
-    return definitionOrMain().optrep();
+    return definitionOrMain().optrep().then(Flow.eos().drop());
 }
 
 export default {
     expression: expressions,
-    entities
+    entities: entities
 };

@@ -2,7 +2,7 @@
  * mFun
  * https://github.com/d-plaindoux/mFun
  *
- * Copyright (c) 2019 Didier Plaindoux
+ * Copyright (c) 2018-2020 Didier Plaindoux
  * Licensed under the LGPL2 license.
  */
 
@@ -10,7 +10,7 @@
 
 import AstResult from './ast-result';
 
-function ofType(v, type) {
+function mustBe(v, type) {
     if (typeof v === type) {
         return v;
     } else {
@@ -31,7 +31,7 @@ export default {
         return node;
     },
     'get': env => {
-        const identifier = ofType(env[0].value, "string");
+        const identifier = mustBe(env[0].value, "string");
 
         return AstResult.constant(document.getElementById(identifier));
     },
@@ -43,14 +43,14 @@ export default {
         return AstResult.constant(a + b);
     },
     'minus': env => {
-        const a = ofType(env[1].value, "number"),
-            b = ofType(env[0].value, "number");
-xz
+        const a = mustBe(env[1].value, "number"),
+            b = mustBe(env[0].value, "number");
+
         return AstResult.constant(a - b);
     },
     'mult': env => {
-        const a = ofType(env[1].value, "number"),
-            b = ofType(env[0].value, "number");
+        const a = mustBe(env[1].value, "number"),
+            b = mustBe(env[0].value, "number");
 
         return AstResult.constant(a * b);
     },

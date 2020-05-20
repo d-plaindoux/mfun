@@ -2,7 +2,7 @@
  * mFun
  * https://github.com/d-plaindoux/mFun
  *
- * Copyright (c) 2019 Didier Plaindoux
+ * Copyright (c) 2018-2020 Didier Plaindoux
  * Licensed under the LGPL2 license.
  */
 
@@ -91,7 +91,7 @@ class Machine {
         const definition = this.definitions[i.name];
 
         if (definition === undefined) {
-            throw new EvalError("Undefined definition symbol " + i.name);
+            throw new EvalError("[definition] Undefined symbol " + i.name);
         }
 
         this.stack.unshift(definition);
@@ -101,7 +101,7 @@ class Machine {
         const fun = native[n.name];
 
         if (fun === undefined) {
-            throw new EvalError("Undefined native symbol " + n.name);
+            throw new EvalError("[native] Undefined symbol " + n.name);
         }
 
         this.stack.unshift(fun(this.env.slice()));

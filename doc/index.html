@@ -20,55 +20,7 @@
     <!-- Code syntax highlighting -->
     <link rel="stylesheet" href="lib/css/zenburn.css">
 
-    <script type="application/javascript" src="../dist/mFun.min.js"></script>
-
-    <script type="application/mfun">
-    def setDom = { n v     -> native "set"   }
-    def getDom = { n       -> native "get"   }
-
-    def leq?   = { l r t f -> native "leq"   }
-    def plus   = { l r     -> native "plus" }
-    def mult   = { l r     -> native "mult"  }
-    def minus  = { l r     -> native "minus" }
-
-
-    </script>
-
-    <script type="application/mfun">
-    def changeDom = { n v -> do { setDom (getDom n) v } yield { v } }
-
-    def cond  = { c t f -> c t f () }
-
-    def do    = { f   -> then () f }
-    def then  = { v f -> yield $ f v }
-    def yield = { v f  -> f v }
-
-
-    </script>
-
-    <script type="application/mfun">
-    def fact = { a ->
-        cond (leq? a 1)
-             { 1 }
-             { mult a $ fact $ minus a 1 }
-    }
-
-
-    </script>
-
-    <script type="application/javascript">
-        function evalPrint(sourceCode) {
-            console.log("Executing [" + sourceCode + "]");
-            mFun.default.eval_print(sourceCode);
-        }
-
-        function bootstrap() {
-            mFun.default.reader.browser(document).execute(evalPrint);
-        }
-    </script>
-
     <style>
-
         .alert {
             font-size: 55% !important;
             color: white;
@@ -148,10 +100,9 @@
 
         <section>
             <h3>The <span class="name">F&micro;N</span> language: From Definition to Execution </h3>
-            <div class="p" style="text-align:middle">
-                <img src="images/lambdalille.png">
-            </div>
-            <div class="p" style="text-align:middle">16 Janvier 2020</div>
+            <div class="p" style="text-align:middle">Sunny Tech 2020</div>
+            <br>
+            <div class="p" style="text-align:middle">20 Mai 2020</div>
             <div class="p" style="text-align:middle">
 	    <span>
 	      <a href="http://twitter.com/dplaindoux">@dplaindoux</a>
@@ -162,8 +113,15 @@
         <!-- ####################### -->
 
         <section>
-            <h2> Chocolatine </h2>
-            <img width="60%" src="images/chocolatine.jpeg">
+            <h3>The <span class="name">F&micro;N</span> language: From Definition to Execution </h3>
+            <div class="p" style="text-align:middle">JUG Montpellier</div>
+            <br>
+            <div class="p" style="text-align:middle">20 Mai 2020</div>
+            <div class="p" style="text-align:middle">
+	    <span>
+	      <a href="http://twitter.com/dplaindoux">@dplaindoux</a>
+	    </span>
+            </div>
         </section>
 
         <!-- ####################### -->
@@ -183,10 +141,9 @@
             <h2> Why designing a language?</h2>
 
             <ul>
-                <li class="fragment"> New memory management e.g. Rust</li>
                 <li class="fragment"> Explore expressivness e.g. OCaml, Haskell</li>
                 <li class="fragment"> Combine paradigms e.g. Scala, &lambda;Prolog</li>
-                <li class="fragment"> Bring property like immutability e.g. Purescript</li>
+                <li class="fragment"> Memory management and Types e.g. Rust</li>
                 <li class="fragment"> Program and Proof e.g. Coq, Idris, Agda</li>
                 <li class="fragment"> Or simply because "Yes we can!"</li>
             </ul>
@@ -204,14 +161,14 @@
             <h3 style="text-transform: none"> Abstraction and Application </h3>
 
             <pre><code class="mfun">
-    def identity = { a -> a }
+    let identity = { a -> a }
 
-</code><code class="mfun fragment">    def compose  = { f g x -> f $ g x }
+</code><code class="mfun fragment">    let compose  = { f g x -> f $ g x }
 
-</code><code class="mfun fragment">    def pipe     = let swap = { a b c -> a c b }
+</code><code class="mfun fragment">    let pipe     = let swap = { a b c -> a c b }
                    in swap compose
 
-</code><code class="mfun fragment">    def _        = pipe identity identity
+</code><code class="mfun fragment">    let _        = pipe identity identity
             </code></pre>
 
         </section>
@@ -220,11 +177,11 @@
             <h3 style="text-transform: none"> Primitive data and Javascript interoperability </h3>
 
             <pre><code class="mfun">
-    def response = 42
+    let response = 42
 
-</code><code class="mfun fragment">    def hello    = "Hello"
+</code><code class="mfun fragment">    let hello    = "Hello"
 
-</code><code class="mfun fragment">    def pi       = native "pi" (* pi is a JS function *)
+</code><code class="mfun fragment">    let pi       = native "pi" (* pi is a JS function *)
             </code></pre>
         </section>
 
@@ -233,19 +190,19 @@
         <section>
             <h3> Example </h3>
             <pre><code class="mfun">
-    def leq?  = { l r t f &rightarrow; native "leq"   } // l <= r ? t : f
-    def mult  = { l r     &rightarrow; native "mult"  }
-    def minus = { l r     &rightarrow; native "minus" }
+    let leq?  = { l r t f &rightarrow; native "leq"   } // l <= r ? t : f
+    let mult  = { l r     &rightarrow; native "mult"  }
+    let minus = { l r     &rightarrow; native "minus" }
 
-</code><code class="mfun fragment">    def cond  = { c t f &rightarrow; c t f () }
+</code><code class="mfun fragment">    let cond  = { c t f &rightarrow; c t f () }
 
-</code><code class="mfun fragment">    def fact  = { a &rightarrow;
+</code><code class="mfun fragment">    let fact  = { a &rightarrow;
        cond (leq? a 1)
             { _ &rightarrow; 1 }
             { _ &rightarrow; mult a (fact (minus a 1)) }
     }
 
-</code><code class="mfun fragment">    def _ = fact 12
+</code><code class="mfun fragment">    let _ = fact 12
             </code></pre>
         </section>
 
@@ -254,19 +211,19 @@
         <section>
             <h3> Example :: Simplification </h3>
             <pre><code class="mfun">
-    def leq?  = { l r t f &rightarrow; native "leq"   } // l <= r ? t : f
-    def mult  = { l r     &rightarrow; native "mult"  }
-    def minus = { l r     &rightarrow; native "minus" }
+    let leq?  = { l r t f &rightarrow; native "leq"   } // l <= r ? t : f
+    let mult  = { l r     &rightarrow; native "mult"  }
+    let minus = { l r     &rightarrow; native "minus" }
 
-</code><code class="mfun">    def cond  = { c t f &rightarrow; c t f () }
+</code><code class="mfun">    let cond  = { c t f &rightarrow; c t f () }
 
-</code><code class="mfun">    def fact  = { a &rightarrow;
+</code><code class="mfun">    let fact  = { a &rightarrow;
        cond (leq? a 1)
             { 1 }
             { mult a $ fact $ minus a 1 }
     }
 
-</code><code class="mfun">    def _ = fact 12
+</code><code class="mfun">    let _ = fact 12
             </code></pre>
         </section>
 
@@ -275,11 +232,11 @@
         <section>
             <h3> Example :: DSL using CPS </h3>
             <pre><code class="mfun fragment">
-    def yield = { v c &rightarrow; c v         }
-    def then  = { v c &rightarrow; yield $ c v }
-    def do    = { c   &rightarrow; then () c   }
+    let yield = { v c &rightarrow; c v         }
+    let then  = { v c &rightarrow; yield $ c v }
+    let do    = { c   &rightarrow; then () c   }
 
-</code><code class="mfun fragment">    def _ = do    { plus 20 4 }
+</code><code class="mfun fragment">    let _ = do    { plus 20 4 }
             then  { minus _ 1 }
             then  { minus _ 2 }
             yield $ mult 2
@@ -371,8 +328,8 @@
           | <span class="tk">$</span> exp+                  -- Infix application
           | <span class="tk">{</span> (Id+ <span class="tk">&rightarrow;</span>)? exp+ <span class="tk">}</span>       -- Abstraction à la Kotlin
           | <span class="tk">let</span> Id <span class="tk">=</span> exp+ <span class="tk">in</span> exp+   -- Binding
-    def ::= <span class="tk">def</span> Id <span class="tk">=</span> exp+
-    s0  ::= def* </pre>
+    let ::= <span class="tk">let</span> Id <span class="tk">=</span> exp+
+    s0  ::= let* </pre>
         </section>
 
         <section>
@@ -406,16 +363,16 @@
             <h3> Parser combinator </h3>
 
             <ul>
-                <li class="fragment"> LL grammars i.e. no left recursion </li>
-                <li class="fragment"> Capability to backtrack on-demand  </li>
-                <li class="fragment"> Based on composition i.e. Monadic  </li>
-                <li class="fragment"> Test Driven Development compliant  </li>
+                <li class="fragment"> LL grammars i.e. no left recursion</li>
+                <li class="fragment"> Capability to backtrack on-demand</li>
+                <li class="fragment"> Based on composition i.e. Monadic</li>
+                <li class="fragment"> Test Driven Development compliant</li>
             </ul>
         </section>
 
         <!-- ####################### -->
 
-        <section >
+        <section>
             <h3> Abstract syntax </h3>
 
             <pre><code class="ocaml">
@@ -496,7 +453,7 @@
 
         <!-- ####################### -->
 
-        <section >
+        <section>
             <h3> Abstract syntax </h3>
 
             <pre><code class="ocaml">
@@ -556,9 +513,9 @@
             <pre>
 
  type Result<sub>I</sub> = Number | String | (AstDB,Env)
-  and Env     = List Result<sub>I</sub>
+  and Env     = List Result<sub>O</sub>
 
- <span class="tkF">I&langle;</span>_<span class="tkF">&rangle;</span> :: AstDB &rightarrow; Env &rightarrow; Result<sub>I</sub> | Error
+ <span class="tkF">I&langle;</span>_<span class="tkF">&rangle;</span> :: AstDB &rightarrow; Env &rightarrow; Result<sub>O</sub> | Error
 
  <span class="tkF">I&langle;</span>AstDB.constant(c)<span class="tkF">&rangle;</span><sub>e</sub>       = <span
                     class="fragment">c</span>
@@ -595,10 +552,16 @@
             <h3> Abstract machine </h3>
 
             <ul>
-                <li><a href="https://www.cs.cmu.edu/afs/cs/user/crary/www/819-f09/Landin64.pdf">P. J. Landin's SECD
+                <li class="fragment"><a href="https://courses.engr.illinois.edu/cs421/sp2012/project/turner-implementation.pdf">D. A.
+                    Turner's SK reduction machine</a></li>
+                </li>
+                <li class="fragment"><a href="https://www.cs.cmu.edu/afs/cs/user/crary/www/819-f09/Landin64.pdf">P. J. Landin's SECD
                     machine</a></li>
-                <li><a href="http://lucacardelli.name/Papers/FAM.pdf">L. Cardelli's FAM machine</a></li>
-                <li><a href="https://core.ac.uk/download/pdf/82453178.pdf">Curien's CAM machine</a></li>
+                <li class="fragment"><a href="http://lucacardelli.name/Papers/FAM.pdf">L. Cardelli's FAM machine</a></li>
+                <li class="fragment"><a href="https://core.ac.uk/download/pdf/82453178.pdf">Curien's CAM machine</a></li>
+                <li class="fragment"><a href="https://www.irif.fr/~krivine/articles/lazymach.pdf">J. L. Krivine's Krivine machine</a>
+                </li>
+                <li class="fragment"><a href="https://xavierleroy.org/publi/ZINC.pdf">X. Leroy's ZINC machine</a></li>
             </ul>
         </section>
 
@@ -628,11 +591,11 @@
             <pre>
  <span class="tkF">C&langle;</span>_<span class="tkF">&rangle;</span>:: AstDB &rightarrow; List Objcode
 
- <span class="tkF">C&langle;</span>AstDB.ident(n)<span class="tkF">&rangle;</span>         = <span class="fragment">[Objcode.ident(n)&rangle;</span>
- <span class="tkF">C&langle;</span>AstDB.constant(c)<span class="tkF">&rangle;</span>      = <span class="fragment">[Objcode.constant(c)&rangle;</span>
- <span class="tkF">C&langle;</span>AstDB.native(c)<span class="tkF">&rangle;</span>        = <span class="fragment">[Objcode.native(c)&rangle;</span>
+ <span class="tkF">C&langle;</span>AstDB.ident(n)<span class="tkF">&rangle;</span>         = <span class="fragment">[Objcode.ident(n)]</span>
+ <span class="tkF">C&langle;</span>AstDB.constant(c)<span class="tkF">&rangle;</span>      = <span class="fragment">[Objcode.constant(c)]</span>
+ <span class="tkF">C&langle;</span>AstDB.native(c)<span class="tkF">&rangle;</span>        = <span class="fragment">[Objcode.native(c)]</span>
 
- <span class="tkF">C&langle;</span>AstDB.variable(i)<span class="tkF">&rangle;</span>      = <span class="fragment">[Objcode.access(i)&rangle;</span>
+ <span class="tkF">C&langle;</span>AstDB.variable(i)<span class="tkF">&rangle;</span>      = <span class="fragment">[Objcode.access(i)]</span>
  <span class="tkF">C&langle;</span>AstDB.application(a,b)<span class="tkF">&rangle;</span> = <span
                     class="fragment"><span class="tkF">C&langle;</span>a<span class="tkF">&rangle;</span> @ <span
                     class="tkF">C&langle;</span>b<span class="tkF">&rangle;</span> @ [Objcode.apply]</span>
@@ -704,6 +667,70 @@
         <!-- ####################### -->
 
         <section>
+
+            <h3> REPL </h3>
+
+            <p> Sequence char &DoubleLongRightArrow; Result<sub>E</sub> | Error </p>
+
+        </section>
+
+        <!-- ####################### -->
+
+        <section>
+
+            <h6 style="text-transform: none">
+                <span class="tkF">P&langle;</span>_<span class="tkF">&rangle;</span>.map(<span
+                    class="tkF">A&langle;</span>_<span class="tkF">&rangle;</span><sub>[]</sub>).map(<span class="tkF">C&langle;</span>_<span
+                    class="tkF">&rangle;</span>).map(<span class="tkF">E&langle;</span>_<span
+                    class="tkF">&rangle;</span><sub>[] []</sub>).join()
+            </h6>
+
+        </section>
+
+        <!-- ####################### -->
+
+        <section data-state="bootstrap">
+
+            <script type="application/mfun">
+            let leq?   = { l r t f -> native "leq"   }
+            let plus   = { l r     -> native "plus" }
+            let mult   = { l r     -> native "mult"  }
+            let minus  = { l r     -> native "minus" }
+            let cond  = { c t f -> c t f () }
+
+            let do    = { f   -> then () f }
+            let then  = { v f -> yield $ f v }
+            let yield = { v f  -> f v }
+
+            let setDom = { n v     -> native "set"   }
+            let getDom = { n       -> native "get"   }
+            let changeDom = { n v ->
+                do { setDom (getDom n) v }
+                yield { v }
+            }
+
+            let fact = { a ->
+                cond (leq? a 1)
+                     { 1 }
+                     { mult a $ fact $ minus a 1 }
+            }
+
+
+            </script>
+
+            <h3 id="repl-title"><span class="name">F&micro;N</span> in a browser </h3>
+
+            <div class="runtime">
+                <textarea autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+                          rows="20" cols="80" id="editor" oninput="readChar(event)"></textarea>
+                <br>
+                <textarea disabled rows="5" cols="80" id="output"></textarea>
+            </div>
+        </section>
+
+        <!-- ####################### -->
+
+        <section>
             <h3> Open problem </h3>
 
             <p> Function with multiple arguments? </p>
@@ -743,74 +770,13 @@
         <!-- ####################### -->
 
         <section>
-
-            <h3> REPL </h3>
-
-            <p> Sequence char &DoubleLongRightArrow; Result<sub>E</sub> | Error </p>
-
-        </section>
-
-        <!-- ####################### -->
-
-        <section>
-
-            <h6 style="text-transform: none">
-                <span class="tkF">P&langle;</span>_<span class="tkF">&rangle;</span>.map(<span
-                    class="tkF">A&langle;</span>_<span class="tkF">&rangle;</span><sub>[]</sub>).map(<span class="tkF">C&langle;</span>_<span
-                    class="tkF">&rangle;</span>).map(<span class="tkF">E&langle;</span>_<span
-                    class="tkF">&rangle;</span><sub>[] []</sub>).join()
-            </h6>
-
-        </section>
-
-        <!-- ####################### -->
-
-        <section>
-
-            <h3><span class="name">F&micro;N</span> in a browser </h3>
-
-            <pre><code class="html">  &lt;script type="application/mfun"></code><code class="mfun">    def compute_then_display = { v &rightarrow;
-        do    { changeDom "val" v }
-        then  { changeDom "res" $ fact v }
-        yield { () }
-    }
-
-    def _ = compute_then_display 100</code><code class="html">  &lt;/script></code></pre>
-
-        </section>
-
-
-        <!-- ####################### -->
-
-        <section>
-
-            <div style="font-size: 60%" onclick="bootstrap()">
-                    <code>fact &lt;i id='val'><i class="tkF" id='val'>?</i>&lt;/i> = &lt;i id='res'><i class="tkF" id='res'>?</i>&lt/i></code>
-            </div>
-
-            <script type="application/mfun">
-    def compute_then_display = { v ->
-        do    { changeDom "val" v }
-        then  { changeDom "res" $ fact v }
-        yield { () }
-    }
-
-    def _ = compute_then_display 100
-            </script>
-
-            <div class="ribbon"><span class="name">F&micro;N inside</span></div>
-
-        </section>
-
-        <!-- ####################### -->
-
-        <section>
             <h3> Going further </h3>
 
             <ul>
-                <li> Control flow analysis</li>
+                <li> Data representation (ADT)</li>
                 <li> Type checker</li>
-                <li> Data representation</li>
+                <li> Control flow</li>
+                <li> Data flow</li>
             </ul>
         </section>
 
@@ -830,6 +796,9 @@
         </section>
 
         <!-- ####################### -->
+
+        <script src="../dist/mFun.min.js"></script>
+        <script src="repl/repl.js"></script>
 
         <script src="lib/js/head.min.js"></script>
         <script src="js/reveal.js"></script>
@@ -874,6 +843,11 @@
                     {src: 'plugin/zoom-js/zoom.js', async: true},
                     {src: 'plugin/notes/notes.js', async: true}
                 ]
+            });
+
+            Reveal.addEventListener('bootstrap', function () {
+                bootstrap()
+                getEditor().focus()
             });
         </script>
 </body>
