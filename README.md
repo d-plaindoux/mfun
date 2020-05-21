@@ -23,7 +23,7 @@ exp ::= Id                            -- Identifier
       | '$' exp+                      -- Infix application
       | '{' (Id+ "->")? exp+ '}'      -- Abstraction à la Kotlin
       | "let" Id '=' exp+ "in" exp+   -- Binding
-def ::= "def" Id '=' exp+
+def ::= "let" Id '=' exp+
 s0  ::= def* 
 ```
 
