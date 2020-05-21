@@ -30,19 +30,19 @@ s0  ::= def*
 ## Example
 
 ```
-def leq   { l r t f -> native "leq"   }
-def mult  { l r     -> native "mult"  }
-def minus { l r     -> native "minus" }
+let leq   { l r t f -> native "leq"   }
+let mult  { l r     -> native "mult"  }
+let minus { l r     -> native "minus" }
 
-def cond { c t f -> c t f () }
+let cond { c t f -> c t f () }
 
-def fact { a ->
+let fact { a ->
     cond (leq a 1)
          { 1 }
          { mult a $ fact $ minus a 1 }
 }         
 
-def _ = fact 12
+let _ = fact 12
 ```
 
 ## License
